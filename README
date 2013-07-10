@@ -1,1 +1,13 @@
-This file was created by Android Studio (I/O Preview) AI-130.729444 for binding GitHub repository
+aRGENTeaM for Android
+
+Developer: Martin Revert
+
+Open Source Libraries used:
+
+Apache Commons Net 3.1
+Joda Time 2.2
+JSOUP 1.7.2
+ActionBarSherlock 4.2
+LazyList by Fedor Lazov
+Google Cloud Messaging
+Android Support v4
