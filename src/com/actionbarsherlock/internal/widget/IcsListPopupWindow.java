@@ -1,7 +1,5 @@
 package com.actionbarsherlock.internal.widget;
 
-import ar.com.martinrevert.argenteam.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.DataSetObserver;
@@ -23,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import ar.com.martinrevert.argenteam.R;
 
 /**
  * A proxy between pre- and post-Honeycomb implementations of this class.

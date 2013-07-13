@@ -12,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ar.com.martinrevert.argenteam.FacebookWebview;
-
 import ar.com.martinrevert.argenteam.R;
 
 public class LazyAdapterFacebook extends BaseAdapter {

@@ -17,7 +17,6 @@ package com.google.android.gcm.app;
 
 import static com.google.android.gcm.app.CommonUtilities.SERVER_URL;
 import static com.google.android.gcm.app.CommonUtilities.TAG;
-import static com.google.android.gcm.app.CommonUtilities.displayMessage;
 
 import com.google.android.gcm.GCMRegistrar;
 

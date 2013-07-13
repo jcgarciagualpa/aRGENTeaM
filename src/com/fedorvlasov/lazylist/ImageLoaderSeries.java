@@ -1,7 +1,5 @@
 package com.fedorvlasov.lazylist;
 
-import ar.com.martinrevert.argenteam.R;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,6 +19,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
+import ar.com.martinrevert.argenteam.R;
 
 public class ImageLoaderSeries {
     

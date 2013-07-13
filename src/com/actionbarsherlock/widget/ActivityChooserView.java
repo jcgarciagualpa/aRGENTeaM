@@ -17,7 +17,7 @@
 package com.actionbarsherlock.widget;
 
 import android.os.Build;
-import ar.com.martinrevert.argenteam.R;
+
 import com.actionbarsherlock.internal.widget.IcsLinearLayout;
 import com.actionbarsherlock.internal.widget.IcsListPopupWindow;
 import com.actionbarsherlock.view.ActionProvider;
@@ -42,6 +42,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import ar.com.martinrevert.argenteam.R;
 
 /**
  * This class is a view for choosing an activity for handling a given {@link Intent}.

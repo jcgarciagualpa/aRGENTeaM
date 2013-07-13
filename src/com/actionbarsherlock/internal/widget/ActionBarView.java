@@ -45,8 +45,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-
 import ar.com.martinrevert.argenteam.R;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
 import com.actionbarsherlock.internal.ActionBarSherlockCompat;

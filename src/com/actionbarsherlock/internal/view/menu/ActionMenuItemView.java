@@ -32,8 +32,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import ar.com.martinrevert.argenteam.R;
+
 import com.actionbarsherlock.internal.view.View_HasStateListenerSupport;
 import com.actionbarsherlock.internal.view.View_OnAttachStateChangeListener;
 import com.actionbarsherlock.internal.widget.CapitalizingButton;

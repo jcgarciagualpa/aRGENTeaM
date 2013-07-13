@@ -156,7 +156,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int activityChooserViewStyle=0x7f01005f;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__attrs.xml 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -669,17 +670,33 @@ containing a value of this type.
         public static final int windowSplitActionBar=0x7f01005d;
     }
     public static final class bool {
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__bools.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-w480dp/abs__bools.xml 
+         */
         public static final int abs__action_bar_embed_tabs=0x7f050000;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-sw600dp/abs__bools.xml 
+         */
         public static final int abs__action_bar_expanded_action_views_exclusive=0x7f050001;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__config.xml 
+         */
         public static final int abs__config_actionMenuItemAllCaps=0x7f050002;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-w480dp/abs__config.xml 
+         */
         public static final int abs__config_allowActionMenuItemTextWithIcon=0x7f050003;
         public static final int abs__config_showMenuShortcutsWhenKeyboardPresent=0x7f050004;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__bools.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-w480dp/abs__bools.xml 
+         */
         public static final int abs__split_action_bar_is_narrow=0x7f050005;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/analytics.xml 
+         */
         public static final int ga_autoActivityTracking=0x7f050006;
         public static final int ga_debug=0x7f050007;
         public static final int ga_reportUncaughtExceptions=0x7f050008;
     }
     public static final class color {
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__colors.xml 
+         */
         public static final int abs__background_holo_dark=0x7f060000;
         public static final int abs__background_holo_light=0x7f060001;
         public static final int abs__bright_foreground_disabled_holo_dark=0x7f060002;
@@ -695,6 +712,15 @@ containing a value of this type.
         public static final int abs__primary_text_holo_light=0x7f06000c;
     }
     public static final class dimen {
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-land/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-large-hdpi-1024x600/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-large-mdpi-1024x600/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-large-land-hdpi-1024x600/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-large-land-mdpi-1024x600/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-xlarge/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-sw600dp/abs__dimens.xml 
+         */
         public static final int abs__action_bar_default_height=0x7f080000;
         public static final int abs__action_bar_icon_vertical_padding=0x7f080001;
         public static final int abs__action_bar_subtitle_bottom_margin=0x7f080002;
@@ -703,7 +729,12 @@ containing a value of this type.
         public static final int abs__action_bar_title_text_size=0x7f080005;
         public static final int abs__action_button_min_width=0x7f080006;
         public static final int abs__alert_dialog_title_height=0x7f080007;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__config.xml 
+         */
         public static final int abs__config_prefDialogWidth=0x7f080008;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-large/abs__dimens.xml 
+         */
         public static final int abs__dialog_min_width_major=0x7f080009;
         public static final int abs__dialog_min_width_minor=0x7f08000a;
         public static final int abs__dropdownitem_icon_width=0x7f08000b;
@@ -849,6 +880,8 @@ containing a value of this type.
         public static final int abs__action_bar_subtitle=0x7f070011;
         public static final int abs__action_bar_title=0x7f070010;
         public static final int abs__action_context_bar=0x7f070023;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__ids.xml 
+         */
         public static final int abs__action_menu_divider=0x7f07000a;
         public static final int abs__action_menu_presenter=0x7f07000b;
         public static final int abs__action_mode_bar=0x7f070026;
@@ -915,6 +948,11 @@ containing a value of this type.
         public static final int wrap_content=0x7f070009;
     }
     public static final class integer {
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-w360dp/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-w500dp/abs__dimens.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-w600dp/abs__dimens.xml 
+         */
         public static final int abs__max_action_buttons=0x7f090000;
     }
     public static final class layout {
@@ -958,6 +996,8 @@ containing a value of this type.
         public static final int menu=0x7f0c0000;
     }
     public static final class string {
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__strings.xml 
+         */
         public static final int abs__action_bar_home_description=0x7f0a0000;
         public static final int abs__action_bar_up_description=0x7f0a0001;
         public static final int abs__action_menu_overflow_description=0x7f0a0002;
@@ -973,10 +1013,16 @@ containing a value of this type.
         public static final int abs__share_action_provider_share_with=0x7f0a000c;
         public static final int abs__shareactionprovider_share_with=0x7f0a000d;
         public static final int abs__shareactionprovider_share_with_application=0x7f0a000e;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/strings.xml 
+         */
         public static final int already_registered=0x7f0a000f;
         public static final int app_name=0x7f0a0010;
         public static final int error_config=0x7f0a0011;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/analytics.xml 
+         */
         public static final int ga_trackingId=0x7f0a0012;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/strings.xml 
+         */
         public static final int gcm_deleted=0x7f0a0013;
         public static final int gcm_error=0x7f0a0014;
         public static final int gcm_message=0x7f0a0015;
@@ -997,13 +1043,21 @@ containing a value of this type.
         public static final int stubportrait=0x7f0a0024;
     }
     public static final class style {
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__styles.xml 
+         */
         public static final int DialogWindowTitle_Sherlock=0x7f0b0000;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0b0001;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0002;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__themes.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-v11/abs__themes.xml 
+ From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-v14/abs__themes.xml 
+         */
         public static final int Sherlock___Theme=0x7f0b0003;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0b0004;
         public static final int Sherlock___Theme_Dialog=0x7f0b0005;
         public static final int Sherlock___Theme_Light=0x7f0b0006;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__styles.xml 
+         */
         public static final int Sherlock___Widget_ActionBar=0x7f0b0007;
         public static final int Sherlock___Widget_ActionMode=0x7f0b0008;
         public static final int Sherlock___Widget_ActivityChooserView=0x7f0b0009;
@@ -1014,6 +1068,8 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_DialogWindowTitle=0x7f0b000e;
         public static final int TextAppearance_Sherlock_Light_DialogWindowTitle=0x7f0b000f;
         public static final int TextAppearance_Sherlock_Light_Small=0x7f0b0010;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-v14/abs__styles.xml 
+         */
         public static final int TextAppearance_Sherlock_Light_Widget_PopupMenu_Large=0x7f0b0011;
         public static final int TextAppearance_Sherlock_Light_Widget_PopupMenu_Small=0x7f0b0012;
         public static final int TextAppearance_Sherlock_Small=0x7f0b0013;
@@ -1032,14 +1088,22 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0b0020;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0b0021;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0b0022;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__themes.xml 
+         */
         public static final int Theme_Sherlock=0x7f0b0023;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-v14/abs__themes.xml 
+         */
         public static final int Theme_Sherlock_Dialog=0x7f0b0024;
         public static final int Theme_Sherlock_Light=0x7f0b0025;
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0b0026;
         public static final int Theme_Sherlock_Light_Dialog=0x7f0b0027;
         public static final int Theme_Sherlock_Light_NoActionBar=0x7f0b0028;
         public static final int Theme_Sherlock_NoActionBar=0x7f0b0029;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__styles.xml 
+         */
         public static final int Widget=0x7f0b002a;
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values-v14/abs__styles.xml 
+         */
         public static final int Widget_Sherlock_ActionBar=0x7f0b002b;
         public static final int Widget_Sherlock_ActionBar_Solid=0x7f0b002c;
         public static final int Widget_Sherlock_ActionBar_TabBar=0x7f0b002d;
@@ -1092,7 +1156,7 @@ containing a value of this type.
         public static final int searchable=0x7f040001;
     }
     public static final class styleable {
-        /** Attributes that can be used with a SherlockActionBar.
+        /**  From: /home/martin/workspace/aRGENTeaM170gradle2/res/values/abs__attrs.xml 
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
