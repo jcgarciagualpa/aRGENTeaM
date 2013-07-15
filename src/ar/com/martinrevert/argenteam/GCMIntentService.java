@@ -148,7 +148,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         Notification myNotification;
         myNotification = new NotificationCompat.Builder(context)
-                .setContentTitle("Exercise of Notification!")
+                .setContentTitle(message)
                 .setContentText("Content text")
                 .setSubText("subtexto")
                 .setTicker(ticker)
