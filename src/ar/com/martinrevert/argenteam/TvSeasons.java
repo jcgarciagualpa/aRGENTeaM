@@ -65,11 +65,11 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 
 		image = new ImageView(TvSeasons.this);
 		image.setId(99995);
-		imageLoader = new ImageLoader(getBaseContext());
+		imageLoader = new ImageLoader(getBaseContext(),"movie");
 
 		message = getIntent().getStringExtra("passed");
 
-		if (isOnline() == true) {
+		if (isOnline()) {
 			new GetPage().execute(message);
 		} else {
 			vibrateToast("Sin Internet");

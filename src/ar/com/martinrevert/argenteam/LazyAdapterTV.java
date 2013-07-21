@@ -1,4 +1,4 @@
-package com.fedorvlasov.lazylist;
+package ar.com.martinrevert.argenteam;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ar.com.martinrevert.argenteam.FacebookWebview;
-import ar.com.martinrevert.argenteam.R;
 
-public class LazyAdapterFacebook extends BaseAdapter {
+import com.fedorvlasov.lazylist.ImageLoader;
+
+public class LazyAdapterTV extends BaseAdapter {
     
 	int position;
     private Activity activity;
@@ -23,14 +23,10 @@ public class LazyAdapterFacebook extends BaseAdapter {
     private String[] fecha;
     private String[] version;
     private String[] post;
-    
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader;
-	private View vi; 
     
-   
-    
-    public LazyAdapterFacebook(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
+    public LazyAdapterTV(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
         activity = a;
         titulo=t;
         imagen=i;
@@ -38,9 +34,8 @@ public class LazyAdapterFacebook extends BaseAdapter {
         version=v;
         post=p;
        
-       
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        imageLoader=new ImageLoader(activity.getApplicationContext());
+        imageLoader=new ImageLoader(activity.getApplicationContext(), "tv");
     }
 
     public int getCount() {
@@ -56,20 +51,17 @@ public class LazyAdapterFacebook extends BaseAdapter {
     }
     
     public View getView(final int position, View convertView, ViewGroup parent) {
-        vi=convertView;
+        View vi=convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.item, null);
+            vi = inflater.inflate(R.layout.itemseries, null);
      TextView fech=(TextView)vi.findViewById(R.id.fech);
      TextView text=(TextView)vi.findViewById(R.id.titulo);
      TextView vers=(TextView)vi.findViewById(R.id.version);
      ImageView image=(ImageView)vi.findViewById(R.id.image);
-     
      text.setText(titulo[position]);
      fech.setText("Publicado: "+fecha[position]);
      vers.setText(version[position]);
-     
      imageLoader.DisplayImage(imagen[position], image);
-     
      
      
      vi.setOnClickListener(new OnClickListener(){
@@ -78,14 +70,22 @@ public class LazyAdapterFacebook extends BaseAdapter {
 		public void onClick(View arg0) {
 			
 			
+			if(activity instanceof SubtitlesReleasesTV) {
+			String URIpost = post[position];
+			Log.v("URL", URIpost);
 			
-				String URIpost = post[position].toString();
-				Log.v("URL", URIpost);
-				Intent FBPage = new Intent(activity,FacebookWebview.class);
-				FBPage.putExtra("passed", URIpost);
-				activity.startActivityForResult(FBPage, 0);
-				
+			Intent peliPage = new Intent(activity,TvSeasons.class);
 
+			peliPage.putExtra("passed", URIpost);
+
+			activity.startActivityForResult(peliPage, 0);
+			}
+			else{
+			Log.v("TVPUM","PUM");
+			}
+
+			
+			
 		}
 
 		

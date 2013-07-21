@@ -1,7 +1,5 @@
 package ar.com.martinrevert.argenteam;
 
-import com.fedorvlasov.lazylist.LazyAdapter;
-
 import java.util.Date;
 import java.util.Iterator;
 
@@ -27,131 +25,137 @@ import android.widget.ListView;
 
 public class SubtitlesReleases extends CustomMenu {
 
-	ListView lista;
-	LazyAdapter adapter;
+    ListView lista;
+    LazyAdapter adapter;
 
-	String[] titulo = null;
-	String[] fech = null;
-	String[] ver = null;
-	String[] imag = null;
-	String[] post = null;
-	String[] deta = null;
+    String[] titulo = null;
+    String[] fech = null;
+    String[] ver = null;
+    String[] imag = null;
+    String[] post = null;
+    String[] deta = null;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lista);
-		lista = (ListView) findViewById(R.id.listView1);
-		
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.lista);
+        lista = (ListView) findViewById(R.id.listView1);
 
-		if (isOnline() == true) {
-			new AsyncRequest().execute();
-		} else {
-			vibrateToast("Sin Internet");
-			finish();
 
-		}
-	}
+        if (isOnline()) {
+            new AsyncRequest().execute();
+        } else {
+            vibrateToast("Sin Internet");
+            finish();
 
-	private class AsyncRequest extends AsyncTask<Void, Void, Void> {
+        }
 
-		ProgressDialog dialog = new ProgressDialog(SubtitlesReleases.this);
+    }
 
-		private String pegaversiones;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			dialog.setMessage("Cargando...");
-			dialog.show();
-		}
+    }
 
-		@Override
-		protected Void doInBackground(Void... arg0) {
+    private class AsyncRequest extends AsyncTask<Void, Void, Void> {
 
-			RSSReader reader = new RSSReader();
-			String uri = "http://www.argenteam.net/rss/portal_movies_subtitles.xml";
+        ProgressDialog dialog = new ProgressDialog(SubtitlesReleases.this);
 
-			try {
-				RSSFeed feed = reader.load(uri);
-				final Iterator<RSSItem> items = feed.getItems().iterator();
-				int size = feed.getItems().size();
-				String sizestring = Integer.toString(size);
-				Log.v("SIZE", sizestring);
-				RSSItem item = null;
+        private String pegaversiones;
 
-				titulo = new String[size];
-				imag = new String[size];
-				ver = new String[size];
-				fech = new String[size];
-				post = new String[size];
-				deta = new String[size];
-				int count = 0;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.setMessage("Cargando...");
+            dialog.show();
+        }
 
-				while (items.hasNext()) {
+        @Override
+        protected Void doInBackground(Void... arg0) {
 
-					item = items.next();
+            RSSReader reader = new RSSReader();
+            String uri = "http://www.argenteam.net/rss/portal_movies_subtitles.xml";
 
-					titulo[count] = item.getTitle();
-					Log.v("TITLE", titulo[count]);
-					String content = item.getContent();
-					Document doc = Jsoup.parse(content);
-					Element imagen = doc.select("img").first();
-					String link = imagen.attr("src");
-					imag[count] = link;
-					Log.v("IMAGEN", imag[count]);
+            try {
+                RSSFeed feed = reader.load(uri);
+                final Iterator<RSSItem> items = feed.getItems().iterator();
+                int size = feed.getItems().size();
+                String sizestring = Integer.toString(size);
+                Log.v("SIZE", sizestring);
+                RSSItem item;
 
-					Iterator<Element> versiones = doc.select("strong")
-							.iterator();
+                titulo = new String[size];
+                imag = new String[size];
+                ver = new String[size];
+                fech = new String[size];
+                post = new String[size];
+                deta = new String[size];
+                int count = 0;
 
-					StringBuilder sb = new StringBuilder();
+                while (items.hasNext()) {
 
-					while (versiones.hasNext()) {
-						Element version = versiones.next();
-						String vers = version.text();
-						sb.append(vers);
-						sb.append("\n");
-						Log.v("VERSION", vers);
-					}
-					pegaversiones = sb.toString();
-					Log.v("pegaversiones", pegaversiones);
-					ver[count] = pegaversiones;
+                    item = items.next();
 
-					Uri url = item.getLink();
-					post[count] = url.toString();
-					Log.v("POST", post[count]);
+                    titulo[count] = item.getTitle();
+                    Log.v("TITLE", titulo[count]);
+                    String content = item.getContent();
+                    Document doc = Jsoup.parse(content);
+                    Element imagen = doc.select("img").first();
+                    String link = imagen.attr("src");
+                    imag[count] = link;
+                    Log.v("IMAGEN", imag[count]);
 
-					Date fecha = item.getPubDate();
-					String fechaza = fecha.toLocaleString();
-					fech[count] = fechaza;
-					Log.v("DATE", fech[count]);
-					count++;
-				}
+                    Iterator<Element> versiones = doc.select("strong")
+                            .iterator();
 
-			} catch (RSSReaderException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+                    StringBuilder sb = new StringBuilder();
 
-			} finally{
-				reader.close();
-			}
+                    while (versiones.hasNext()) {
+                        Element version = versiones.next();
+                        String vers = version.text();
+                        sb.append(vers);
+                        sb.append("\n");
+                        Log.v("VERSION", vers);
+                    }
+                    pegaversiones = sb.toString();
+                    Log.v("pegaversiones", pegaversiones);
+                    ver[count] = pegaversiones;
 
-			adapter = new LazyAdapter(SubtitlesReleases.this, titulo, imag,
-					fech, ver, post);
+                    Uri url = item.getLink();
+                    post[count] = url.toString();
+                    Log.v("POST", post[count]);
 
-			return null;
+                    Date fecha = item.getPubDate();
+                    String fechaza = fecha.toLocaleString();
+                    fech[count] = fechaza;
+                    Log.v("DATE", fech[count]);
+                    count++;
+                }
 
-		}
+            } catch (RSSReaderException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
 
-		@Override
-		protected void onPostExecute(Void result) {
-			// TODO Auto-generated method stub
-			super.onPostExecute(result);
-			dialog.dismiss();
-			lista.setAdapter(adapter);
+            } finally {
+                reader.close();
+            }
 
-		}
+            adapter = new LazyAdapter(SubtitlesReleases.this, titulo, imag,fech, ver, post);
 
-	}
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            super.onPostExecute(result);
+            dialog.dismiss();
+            lista.setAdapter(adapter);
+
+        }
+
+    }
 
 }

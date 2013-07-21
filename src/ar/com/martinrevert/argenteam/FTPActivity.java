@@ -4,8 +4,6 @@ import java.io.File;
 
 import java.util.ArrayList;
 
-import com.fedorvlasov.lazylist.LazyAdapterSubs;
-
 import android.annotation.SuppressLint;
 
 import android.os.AsyncTask;

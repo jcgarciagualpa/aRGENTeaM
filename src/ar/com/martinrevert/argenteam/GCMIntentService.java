@@ -23,16 +23,25 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.BigPictureStyle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
 import com.google.android.gcm.GCMRegistrar;
 import com.google.android.gcm.app.ServerUtilities;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Random;
 
 /**
  * IntentService responsible for handling GCM messages.
@@ -68,15 +77,23 @@ public class GCMIntentService extends GCMBaseIntentService {
     @Override
     protected void onMessage(Context context, Intent intent) {
         Log.i(TAG, "Received message");
-        // String message = getString(R.string.gcm_message);
-        String message = intent.getExtras().getString("message");
-        String tipo = "movie";
-        String urlimagen = "http://www.argenteam.net/resources/covers/thumbs/9f9e86d6776be00e237500c07c5a0473.jpg";
-        String urlarticulo = "http://www.argenteam.net/movie/71415/Dead.Man.Down.%282013%29";
+
+        String message;
+        String tipo;
+        String urlimagen;
+        String urlarticulo;
+        String fecha;
+
+        message = intent.getExtras().getString("message");
+        tipo = intent.getExtras().getString("tipo");
+        urlimagen = intent.getExtras().getString("urlimagen");
+        urlarticulo = intent.getExtras().getString("urlarticulo");
+        fecha = intent.getExtras().getString("fecha");
+
 
         //displayMessage(context, message);
         // notifies user
-        generarNotification(context, message, urlimagen, urlarticulo, tipo);
+        generarNotification(context, message, urlimagen, urlarticulo, tipo, fecha);
     }
 
     @Override
@@ -86,9 +103,10 @@ public class GCMIntentService extends GCMBaseIntentService {
         String tipo = "";
         String urlimagen = "";
         String urlarticulo = "";
+        String fecha ="";
         //displayMessage(context, message);
         // notifies user
-        generarNotification(context, message, urlimagen, urlarticulo, tipo);
+        generarNotification(context, message, urlimagen, urlarticulo, tipo, fecha);
     }
 
     @Override
@@ -106,10 +124,37 @@ public class GCMIntentService extends GCMBaseIntentService {
         return super.onRecoverableError(context, errorId);
     }
 
+    public Bitmap getRemoteImage(final String aURL) {
+        try {
+            URL imagelink = new URL(aURL);
+            final URLConnection conn = imagelink.openConnection();
+            conn.connect();
+            final BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            DisplayMetrics metrics;
+            metrics = getApplicationContext().getResources().getDisplayMetrics();
+
+            options.inScreenDensity = metrics.densityDpi;
+            options.inTargetDensity = metrics.densityDpi;
+            options.inDensity = DisplayMetrics.DENSITY_DEFAULT;
+            options.inScaled = false;
+
+            final Bitmap bm = BitmapFactory.decodeStream(bis,null,options);
+            bis.close();
+
+            return bm;
+        } catch (IOException e) {
+            // ToDo Mostrar imagen generica si falla el request
+
+        }
+        return null;
+    }
+
     /**
      * Issues a notification to inform the user that server has sent a message.
      */
-    private void generarNotification(Context context, String message, String URLimagen, String URLarticulo, String tipo) {
+    private void generarNotification(Context context, String message, String urlimagen, String urlarticulo, String tipo, String fecha) {
         int icon = R.drawable.ic_stat_ic_argenteam_gcm;
         String eol = System.getProperty("line.separator");
         message = message.replace("regex", eol);
@@ -121,6 +166,10 @@ public class GCMIntentService extends GCMBaseIntentService {
         String ringtone = preferencias.getString("prefRingtone", "");
         String ticker = "Nueva " + tipo + " en aRGENTeaM";
 
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(100);
+
+        Bitmap bitmap = getRemoteImage(urlimagen);
 
 
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -137,27 +186,34 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
+        Intent notificationIntent = null;
+        if (tipo.equalsIgnoreCase("movie")) {
 
-        Intent notificationIntent = new Intent(context, Main.class);
-        // set intent so it does not start a new activity
-        //notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
-        //        Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent =
-                PendingIntent.getActivity(context, 0, notificationIntent, 0);
+            notificationIntent = new Intent(context, Peli.class);
 
+        } else {
+            notificationIntent = new Intent(context, Tv.class);
+        }
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        notificationIntent.putExtra("passed", urlarticulo);
+
+        PendingIntent pendingIntent;
+
+        pendingIntent = PendingIntent.getActivity(context, randomInt, notificationIntent, 0);
 
         Notification myNotification;
         myNotification = new NotificationCompat.Builder(context)
-                .setContentTitle(message)
-                .setContentText("Content text")
+                .setContentTitle("aRGENTeaM")
+                .setContentText(message)
                 .setSubText("subtexto")
                 .setTicker(ticker)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(pendingIntent)
                 .setSound(Uri.parse(ringtone))
                 .setAutoCancel(true)
-                .setStyle(new NotificationCompat.BigPictureStyle())
+                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap))
                 .setSmallIcon(R.drawable.ic_stat_ic_argenteam_gcm)
+
                 .build();
 
 
@@ -167,7 +223,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         if (son) {
 
-            notificationManager.notify(0, myNotification);
+            notificationManager.notify(randomInt, myNotification);
         }
 
     }

@@ -1,7 +1,5 @@
 package ar.com.martinrevert.argenteam;
 
-import com.fedorvlasov.lazylist.LazyAdapterTV;
-
 import java.util.Date;
 import java.util.Iterator;
 

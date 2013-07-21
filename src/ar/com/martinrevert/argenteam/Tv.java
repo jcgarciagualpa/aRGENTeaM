@@ -72,13 +72,13 @@ public class Tv extends CustomMenu implements OnClickListener {
 		p2p = preferencias.getBoolean("p2p",false);
 		image = new ImageView(Tv.this);
 		image.setId(99995);
-		imageLoader = new ImageLoader(getBaseContext());
+		imageLoader = new ImageLoader(getBaseContext(),"movie");
 
 		message = getIntent().getStringExtra("passed");
 
 		Log.v("MESSAGE", message);
 
-		if (isOnline() == true) {
+		if (isOnline()) {
 			new GetPage().execute(message);
 		} else {
 			vibrateToast("Sin Internet");

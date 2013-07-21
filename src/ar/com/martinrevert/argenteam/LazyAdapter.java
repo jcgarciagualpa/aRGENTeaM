@@ -1,4 +1,4 @@
-package com.fedorvlasov.lazylist;
+package ar.com.martinrevert.argenteam;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ar.com.martinrevert.argenteam.Peli;
-import ar.com.martinrevert.argenteam.R;
-import ar.com.martinrevert.argenteam.SubtitlesReleases;
+
+import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapter extends BaseAdapter {
     
@@ -27,10 +26,8 @@ public class LazyAdapter extends BaseAdapter {
     
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader;
-	private View vi; 
-    
-   
-    
+
+
     public LazyAdapter(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
         activity = a;
         titulo=t;
@@ -41,7 +38,9 @@ public class LazyAdapter extends BaseAdapter {
        
        
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        imageLoader=new ImageLoader(activity.getApplicationContext());
+        imageLoader=new ImageLoader(activity.getApplicationContext(), "movie");
+
+
     }
 
     public int getCount() {
@@ -57,13 +56,13 @@ public class LazyAdapter extends BaseAdapter {
     }
     
     public View getView(final int position, View convertView, ViewGroup parent) {
-        vi=convertView;
+        View vi = convertView;
         if(convertView==null)
             vi = inflater.inflate(R.layout.item, null);
-     TextView fech=(TextView)vi.findViewById(R.id.fech);
-     TextView text=(TextView)vi.findViewById(R.id.titulo);
-     TextView vers=(TextView)vi.findViewById(R.id.version);
-     ImageView image=(ImageView)vi.findViewById(R.id.image);
+     TextView fech=(TextView) vi.findViewById(R.id.fech);
+     TextView text=(TextView) vi.findViewById(R.id.titulo);
+     TextView vers=(TextView) vi.findViewById(R.id.version);
+     ImageView image=(ImageView) vi.findViewById(R.id.image);
      
      text.setText(titulo[position]);
      fech.setText("Publicado: "+fecha[position]);
@@ -73,28 +72,26 @@ public class LazyAdapter extends BaseAdapter {
      
      
      
-     vi.setOnClickListener(new OnClickListener(){
+     vi.setOnClickListener(new OnClickListener() {
 
-		@Override
-		public void onClick(View arg0) {
-			
-			
-			if(activity instanceof SubtitlesReleases) {
-				String URIpost = post[position].toString();
-				Log.v("URL", URIpost);
-				Intent peliPage = new Intent(activity,Peli.class);
-				peliPage.putExtra("passed", URIpost);
-				activity.startActivityForResult(peliPage, 0);
-				
-				}
-				else  {
-				Log.v("ZAFAR EXPLOSION", "PUM");
-				}
+         @Override
+         public void onClick(View arg0) {
 
-		}
 
-		
-    	 
+             if (activity instanceof SubtitlesReleases) {
+                 String URIpost = post[position];
+                 Log.v("URL", URIpost);
+                 Intent peliPage = new Intent(activity, Peli.class);
+                 peliPage.putExtra("passed", URIpost);
+                 activity.startActivityForResult(peliPage, 0);
+
+             } else {
+                 Log.v("ZAFAR EXPLOSION", "PUM");
+             }
+
+         }
+
+
      });
      
         return vi;

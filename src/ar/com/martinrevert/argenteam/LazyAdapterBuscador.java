@@ -1,4 +1,4 @@
-package com.fedorvlasov.lazylist;
+package ar.com.martinrevert.argenteam;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.fedorvlasov.lazylist.ImageLoader;
+
 import ar.com.martinrevert.argenteam.Peli;
 import ar.com.martinrevert.argenteam.R;
 import ar.com.martinrevert.argenteam.TvSeasons;
@@ -27,7 +30,7 @@ public class LazyAdapterBuscador extends BaseAdapter {
     
     
     private static LayoutInflater inflater=null;
-    public ImageLoader imageLoader; 
+    public ImageLoader imageLoader;
     
    
     
@@ -40,7 +43,7 @@ public class LazyAdapterBuscador extends BaseAdapter {
        
        
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        imageLoader=new ImageLoader(activity.getApplicationContext());
+        imageLoader=new ImageLoader(activity.getApplicationContext(),"movie");
     }
 
     public int getCount() {

@@ -1,6 +1,4 @@
-
-/*
-package com.fedorvlasov.lazylist;
+/*package com.fedorvlasov.lazylist;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -151,5 +149,4 @@ public class MainActivity extends Activity {
             "http://a3.twimg.com/profile_images/77641093/AndroidPlanet_normal.png"
     };
 }
-
 */

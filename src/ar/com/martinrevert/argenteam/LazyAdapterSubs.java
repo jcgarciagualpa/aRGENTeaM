@@ -1,4 +1,4 @@
-package com.fedorvlasov.lazylist;
+package ar.com.martinrevert.argenteam;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +25,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import ar.com.martinrevert.argenteam.R;
+
+import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapterSubs extends BaseAdapter {
 
@@ -39,10 +40,9 @@ public class LazyAdapterSubs extends BaseAdapter {
 
 	private static LayoutInflater inflater = null;
 	public ImageLoader imageLoader;
-	private View vi;
-	
 
-	public LazyAdapterSubs(Activity a, ArrayList<String> sub2,
+
+    public LazyAdapterSubs(Activity a, ArrayList<String> sub2,
 			ArrayList<String> ruta) {
 		activity = a;
 		sub = sub2;
@@ -72,7 +72,7 @@ public class LazyAdapterSubs extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		vi = convertView;
+        View vi = convertView;
 		if (convertView == null)
 			vi = inflater.inflate(R.layout.itemsubs, null);
 

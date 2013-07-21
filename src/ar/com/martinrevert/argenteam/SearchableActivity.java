@@ -8,7 +8,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.fedorvlasov.lazylist.LazyAdapterBuscador;
 import com.google.analytics.tracking.android.EasyTracker;
 
 import android.app.Activity;
