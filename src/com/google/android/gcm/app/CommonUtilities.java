@@ -27,7 +27,7 @@ public final class CommonUtilities {
     /**
      * Base URL of the Server (such as http://my_host:8080/gcm-demo)
      */
-    public static final String SERVER_URL = "http://www.martinrevert.com.ar/atGCM/rest.php";
+    public static final String SERVER_URL = "http://ec2-54-232-58-123.sa-east-1.compute.amazonaws.com/martinrevert/atGCM/rest1.php";
 
     /**
      * Google API project id registered to use GCM.

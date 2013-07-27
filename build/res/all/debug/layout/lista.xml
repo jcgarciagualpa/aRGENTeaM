@@ -11,4 +11,4 @@
         android:listSelector="@drawable/list_selector">
     </ListView>
 
-</LinearLayout><!-- From: /home/martin/workspace/aRGENTeaM170gradle2/res/layout/lista.xml -->
+</LinearLayout><!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/lista.xml -->

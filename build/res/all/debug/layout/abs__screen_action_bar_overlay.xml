@@ -57,4 +57,4 @@ the Action Bar enabled overlaying application content.
                   android:visibility="gone"
                   android:gravity="center"/>
 </FrameLayout>
-<!-- From: /home/martin/workspace/aRGENTeaM170gradle2/res/layout/abs__screen_action_bar_overlay.xml -->
+<!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/abs__screen_action_bar_overlay.xml -->

@@ -36,4 +36,4 @@ enabled.
          android:foregroundGravity="fill_horizontal|top"
          android:foreground="?attr/windowContentOverlay" />
 </LinearLayout>
-<!-- From: /home/martin/workspace/aRGENTeaM170gradle2/res/layout/abs__screen_simple.xml -->
+<!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/abs__screen_simple.xml -->

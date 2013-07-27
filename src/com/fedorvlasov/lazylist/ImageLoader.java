@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -15,10 +16,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
+
 import ar.com.martinrevert.argenteam.R;
 
 public class ImageLoader {
@@ -26,14 +29,22 @@ public class ImageLoader {
     MemoryCache memoryCache=new MemoryCache();
     FileCache fileCache;
     private Map<ImageView, String> imageViews=Collections.synchronizedMap(new WeakHashMap<ImageView, String>());
-    ExecutorService executorService; 
+    ExecutorService executorService;
+    //Handler handler=new Handler();//handler to display images in UI thread
+    public final int stub_id;
     
-    public ImageLoader(Context context){
+    public ImageLoader(Context context, String tipo){
         fileCache=new FileCache(context);
         executorService=Executors.newFixedThreadPool(5);
+        if(tipo.equals("movie")) {
+            stub_id = R.drawable.stubportrait;
+        }
+        else {
+           stub_id= R.drawable.stublandscape;
+        }
     }
-    
-    final int stub_id=R.drawable.stubportrait;
+
+
     public void DisplayImage(String url, ImageView imageView)
     {
         imageViews.put(imageView, url);
@@ -74,10 +85,13 @@ public class ImageLoader {
             OutputStream os = new FileOutputStream(f);
             Utils.CopyStream(is, os);
             os.close();
+            conn.disconnect();
             bitmap = decodeFile(f);
             return bitmap;
-        } catch (Exception ex){
+        } catch (Throwable ex){
            ex.printStackTrace();
+           if(ex instanceof OutOfMemoryError)
+               memoryCache.clear();
            return null;
         }
     }
@@ -88,7 +102,9 @@ public class ImageLoader {
             //decode image size
             BitmapFactory.Options o = new BitmapFactory.Options();
             o.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(new FileInputStream(f),null,o);
+            FileInputStream stream1=new FileInputStream(f);
+            BitmapFactory.decodeStream(stream1,null,o);
+            stream1.close();
             
             //Find the correct scale value. It should be the power of 2.
             final int REQUIRED_SIZE=70;
@@ -105,8 +121,15 @@ public class ImageLoader {
             //decode with inSampleSize
             BitmapFactory.Options o2 = new BitmapFactory.Options();
             o2.inSampleSize=scale;
-            return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
-        } catch (FileNotFoundException e) {}
+            FileInputStream stream2=new FileInputStream(f);
+            Bitmap bitmap=BitmapFactory.decodeStream(stream2, null, o2);
+            stream2.close();
+            return bitmap;
+        } catch (FileNotFoundException e) {
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
     
@@ -129,15 +152,25 @@ public class ImageLoader {
         
         @Override
         public void run() {
-            if(imageViewReused(photoToLoad))
-                return;
-            Bitmap bmp=getBitmap(photoToLoad.url);
-            memoryCache.put(photoToLoad.url, bmp);
-            if(imageViewReused(photoToLoad))
-                return;
-            BitmapDisplayer bd=new BitmapDisplayer(bmp, photoToLoad);
-            Activity a=(Activity)photoToLoad.imageView.getContext();
-            a.runOnUiThread(bd);
+
+            try{
+                if(imageViewReused(photoToLoad))
+                    return;
+                Bitmap bmp=getBitmap(photoToLoad.url);
+                memoryCache.put(photoToLoad.url, bmp);
+                if(imageViewReused(photoToLoad))
+                    return;
+                BitmapDisplayer bd=new BitmapDisplayer(bmp, photoToLoad);
+
+                //Estp es un agragado de la vieja implementación
+                Activity a=(Activity)photoToLoad.imageView.getContext();
+                a.runOnUiThread(bd);
+                //Esto es una impklementacion nueva para Fragments, mas arriba esta el comentado el handler
+               // handler.post(bd);
+
+            }catch(Throwable th){
+                th.printStackTrace();
+            }
         }
     }
     

@@ -17,20 +17,22 @@
 
     <Button
             android:id="@+id/btnFTP"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/titulo"
-            android:text="FTP"/>
+            android:text="FTP"
+            android:textSize="17sp"/>
 
     <Button
             android:id="@+id/btnBorrar"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
             android:layout_alignBaseline="@+id/btnFTP"
             android:layout_alignBottom="@+id/btnFTP"
             android:layout_toLeftOf="@+id/btnFTP"
-            android:text="Borrar"/>
+            android:text="Borrar"
+            android:textSize="17sp"/>
 
 
-</RelativeLayout><!-- From: /home/martin/workspace/aRGENTeaM170gradle2/res/layout/itemsubs.xml -->
+</RelativeLayout><!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/itemsubs.xml -->

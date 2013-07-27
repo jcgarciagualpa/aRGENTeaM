@@ -29,4 +29,4 @@
                android:scaleType="fitCenter"
                android:src="?attr/actionModeCloseDrawable" />
 </com.actionbarsherlock.internal.nineoldandroids.widget.NineLinearLayout>
-<!-- From: /home/martin/workspace/aRGENTeaM170gradle2/res/layout/abs__action_mode_close_item.xml -->
+<!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/abs__action_mode_close_item.xml -->

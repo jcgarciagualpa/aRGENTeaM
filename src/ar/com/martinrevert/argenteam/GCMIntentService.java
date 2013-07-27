@@ -29,7 +29,6 @@ import android.net.Uri;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationCompat.BigPictureStyle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -103,7 +102,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         String tipo = "";
         String urlimagen = "";
         String urlarticulo = "";
-        String fecha ="";
+        String fecha = "";
         //displayMessage(context, message);
         // notifies user
         generarNotification(context, message, urlimagen, urlarticulo, tipo, fecha);
@@ -140,7 +139,7 @@ public class GCMIntentService extends GCMBaseIntentService {
             options.inDensity = DisplayMetrics.DENSITY_DEFAULT;
             options.inScaled = false;
 
-            final Bitmap bm = BitmapFactory.decodeStream(bis,null,options);
+            final Bitmap bm = BitmapFactory.decodeStream(bis, null, options);
             bis.close();
 
             return bm;
@@ -156,15 +155,17 @@ public class GCMIntentService extends GCMBaseIntentService {
      */
     private void generarNotification(Context context, String message, String urlimagen, String urlarticulo, String tipo, String fecha) {
         int icon = R.drawable.ic_stat_ic_argenteam_gcm;
-        String eol = System.getProperty("line.separator");
-        message = message.replace("regex", eol);
+       // String eol = System.getProperty("line.separator");
+       // message = message.replace("regex", eol);
 
         SharedPreferences preferencias = PreferenceManager
                 .getDefaultSharedPreferences(getBaseContext());
         boolean vib = preferencias.getBoolean("vibraoff", false);
-        boolean son = preferencias.getBoolean("audioff", false);
-        String ringtone = preferencias.getString("prefRingtone", "");
-        String ticker = "Nueva " + tipo + " en aRGENTeaM";
+        boolean movieoff = preferencias.getBoolean("movieoff", false);
+        boolean tvoff = preferencias.getBoolean("tvoff", false);
+        String ringmovie = preferencias.getString("prefRingtonemovie", "");
+        String ringtv = preferencias.getString("prefRingtonetv", "");
+        String ticker = "Nuevo sub " + tipo + " en aRGENTeaM";
 
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(100);
@@ -175,24 +176,25 @@ public class GCMIntentService extends GCMBaseIntentService {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         int dash = 500;     // Length of a Morse Code "dash" in milliseconds
-        int short_gap = 200;    // Length of Gap Between dots/dashes
-        int medium_gap = 500;   // Length of Gap Between Letters
+        int short_gap = 200;    // Length of Gap
+
 
         long[] pattern = {
                 0,  // Start immediately
-                dash, short_gap, dash, short_gap, dash, // o
-                medium_gap
+                dash, short_gap, dash, short_gap, dash
         };
 
         NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent notificationIntent = null;
-        if (tipo.equalsIgnoreCase("movie")) {
-
+        Intent notificationIntent;
+        String ringtone;
+        if (tipo.equalsIgnoreCase("Movie")) {
+            ringtone = ringmovie;
             notificationIntent = new Intent(context, Peli.class);
 
         } else {
             notificationIntent = new Intent(context, Tv.class);
+            ringtone = ringtv;
         }
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         notificationIntent.putExtra("passed", urlarticulo);
@@ -203,9 +205,9 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         Notification myNotification;
         myNotification = new NotificationCompat.Builder(context)
-                .setContentTitle("aRGENTeaM")
-                .setContentText(message)
-                .setSubText("subtexto")
+                .setContentTitle(message)
+                .setContentText(ticker)
+                .setSubText(fecha)
                 .setTicker(ticker)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(pendingIntent)
@@ -221,11 +223,18 @@ public class GCMIntentService extends GCMBaseIntentService {
             v.vibrate(pattern, -1);
         }
 
-        if (son) {
+        if (movieoff && tipo.equalsIgnoreCase("Movie")) {
 
+            Log.v(tipo, "Pummovie");
             notificationManager.notify(randomInt, myNotification);
+
+        }
+
+        if (tvoff && tipo.equalsIgnoreCase("Serie TV")) {
+            Log.v(tipo, "Pumtv");
+            notificationManager.notify(randomInt, myNotification);
+
         }
 
     }
-
 }

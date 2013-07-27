@@ -3,13 +3,22 @@
     
     
      <PreferenceCategory android:title="Notificaciones Push GCM" >
-        <CheckBoxPreference
-            android:key="audioff"
-            android:summary="Si está marcado podrás recibir notificaciones."
-            android:title="Notificaciones" />
+        <SwitchPreference
+            android:key="movieoff"
+            android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de películas."
+            android:title="Notificaciones Peliculas" />
         <RingtonePreference android:title="Sonido de mensaje"
-                             android:key="prefRingtone"
-                             android:summary="Elegir el sonido de la notificación que sonará cuando haya novedades en aRGENTeaM" android:ringtoneType="notification" />
+                             android:key="prefRingtonemovie"
+                             android:summary="Elegir el sonido de la notificación"
+                             android:ringtoneType="notification" />
+         <SwitchPreference
+                 android:key="tvoff"
+                 android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de series de TV."
+                 android:title="Notificaciones Series de TV" />
+         <RingtonePreference android:title="Sonido de mensaje"
+                             android:key="prefRingtonetv"
+                             android:summary="Elegir el sonido de la notificación"
+                             android:ringtoneType="notification" />
         <CheckBoxPreference
             android:key="vibraoff"
             android:summary="Si está marcado, el dispositivo vibrará al recibir notificaciones de novedades."

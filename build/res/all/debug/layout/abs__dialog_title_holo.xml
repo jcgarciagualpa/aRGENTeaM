@@ -44,4 +44,4 @@ enabled.
             android:layout_height="fill_parent" />
     </FrameLayout>
 </com.actionbarsherlock.internal.widget.FakeDialogPhoneWindow>
-<!-- From: /home/martin/workspace/aRGENTeaM170gradle2/res/layout/abs__dialog_title_holo.xml -->
+<!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/abs__dialog_title_holo.xml -->

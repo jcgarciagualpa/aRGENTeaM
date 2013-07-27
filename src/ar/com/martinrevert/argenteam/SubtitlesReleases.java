@@ -134,8 +134,9 @@ public class SubtitlesReleases extends CustomMenu {
                 }
 
             } catch (RSSReaderException e) {
-                // TODO Auto-generated catch block
+
                 e.printStackTrace();
+
 
             } finally {
                 reader.close();
