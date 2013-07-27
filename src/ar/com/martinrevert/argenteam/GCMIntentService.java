@@ -131,13 +131,15 @@ public class GCMIntentService extends GCMBaseIntentService {
             final BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
 
             BitmapFactory.Options options = new BitmapFactory.Options();
-            DisplayMetrics metrics;
+           /* DisplayMetrics metrics;
             metrics = getApplicationContext().getResources().getDisplayMetrics();
 
             options.inScreenDensity = metrics.densityDpi;
             options.inTargetDensity = metrics.densityDpi;
             options.inDensity = DisplayMetrics.DENSITY_DEFAULT;
             options.inScaled = false;
+
+            */
 
             final Bitmap bm = BitmapFactory.decodeStream(bis, null, options);
             bis.close();
@@ -213,25 +215,26 @@ public class GCMIntentService extends GCMBaseIntentService {
                 .setContentIntent(pendingIntent)
                 .setSound(Uri.parse(ringtone))
                 .setAutoCancel(true)
-                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap))
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(bitmap))
                 .setSmallIcon(R.drawable.ic_stat_ic_argenteam_gcm)
-
                 .build();
 
 
-        if (vib) {
-            v.vibrate(pattern, -1);
-        }
+
 
         if (movieoff && tipo.equalsIgnoreCase("Movie")) {
-
-            Log.v(tipo, "Pummovie");
+            if (vib) {
+                v.vibrate(pattern, -1);
+            }
             notificationManager.notify(randomInt, myNotification);
 
         }
 
         if (tvoff && tipo.equalsIgnoreCase("Serie TV")) {
-            Log.v(tipo, "Pumtv");
+            if (vib) {
+                v.vibrate(pattern, -1);
+            }
             notificationManager.notify(randomInt, myNotification);
 
         }
