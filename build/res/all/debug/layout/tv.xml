@@ -34,8 +34,8 @@
 
     <ImageView
         android:id="@+id/imagen"
-        android:layout_width="100dip"
-        android:layout_height="148dip"
+        android:layout_width="100dp"
+        android:layout_height="148dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/titulo"
         android:src="@drawable/stubportrait" />

@@ -22,7 +22,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/titulo"
             android:text="FTP"
-            android:textSize="17sp"/>
+            android:textSize="15sp"/>
 
     <Button
             android:id="@+id/btnBorrar"
@@ -31,8 +31,8 @@
             android:layout_alignBaseline="@+id/btnFTP"
             android:layout_alignBottom="@+id/btnFTP"
             android:layout_toLeftOf="@+id/btnFTP"
-            android:text="Borrar"
-            android:textSize="17sp"/>
+            android:text="BORRAR"
+            android:textSize="15sp"/>
 
 
 </RelativeLayout><!-- From: file:/home/martin/workspace/aRGENTeaM/res/layout/itemsubs.xml -->
