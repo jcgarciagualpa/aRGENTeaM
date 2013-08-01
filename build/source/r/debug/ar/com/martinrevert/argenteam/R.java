@@ -874,7 +874,7 @@ containing a value of this type.
         public static final int youtube=0x7f02007e;
     }
     public static final class id {
-        public static final int about=0x7f070045;
+        public static final int about=0x7f070049;
         public static final int abs__action_bar=0x7f070022;
         public static final int abs__action_bar_container=0x7f070021;
         public static final int abs__action_bar_subtitle=0x7f070011;
@@ -917,34 +917,38 @@ containing a value of this type.
         public static final int abs__title=0x7f07001b;
         public static final int abs__titleDivider=0x7f07001c;
         public static final int abs__up=0x7f07000f;
-        public static final int btnBorrar=0x7f07003a;
-        public static final int btnFTP=0x7f070039;
-        public static final int details=0x7f07003f;
-        public static final int detalles=0x7f070041;
+        public static final int big_icon=0x7f070034;
+        public static final int big_picture=0x7f070036;
+        public static final int btnBorrar=0x7f07003e;
+        public static final int btnFTP=0x7f07003d;
+        public static final int details=0x7f070043;
+        public static final int detalles=0x7f070045;
         public static final int disableHome=0x7f070008;
         public static final int edit_query=0x7f070027;
-        public static final int fech=0x7f070037;
+        public static final int fech=0x7f07003b;
         public static final int homeAsUp=0x7f070005;
-        public static final int image=0x7f070034;
-        public static final int imagen=0x7f070040;
+        public static final int image=0x7f070038;
+        public static final int imagen=0x7f070044;
         public static final int listMode=0x7f070001;
-        public static final int listSubs=0x7f07003d;
-        public static final int listView1=0x7f07003b;
-        public static final int listamenu=0x7f07003c;
+        public static final int listSubs=0x7f070041;
+        public static final int listView1=0x7f07003f;
+        public static final int listamenu=0x7f070040;
         public static final int normal=0x7f070000;
-        public static final int progressBar1=0x7f07003e;
-        public static final int search=0x7f070042;
-        public static final int settings=0x7f070044;
-        public static final int share=0x7f070043;
+        public static final int progressBar1=0x7f070042;
+        public static final int search=0x7f070046;
+        public static final int settings=0x7f070048;
+        public static final int share=0x7f070047;
         public static final int showCustom=0x7f070007;
         public static final int showHome=0x7f070004;
         public static final int showTitle=0x7f070006;
+        public static final int status_bar_latest_event_content=0x7f070033;
         public static final int tabMode=0x7f070002;
-        public static final int tipo=0x7f070038;
-        public static final int titulo=0x7f070035;
+        public static final int tipo=0x7f07003c;
+        public static final int title=0x7f070035;
+        public static final int titulo=0x7f070039;
         public static final int useLogo=0x7f070003;
-        public static final int version=0x7f070036;
-        public static final int webview=0x7f070033;
+        public static final int version=0x7f07003a;
+        public static final int webview=0x7f070037;
         public static final int wrap_content=0x7f070009;
     }
     public static final class integer {
@@ -979,18 +983,19 @@ containing a value of this type.
         public static final int abs__search_dropdown_item_icons_2line=0x7f030014;
         public static final int abs__search_view=0x7f030015;
         public static final int abs__simple_dropdown_hint=0x7f030016;
-        public static final int facebook=0x7f030017;
-        public static final int item=0x7f030018;
-        public static final int itembusq=0x7f030019;
-        public static final int itemseries=0x7f03001a;
-        public static final int itemsubs=0x7f03001b;
-        public static final int lista=0x7f03001c;
-        public static final int main=0x7f03001d;
-        public static final int missubtitulos=0x7f03001e;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001f;
-        public static final int sherlock_spinner_item=0x7f030020;
-        public static final int splash=0x7f030021;
-        public static final int tv=0x7f030022;
+        public static final int custom_notification=0x7f030017;
+        public static final int facebook=0x7f030018;
+        public static final int item=0x7f030019;
+        public static final int itembusq=0x7f03001a;
+        public static final int itemseries=0x7f03001b;
+        public static final int itemsubs=0x7f03001c;
+        public static final int lista=0x7f03001d;
+        public static final int main=0x7f03001e;
+        public static final int missubtitulos=0x7f03001f;
+        public static final int sherlock_spinner_dropdown_item=0x7f030020;
+        public static final int sherlock_spinner_item=0x7f030021;
+        public static final int splash=0x7f030022;
+        public static final int tv=0x7f030023;
     }
     public static final class menu {
         public static final int menu=0x7f0c0000;

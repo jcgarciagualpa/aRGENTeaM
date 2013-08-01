@@ -24,8 +24,7 @@
             android:layout_below="@+id/titulo"
             android:contentDescription="@string/stublandscape"
             android:scaleType="fitCenter"
-            android:src="@drawable/stublandscape"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/stublandscape"/>
 
     <TextView
             android:id="@+id/version"

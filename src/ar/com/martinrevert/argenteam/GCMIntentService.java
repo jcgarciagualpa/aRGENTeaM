@@ -17,6 +17,7 @@ package ar.com.martinrevert.argenteam;
 
 import static com.google.android.gcm.app.CommonUtilities.SENDER_ID;
 
+import ar.com.martinrevert.argenteam.R;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -25,12 +26,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.widget.RemoteViews;
 
 import com.google.android.gcm.GCMBaseIntentService;
 import com.google.android.gcm.GCMRegistrar;
@@ -122,29 +125,58 @@ public class GCMIntentService extends GCMBaseIntentService {
         //  errorId));
         return super.onRecoverableError(context, errorId);
     }
+    private int dpToPx(int dp)
+    {
+        float density = getApplicationContext().getResources().getDisplayMetrics().density;
+        return Math.round((float)dp * density);
+    }
 
-    public Bitmap getRemoteImage(final String aURL) {
+    public Bitmap getRemoteImage(final String aURL, String tipo) {
         try {
             URL imagelink = new URL(aURL);
             final URLConnection conn = imagelink.openConnection();
             conn.connect();
             final BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
-
             BitmapFactory.Options options = new BitmapFactory.Options();
-           /* DisplayMetrics metrics;
-            metrics = getApplicationContext().getResources().getDisplayMetrics();
-
-            options.inScreenDensity = metrics.densityDpi;
-            options.inTargetDensity = metrics.densityDpi;
-            options.inDensity = DisplayMetrics.DENSITY_DEFAULT;
-            options.inScaled = false;
-
-            */
-
-            final Bitmap bm = BitmapFactory.decodeStream(bis, null, options);
+            final Bitmap scaledBitmap = BitmapFactory.decodeStream(bis, null, options);
             bis.close();
+            /*
+            int width = bm.getWidth();
+            int height = bm.getHeight();
+            int boundingh;
+            int boundingw;
+            float xScale;
+            float yScale;
 
-            return bm;
+           if (tipo.equalsIgnoreCase("Movie")){
+               boundingh = dpToPx(256);
+               yScale = boundingh / height;
+              // boundingw = dpToPx(Math.round(width * yScale));
+              // xScale = boundingw / width;
+               xScale = yScale;
+           }
+            else
+           {
+               boundingh = dpToPx(256);
+              // boundingw = dpToPx(300);
+
+               yScale = boundingh / height;
+               xScale = yScale;
+           }
+
+
+
+            Matrix matrix = new Matrix();
+            matrix.postScale(xScale, yScale);
+
+            Bitmap scaledBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, true);
+
+           float ancho = scaledBitmap.getWidth(); // re-use
+           float alto = scaledBitmap.getHeight(); // re-use
+
+            Log.v("Medidas", "Ancho: "+ancho+"Alto: "+alto);*/
+
+            return scaledBitmap;
         } catch (IOException e) {
             // ToDo Mostrar imagen generica si falla el request
 
@@ -167,12 +199,12 @@ public class GCMIntentService extends GCMBaseIntentService {
         boolean tvoff = preferencias.getBoolean("tvoff", false);
         String ringmovie = preferencias.getString("prefRingtonemovie", "");
         String ringtv = preferencias.getString("prefRingtonetv", "");
-        String ticker = "Nuevo sub " + tipo + " en aRGENTeaM";
+        String ticker = "Nuevo subtítulo " + tipo + " en aRGENTeaM";
 
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(100);
 
-        Bitmap bitmap = getRemoteImage(urlimagen);
+        Bitmap bitmap = getRemoteImage(urlimagen, tipo);
 
 
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -186,8 +218,7 @@ public class GCMIntentService extends GCMBaseIntentService {
                 dash, short_gap, dash, short_gap, dash
         };
 
-        NotificationManager notificationManager = (NotificationManager)
-                context.getSystemService(Context.NOTIFICATION_SERVICE);
+
         Intent notificationIntent;
         String ringtone;
         if (tipo.equalsIgnoreCase("Movie")) {
@@ -205,23 +236,29 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         pendingIntent = PendingIntent.getActivity(context, randomInt, notificationIntent, 0);
 
+        RemoteViews views;
+        views = new RemoteViews(getPackageName(), R.layout.custom_notification);
+
+        views.setImageViewBitmap(R.id.big_picture, bitmap);
+        views.setImageViewBitmap(R.id.big_icon, BitmapFactory.decodeResource(getResources(), R.drawable.ic_stat_ic_argenteam_gcm));
+        views.setTextViewText(R.id.title, message);
+
         Notification myNotification;
         myNotification = new NotificationCompat.Builder(context)
-                .setContentTitle(message)
-                .setContentText(ticker)
-                .setSubText(fecha)
+
+                .setContent(views)
                 .setTicker(ticker)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(pendingIntent)
                 .setSound(Uri.parse(ringtone))
                 .setAutoCancel(true)
-                .setStyle(new NotificationCompat.BigPictureStyle()
-                        .bigPicture(bitmap))
                 .setSmallIcon(R.drawable.ic_stat_ic_argenteam_gcm)
                 .build();
 
+        myNotification.bigContentView = views;
 
-
+        NotificationManager notificationManager = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (movieoff && tipo.equalsIgnoreCase("Movie")) {
             if (vib) {
