@@ -18,6 +18,7 @@ package ar.com.martinrevert.argenteam;
 import static com.google.android.gcm.app.CommonUtilities.SENDER_ID;
 
 import ar.com.martinrevert.argenteam.R;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -28,6 +29,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
@@ -125,10 +127,10 @@ public class GCMIntentService extends GCMBaseIntentService {
         //  errorId));
         return super.onRecoverableError(context, errorId);
     }
-    private int dpToPx(int dp)
-    {
+
+    private int dpToPx(int dp) {
         float density = getApplicationContext().getResources().getDisplayMetrics().density;
-        return Math.round((float)dp * density);
+        return Math.round((float) dp * density);
     }
 
     public Bitmap getRemoteImage(final String aURL, String tipo) {
@@ -189,8 +191,8 @@ public class GCMIntentService extends GCMBaseIntentService {
      */
     private void generarNotification(Context context, String message, String urlimagen, String urlarticulo, String tipo, String fecha) {
         int icon = R.drawable.ic_stat_ic_argenteam_gcm;
-       // String eol = System.getProperty("line.separator");
-       // message = message.replace("regex", eol);
+        // String eol = System.getProperty("line.separator");
+        // message = message.replace("regex", eol);
 
         SharedPreferences preferencias = PreferenceManager
                 .getDefaultSharedPreferences(getBaseContext());
@@ -236,17 +238,9 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         pendingIntent = PendingIntent.getActivity(context, randomInt, notificationIntent, 0);
 
-        RemoteViews views;
-        views = new RemoteViews(getPackageName(), R.layout.custom_notification);
-
-        views.setImageViewBitmap(R.id.big_picture, bitmap);
-        views.setImageViewBitmap(R.id.big_icon, BitmapFactory.decodeResource(getResources(), R.drawable.ic_stat_ic_argenteam_gcm));
-        views.setTextViewText(R.id.title, message);
-
         Notification myNotification;
         myNotification = new NotificationCompat.Builder(context)
-
-                .setContent(views)
+                .setContentTitle(message)
                 .setTicker(ticker)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(pendingIntent)
@@ -255,7 +249,15 @@ public class GCMIntentService extends GCMBaseIntentService {
                 .setSmallIcon(R.drawable.ic_stat_ic_argenteam_gcm)
                 .build();
 
-        myNotification.bigContentView = views;
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            RemoteViews views;
+            views = new RemoteViews(getPackageName(), R.layout.custom_notification);
+
+            views.setImageViewBitmap(R.id.big_picture, bitmap);
+            views.setImageViewBitmap(R.id.big_icon, BitmapFactory.decodeResource(getResources(), R.drawable.ic_stat_ic_argenteam_gcm));
+            views.setTextViewText(R.id.title, message);
+            myNotification.bigContentView = views;
+        }
 
         NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);

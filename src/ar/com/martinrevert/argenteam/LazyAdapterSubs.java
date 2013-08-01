@@ -189,7 +189,7 @@ public class LazyAdapterSubs extends BaseAdapter {
 					ftp.disconnect();
 					result = "'"+su + "' se ha transferido correctamente via FTP";
 				} else {
-					result = "No se pudo tranferir '"+su+"' via FTP. Verifique conexion y parámetros de su configuración";
+					result = "No se pudo transferir '"+su+"' via FTP. Verifique conexión y parámetros de su configuración";
 				}
 
 			}
