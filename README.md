@@ -6,9 +6,13 @@ email: martinrevert@gmail.com
 Open Source Libraries used:
 
 Apache Commons Net 3.1
+
 Joda Time 2.2
+
 JSOUP 1.7.2
-ActionBarSherlock 4.2
+
 LazyList by Fedor Lazov
+
 Google Cloud Messaging
-Android Support v4
+
+Android Support v4-v7
