@@ -2,6 +2,7 @@ package ar.com.martinrevert.argenteam;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,20 +15,20 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.util.Linkify;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class CustomMenu extends SherlockActivity {
+public class CustomMenu extends FragmentActivity {
 	
 	@Override
 	protected void onStart() {
@@ -50,8 +51,9 @@ public class CustomMenu extends SherlockActivity {
 		
 		
 		if (!(this instanceof Main)){
-			ActionBar actionbar = this.getSupportActionBar();
-			actionbar.setDisplayHomeAsUpEnabled(true);
+			ActionBar actionbar;
+            actionbar = this.getSupportActionBar();
+            actionbar.setDisplayHomeAsUpEnabled(true);
 		}
 		
 		
@@ -184,5 +186,6 @@ public class CustomMenu extends SherlockActivity {
 		
 		
 	}
+
 
 }
