@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/home/martin/workspace/aRGENTeaM/libraries/AmbilWarna/res/values-land/dimen.xml -->
+    <dimen name="ambilwarna_hsvHeight">120dp</dimen>
+    <dimen name="ambilwarna_hsvWidth">240dp</dimen>
+
+</resources>
