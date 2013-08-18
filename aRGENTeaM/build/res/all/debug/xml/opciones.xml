@@ -28,7 +28,10 @@
                 android:key="prefRingtonetv"
                 android:summary="Elegir el sonido de la notificación"
                 android:ringtoneType="notification"/>
-
+        <yuku.ambilwarna.widget.AmbilWarnaPreference
+                android:key="ledTV"
+                android:defaultValue="0xff6699cc"
+                android:title="Color LED notificación Series de TV" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Vibración">
         <CheckBoxPreference
