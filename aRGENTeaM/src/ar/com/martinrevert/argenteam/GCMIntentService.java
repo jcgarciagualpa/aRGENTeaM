@@ -219,13 +219,17 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         Intent notificationIntent;
         String ringtone;
+        int ledlight;
+
         if (tipo.equalsIgnoreCase("Movie")) {
             ringtone = ringmovie;
             notificationIntent = new Intent(context, Peli.class);
+            ledlight = preferencias.getInt("ledMovie", 0xff6699cc);
 
         } else {
             notificationIntent = new Intent(context, Tv.class);
             ringtone = ringtv;
+            ledlight = preferencias.getInt("ledTV", 0xff6699cc);
         }
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         notificationIntent.putExtra("passed", urlarticulo);
@@ -238,6 +242,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         myNotification = new NotificationCompat.Builder(context)
                 .setContentTitle(message)
                 .setTicker(ticker)
+                .setLights(ledlight, 300, 300)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(pendingIntent)
                 .setSound(Uri.parse(ringtone))
