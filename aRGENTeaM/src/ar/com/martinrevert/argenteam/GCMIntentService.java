@@ -138,42 +138,6 @@ public class GCMIntentService extends GCMBaseIntentService {
             BitmapFactory.Options options = new BitmapFactory.Options();
             final Bitmap scaledBitmap = BitmapFactory.decodeStream(bis, null, options);
             bis.close();
-            /*
-            int width = bm.getWidth();
-            int height = bm.getHeight();
-            int boundingh;
-            int boundingw;
-            float xScale;
-            float yScale;
-
-           if (tipo.equalsIgnoreCase("Movie")){
-               boundingh = dpToPx(256);
-               yScale = boundingh / height;
-              // boundingw = dpToPx(Math.round(width * yScale));
-              // xScale = boundingw / width;
-               xScale = yScale;
-           }
-            else
-           {
-               boundingh = dpToPx(256);
-              // boundingw = dpToPx(300);
-
-               yScale = boundingh / height;
-               xScale = yScale;
-           }
-
-
-
-            Matrix matrix = new Matrix();
-            matrix.postScale(xScale, yScale);
-
-            Bitmap scaledBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, true);
-
-           float ancho = scaledBitmap.getWidth(); // re-use
-           float alto = scaledBitmap.getHeight(); // re-use
-
-            Log.v("Medidas", "Ancho: "+ancho+"Alto: "+alto);*/
-
             return scaledBitmap;
         } catch (IOException e) {
             // ToDo Mostrar imagen generica si falla el request
@@ -187,8 +151,6 @@ public class GCMIntentService extends GCMBaseIntentService {
      */
     private void generarNotification(Context context, String message, String urlimagen, String urlarticulo, String tipo, String fecha) {
         int icon = R.drawable.ic_stat_ic_argenteam_gcm;
-        // String eol = System.getProperty("line.separator");
-        // message = message.replace("regex", eol);
 
         SharedPreferences preferencias = PreferenceManager
                 .getDefaultSharedPreferences(getBaseContext());
@@ -207,8 +169,8 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-        int dash = 500;     // Length of a Morse Code "dash" in milliseconds
-        int short_gap = 200;    // Length of Gap
+        int dash = 500;
+        int short_gap = 200;
 
 
         long[] pattern = {
@@ -224,12 +186,13 @@ public class GCMIntentService extends GCMBaseIntentService {
         if (tipo.equalsIgnoreCase("Movie")) {
             ringtone = ringmovie;
             notificationIntent = new Intent(context, Peli.class);
-            ledlight = preferencias.getInt("ledMovie", 0xff6699cc);
+            ledlight = preferencias.getInt("ledMovie", 0);
 
         } else {
             notificationIntent = new Intent(context, Tv.class);
             ringtone = ringtv;
-            ledlight = preferencias.getInt("ledTV", 0xff6699cc);
+            ledlight = preferencias.getInt("ledTV", 0);
+            System.out.println(ledlight);
         }
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         notificationIntent.putExtra("passed", urlarticulo);
@@ -240,6 +203,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         Notification myNotification;
         myNotification = new NotificationCompat.Builder(context)
+                .setPriority(1)
                 .setContentTitle(message)
                 .setTicker(ticker)
                 .setLights(ledlight, 300, 300)
@@ -250,10 +214,11 @@ public class GCMIntentService extends GCMBaseIntentService {
                 .setSmallIcon(R.drawable.ic_stat_ic_argenteam_gcm)
                 .build();
 
+
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             RemoteViews views;
             views = new RemoteViews(getPackageName(), R.layout.custom_notification);
-
             views.setImageViewBitmap(R.id.big_picture, bitmap);
             views.setImageViewBitmap(R.id.big_icon, BitmapFactory.decodeResource(getResources(), R.drawable.ic_stat_ic_argenteam_gcm));
             views.setTextViewText(R.id.title, message);

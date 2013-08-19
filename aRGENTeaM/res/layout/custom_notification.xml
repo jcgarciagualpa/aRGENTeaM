@@ -16,10 +16,10 @@ limitations under the License.
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-             android:id="@+id/status_bar_latest_event_content"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:background="@drawable/list_selector"
+                android:id="@+id/status_bar_latest_event_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector"
 
         >
 
@@ -35,16 +35,15 @@ limitations under the License.
     <TextView
             android:id="@+id/title"
             android:text="Titulo"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/big_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            />
+            android:layout_alignBottom="@+id/big_icon"
+            android:layout_toRightOf="@+id/big_icon"
+            android:layout_marginLeft="15dp"/>
 
 
     <ImageView

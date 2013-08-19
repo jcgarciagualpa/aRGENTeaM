@@ -10,7 +10,7 @@
             android:title="Buscar"
             android:titleCondensed="Buscar"
             android:visible="true"
-            argenteam:showAsAction="ifRoom"    >
+            argenteam:showAsAction="ifRoom" >
         </item>
         <item
             android:id="@+id/share"
@@ -19,7 +19,7 @@
             android:title="Compartir"
             android:titleCondensed="Compartir"
             android:visible="true"
-            argenteam:showAsAction="ifRoom">
+            >
         </item>
         <item
             android:id="@+id/settings"
@@ -28,7 +28,7 @@
             android:title="Configuración"
             android:titleCondensed="Configuración"
             android:visible="true"
-            argenteam:showAsAction="ifRoom">
+           >
         </item>
         <item
             android:id="@+id/about"
@@ -37,7 +37,7 @@
             android:title="Acerca"
             android:titleCondensed="Acerca"
             android:visible="true"
-            argenteam:showAsAction="ifRoom"    >
+               >
         </item>
     </group>
 
