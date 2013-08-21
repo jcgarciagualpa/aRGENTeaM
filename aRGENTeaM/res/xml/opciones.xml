@@ -15,7 +15,8 @@
         <yuku.ambilwarna.widget.AmbilWarnaPreference
                 android:key="ledMovie"
                 android:defaultValue="0xff6699cc"
-                android:title="Color LED notificación peliculas" />
+                android:title="Configurar color LED notificación peliculas"
+                android:summary="Enciende LED intermitente si el dispositivo dispone del feature"/>
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Notificaciones Series de TV">
@@ -31,7 +32,8 @@
         <yuku.ambilwarna.widget.AmbilWarnaPreference
                 android:key="ledTV"
                 android:defaultValue="0xff6699cc"
-                android:title="Color LED notificación Series de TV" />
+                android:title="Configurar color LED notificación Series de TV"
+                android:summary="Enciende LED intermitente si el dispositivo dispone del feature"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Vibración">
         <CheckBoxPreference

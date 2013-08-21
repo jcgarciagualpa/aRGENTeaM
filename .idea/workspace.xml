@@ -24,16 +24,14 @@
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="argenteam" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8686a70-9e9c-406d-80b7-8b3d919e6c3c" name="Default" comment="- Configuración final">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/AndroidManifest.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/GCMIntentService.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/GCMIntentService.java" />
+    <list default="true" id="f8686a70-9e9c-406d-80b7-8b3d919e6c3c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/layout/custom_notification.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/layout/custom_notification.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/res/layout/custom_notification.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/res/layout/custom_notification.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/menu/menu.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/menu/menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/res/menu/menu.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/res/menu/menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/xml/opciones.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/xml/opciones.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/res/xml/opciones.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/res/xml/opciones.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aRGENTeaM.apk" />
+    <ignored path="aRGENTeaM/aRGENTeaM-aRGENTeaM.apk" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,12 +169,12 @@
         <option value="$PROJECT_DIR$/libraries/AmbilWarna/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/aRGENTeaM/res/xml/borradorpreferences.xml" />
         <option value="$PROJECT_DIR$/libraries/AmbilWarna/build.gradle" />
-        <option value="$PROJECT_DIR$/aRGENTeaM/res/xml/opciones.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/aRGENTeaM/res/menu/menu.xml" />
         <option value="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/GCMIntentService.java" />
         <option value="$PROJECT_DIR$/aRGENTeaM/res/layout/custom_notification.xml" />
         <option value="$PROJECT_DIR$/aRGENTeaM/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/aRGENTeaM/res/xml/opciones.xml" />
       </list>
     </option>
   </component>
@@ -220,11 +218,11 @@
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
-      <flattenPackages />
-      <showMembers ProjectPane="true" />
+      <flattenPackages ProjectPane="false" />
+      <showMembers ProjectPane="false" />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages Scope="false" />
+      <hideEmptyPackages Scope="false" ProjectPane="false" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -237,16 +235,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="aRGENTeaM" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aRGENTeaM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aRGENTeaM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -301,17 +289,17 @@
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Facets" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="83" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="151" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="151" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="ExportedApkPath" value="$PROJECT_DIR$/aRGENTeaM.apk" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="46" />
-    <property name="ExportedModule" value="aRGENTeaM" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="ExportedApkPath" value="$PROJECT_DIR$/aRGENTeaM/aRGENTeaM-aRGENTeaM.apk" />
+    <property name="ExportedModule" value="aRGENTeaM-aRGENTeaM" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libraries/AmbilWarna" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="202" />
@@ -324,18 +312,18 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="fonp22google" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="AndroidIncludeSystemProguardFile" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="AndroidIncludeSystemProguardFile" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="AndroidProguardConfigPath" value="$PROJECT_DIR$/proguard-project.txt" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="AndroidProguardConfigPath" value="$PROJECT_DIR$/proguard-project.txt" />
     <property name="options.lastSelected" value="gradle.compiler" />
     <property name="project.structure.side.proportion" value="0.27455622" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="4df154a04f076fbb" />
@@ -367,6 +355,24 @@
       <setting name="debug" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -387,24 +393,6 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="GriffonRunConfigurationType" factoryName="Griffon">
@@ -696,7 +684,11 @@
       <created>1376815866311</created>
       <updated>1376815866311</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="- Configuración final LED notificación">
+      <created>1376872593145</created>
+      <updated>1376872593145</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -724,32 +716,32 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32663316" sideWeight="0.5525114" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32554257" sideWeight="0.5525114" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16894977" sideWeight="0.8509213" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37562606" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37562606" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554257" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554257" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.559464" sideWeight="0.3455099" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31092438" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28386605" sideWeight="0.82689077" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41708544" sideWeight="0.5951294" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70184255" sideWeight="0.6544901" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.559464" sideWeight="0.3455099" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31092438" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28386605" sideWeight="0.82689077" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70184255" sideWeight="0.6544901" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277311" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961948" sideWeight="0.6164154" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26864535" sideWeight="0.67336684" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26864535" sideWeight="0.67336684" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3835846" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16894977" sideWeight="0.8509213" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41708544" sideWeight="0.5951294" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.54941374" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -783,19 +775,13 @@
     <MESSAGE value="- Pequeños cambios por problemas con Android Studio IDE" />
     <MESSAGE value="- Agregado de libreria Color Picker (AmbilWarna)" />
     <MESSAGE value="- Configuración libreria Color Picker (AmbilWarna)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Configuración libreria Color Picker (AmbilWarna)" />
+    <MESSAGE value="- Configuración final LED notificación" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Configuración final LED notificación" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="313">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libraries/AmbilWarna/project.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
@@ -831,63 +817,43 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.108108" vertical-offset="702" max-vertical-offset="17406" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aRGENTeaM/res/xml/opciones.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="42" selection-start="787" selection-end="797" vertical-scroll-proportion="0.41666666" vertical-offset="178" max-vertical-offset="2250" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aRGENTeaM/res/menu/menu.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="12" selection-start="778" selection-end="778" vertical-scroll-proportion="-0.38848922" vertical-offset="486" max-vertical-offset="882">
-          <folding />
-        </state>
+        <state line="21" column="12" selection-start="778" selection-end="778" vertical-scroll-proportion="-0.38848922" vertical-offset="486" max-vertical-offset="882" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aRGENTeaM/res/layout/item.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972" />
+      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aRGENTeaM/res/layout/missubtitulos.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513" />
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513">
-          <folding />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aRGENTeaM/res/layout/custom_notification.xml">
+      <provider editor-type-id="text-editor">
+        <state line="45" column="41" selection-start="1746" selection-end="1746" vertical-scroll-proportion="-12.851851" vertical-offset="463" max-vertical-offset="1134" />
+      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="45" column="41" selection-start="1746" selection-end="1746" vertical-scroll-proportion="-12.851851" vertical-offset="463" max-vertical-offset="1134">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/GCMIntentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="16" selection-start="7757" selection-end="7757" vertical-scroll-proportion="0.57939917" vertical-offset="3330" max-vertical-offset="4302">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3486#3524#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="214" column="16" selection-start="7757" selection-end="7757" vertical-scroll-proportion="0.57939917" vertical-offset="3330" max-vertical-offset="4302" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aRGENTeaM/AndroidManifest.xml">
@@ -895,6 +861,16 @@
         <state line="4" column="37" selection-start="232" selection-end="232" vertical-scroll-proportion="0.20809248" vertical-offset="0" max-vertical-offset="3456">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aRGENTeaM/res/xml/opciones.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="43" selection-start="842" selection-end="842" vertical-scroll-proportion="-0.26426426" vertical-offset="394" max-vertical-offset="2286" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="313" />
       </provider>
     </entry>
   </component>
