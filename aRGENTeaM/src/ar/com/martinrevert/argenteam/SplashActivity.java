@@ -34,7 +34,7 @@ public class SplashActivity extends Activity {
 
 		setContentView(R.layout.splash);
 		
-		if (sdkVersion != 7) {
+		if (sdkVersion >= 8) {
 				
 		checkNotNull(SERVER_URL, "SERVER_URL");
 		checkNotNull(SENDER_ID, "SENDER_ID");
@@ -118,7 +118,7 @@ public class SplashActivity extends Activity {
 	  @Override
 	    protected void onDestroy() {
 		  
-		  if (sdkVersion != 7) {
+		  if (sdkVersion >= 8) {
 		  
 	        if (mRegisterTask != null) {
 	            mRegisterTask.cancel(true);

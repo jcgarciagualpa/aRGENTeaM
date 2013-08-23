@@ -1,6 +1,5 @@
 package ar.com.martinrevert.argenteam;
 
-import java.io.IOException;
 import java.util.Iterator;
 
 import org.jsoup.Jsoup;
@@ -22,11 +21,8 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class SearchableActivity extends Activity {
+public class SearchableActivity extends CustomMenu {
 
-	public String response=null;
-	public String test;
-	public String pegaitems;
 	public String[] pst;
 	public String[] imag;
 	public String[] titulo;
@@ -39,14 +35,12 @@ public class SearchableActivity extends Activity {
 
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
 		EasyTracker.getInstance().activityStart(this);
 	}
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 		EasyTracker.getInstance().activityStop(this);
 	}
@@ -63,14 +57,14 @@ public class SearchableActivity extends Activity {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 
 			query = intent.getStringExtra(SearchManager.QUERY);
-			Log.v("QUERY", query);
+
 			new DoMySearch().execute(query);
 
 		}
 
 	}
 
-	private class DoMySearch extends AsyncTask<String, String, String> {
+	private class DoMySearch extends AsyncTask<String, String, Integer> {
 		ProgressDialog dialog = new ProgressDialog(SearchableActivity.this);
 
 		@Override
@@ -81,7 +75,7 @@ public class SearchableActivity extends Activity {
 		}
 
 		@Override
-		protected String doInBackground(String... palabras) {
+		protected Integer doInBackground(String... palabras) {
 			Document doc = null;
 			int numtries = 3;
 			while (true) {
@@ -251,14 +245,15 @@ public class SearchableActivity extends Activity {
 					}
 
 					break;
-				} catch (IOException e) {
+				} catch (Exception e) {
 
 					e.printStackTrace();
 					if (--numtries == 0)
 						try {
 							throw e;
-						} catch (IOException e1) {
+						} catch (Exception e1) {
 							e1.printStackTrace();
+                            return 0;
 						}
 
 				}
@@ -267,17 +262,22 @@ public class SearchableActivity extends Activity {
 
 			adapter = new LazyAdapterBuscador(SearchableActivity.this, titulo,
 					imag, pst, tipo);
-			response = "ok";
-			return response;
+
+			return 1;
 		}
 
 		@Override
-		protected void onPostExecute(String result) {
-			// TODO Auto-generated method stub
+		protected void onPostExecute(Integer result) {
 			super.onPostExecute(result);
 			dialog.dismiss();
-			lista.setAdapter(adapter);
-			
+            if (result == 1) {
+                lista.setAdapter(adapter);
+            } else {
+                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                finish();
+
+            }
+
 		}
 
 	}

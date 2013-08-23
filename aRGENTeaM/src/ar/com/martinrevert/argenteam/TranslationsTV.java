@@ -10,7 +10,6 @@ import org.jsoup.nodes.Element;
 import org.mcsoxford.rss.RSSFeed;
 import org.mcsoxford.rss.RSSItem;
 import org.mcsoxford.rss.RSSReader;
-import org.mcsoxford.rss.RSSReaderException;
 
 import android.app.ProgressDialog;
 
@@ -37,7 +36,6 @@ public class TranslationsTV extends CustomMenu {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista);
 		lista = (ListView) findViewById(R.id.listView1);
@@ -51,7 +49,7 @@ public class TranslationsTV extends CustomMenu {
 
 	}
 
-	private class AsyncRequest extends AsyncTask<Void, Void, Void> {
+	private class AsyncRequest extends AsyncTask<Void, Void, Integer> {
 
 		ProgressDialog dialog = new ProgressDialog(TranslationsTV.this);
 
@@ -66,7 +64,7 @@ public class TranslationsTV extends CustomMenu {
 		}
 
 		@Override
-		protected Void doInBackground(Void... arg0) {
+		protected Integer doInBackground(Void... arg0) {
 
 			RSSReader reader = new RSSReader();
 			String uri = "http://www.argenteam.net/rss/portal_series_translations.xml";
@@ -125,9 +123,9 @@ public class TranslationsTV extends CustomMenu {
 					count++;
 				}
 
-			} catch (RSSReaderException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
+                return 0;
 
 			} finally{
 				reader.close();
@@ -135,15 +133,20 @@ public class TranslationsTV extends CustomMenu {
 			adapter = new LazyAdapterTV(TranslationsTV.this, titulo, imag,
 					fech, ver, post);
 
-			return null;
+			return 1;
 		}
 
 		@Override
-		protected void onPostExecute(Void result) {
-			// TODO Auto-generated method stub
+		protected void onPostExecute(Integer result) {
 			super.onPostExecute(result);
 			dialog.dismiss();
-			lista.setAdapter(adapter);
+            if (result == 1) {
+                lista.setAdapter(adapter);
+            } else {
+                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                finish();
+
+            }
 
 		}
 

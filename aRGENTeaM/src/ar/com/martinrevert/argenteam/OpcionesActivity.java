@@ -5,15 +5,24 @@ import android.preference.PreferenceActivity;
 
 public class OpcionesActivity extends PreferenceActivity {
 
-	@Override
+
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.opciones);
-		
+
+
 	
 
 		
 	}
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
 
 }

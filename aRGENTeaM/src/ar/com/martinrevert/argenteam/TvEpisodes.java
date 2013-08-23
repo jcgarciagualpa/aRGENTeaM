@@ -1,6 +1,5 @@
 package ar.com.martinrevert.argenteam;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -79,7 +78,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 		}
 	}
 
-	private class GetPage extends AsyncTask<String, Void, Void> {
+	private class GetPage extends AsyncTask<String, Void, Integer> {
 
 		ProgressDialog dialog = new ProgressDialog(TvEpisodes.this);
 		private String pegaitems;
@@ -94,7 +93,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 
 		@SuppressLint("NewApi")
 		@Override
-		protected Void doInBackground(String... query) {
+		protected Integer doInBackground(String... query) {
 
 			Document doc = null;
 			int numtries = 3;
@@ -104,15 +103,15 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 					doc = Jsoup.connect(query[0]).timeout(60000)
 							.cookie("tca", "Y").get();
 					break;
-				} catch (IOException e) {
+				} catch (Exception e) {
 
 					e.printStackTrace();
 					if (--numtries == 0)
 						try {
 							throw e;
-						} catch (IOException e1) {
-
-							e1.printStackTrace();
+						} catch (Exception e1) {
+                            e1.printStackTrace();
+                            return 0;
 						}
 
 				}
@@ -168,15 +167,18 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 
 	
 
-			return null;
+			return 1;
 		}// Fin doinbackground
 
 		@Override
-		protected void onPostExecute(Void result) {
-
+		protected void onPostExecute(Integer result) {
 			super.onPostExecute(result);
+            dialog.dismiss();
 
-			dialog.dismiss();
+            if (result == 0) {
+                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                finish();
+            }
 
 			TextView titulo = new TextView(TvEpisodes.this);
 			titulo.setText(titul);
