@@ -10,24 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81a7044d-5efb-4ccc-a1d1-c54a2ffaf7a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TheBackupAgent.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/aRGENTeaMProject.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/AndroidManifest.xml" afterPath="$PROJECT_DIR$/aRGENTeaM/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Faceb.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Faceb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/OpcionesActivity.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/OpcionesActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Peli.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Peli.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SearchableActivity.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SearchableActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SplashActivity.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SplashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SubtitlesReleases.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SubtitlesReleases.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SubtitlesReleasesTV.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SubtitlesReleasesTV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TranslationsMovies.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TranslationsMovies.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TranslationsTV.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TranslationsTV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Tv.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Tv.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TvEpisodes.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TvEpisodes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TvSeasons.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TvSeasons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/aRGENTeaM-aRGENTeaM.iml" afterPath="$PROJECT_DIR$/aRGENTeaM/aRGENTeaM-aRGENTeaM.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aRGENTeaM.iws" />
@@ -336,6 +318,11 @@
       <created>1377251713948</created>
       <updated>1377251713948</updated>
     </task>
+    <task id="LOCAL-00001" summary="- Mejoras en manejo de excepción en caso de web services caídos&#10;- Intento de configuración inicial de BACKUP API (no tiene efecto, probar disparar el backup forzado de las configuraciones del usuario)">
+      <created>1377255967895</created>
+      <updated>1377255967895</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -348,11 +335,11 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.29984778" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.7503805" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.4497717" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5126051" sideWeight="0.7503805" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -373,6 +360,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
