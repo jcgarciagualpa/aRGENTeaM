@@ -24,6 +24,7 @@ import android.preference.PreferenceManager;
 
 import android.util.Log;
 
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -138,8 +139,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                 if (doc.select("div.score").first() != null) {
                     Element puntaje = doc.select("div.score").first();
                     rating = puntaje.text();
-                    rating = rating.substring(0, 1) + ""
-                            + rating.substring(1, rating.length());
+                    rating = rating.substring(0, 1) + "." + rating.substring(1, rating.length());
                 } else {
                     rating = "Sin puntaje";
                 }
@@ -260,13 +260,13 @@ public class Peli extends CustomMenu implements OnClickListener {
                 titulo.setText(titul);
                 titulo.setId(99999);
                 titulo.setTextColor(0xffFF992B);
-                titulo.setTextSize(0, 23);
+                titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
                 TextView puntines = new TextView(Peli.this);
                 puntines.setText("Rating: " + rating);
                 puntines.setId(99987);
                 puntines.setTextColor(0xffFFFC00);
-                puntines.setTextSize(0, 20);
+                puntines.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
                 TextView detall = new TextView(Peli.this);
                 detall.setText(detalle);
@@ -285,25 +285,25 @@ public class Peli extends CustomMenu implements OnClickListener {
                 sinopsis.setText("Sinopsis");
                 sinopsis.setId(99990);
                 sinopsis.setTextColor(0xffFF992B);
-                sinopsis.setTextSize(0, 20);
+                sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
                 TextView downlsubs = new TextView(Peli.this);
                 downlsubs.setText("Descargar subtitulos");
                 downlsubs.setId(99989);
                 downlsubs.setTextColor(0xffFF992B);
-                downlsubs.setTextSize(0, 20);
+                downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
                 TextView downltorrents = new TextView(Peli.this);
                 downltorrents.setText("Descargar torrents uTorrent");
                 downltorrents.setId(99986);
                 downltorrents.setTextColor(0xffFF992B);
-                downltorrents.setTextSize(0, 20);
+                downltorrents.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
                 TextView downlelinks = new TextView(Peli.this);
                 downlelinks.setText("Descargar eLinks eMule");
                 downlelinks.setId(99988);
                 downlelinks.setTextColor(0xffFF992B);
-                downlelinks.setTextSize(0, 20);
+                downlelinks.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
                 imageLoader.DisplayImage(post, image);
 
@@ -315,8 +315,14 @@ public class Peli extends CustomMenu implements OnClickListener {
                         LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 paramsimage.addRule(RelativeLayout.BELOW, puntines.getId());
                 paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
-                paramsimage.width = 160;
-                paramsimage.height = 236;
+                //paramsimage.width = 320;
+                //paramsimage.height = 236;
+                paramsimage.width = 320;
+                paramsimage.height = 472;
+
+
+
+
                 image.setLayoutParams(paramsimage);
 
                 RelativeLayout layoutsubs = new RelativeLayout(Peli.this);
