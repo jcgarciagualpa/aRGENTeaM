@@ -53,6 +53,7 @@ public class Peli extends CustomMenu implements OnClickListener {
     public String ruta;
     public String sub;
     public String emule;
+    public String terminacion;
 
     Map<String, String> movie = new HashMap<String, String>();
     TreeMap<String, String> elinks = new TreeMap<String, String>();
@@ -89,7 +90,7 @@ public class Peli extends CustomMenu implements OnClickListener {
         private String pegaitems;
         private int palito;
         private Button btnelink;
-        private String terminacion;
+
 
         @Override
         protected void onPreExecute() {
@@ -234,6 +235,9 @@ public class Peli extends CustomMenu implements OnClickListener {
                     try {
                         String previo = torro.substring(64);
                         terminacion = previo.substring(0, previo.indexOf("&"));
+                        if (terminacion.equalsIgnoreCase("acker.publichd.eu/announce")){
+                                terminacion = "Magnet Link PublicHD";
+                        }
                     } catch (Exception e) {
                         terminacion = "Magnet link";
                     } finally {
