@@ -2,7 +2,9 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android" name="Android">
-      <configuration />
+      <configuration>
+        <option name="RUN_PROGUARD" value="true" />
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -13,9 +15,13 @@
     </content>
     <orderEntry type="jdk" jdkName="Android 4.3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="classes4" level="project" />
-    <orderEntry type="library" name="libs" level="project" />
-    <orderEntry type="library" name="classes1" level="project" />
+    <orderEntry type="module" module-name="AmbilWarna" exported="" />
+    <orderEntry type="library" exported="" name="commons-net-3.1" level="project" />
+    <orderEntry type="library" exported="" name="gcm" level="project" />
+    <orderEntry type="library" exported="" name="joda-time-2.2" level="project" />
+    <orderEntry type="library" exported="" name="jsoup-1.7.2" level="project" />
+    <orderEntry type="library" exported="" name="libGoogleAnalyticsV2" level="project" />
+    <orderEntry type="library" exported="" name="ttorrent-1.2" level="project" />
   </component>
 </module>
 
