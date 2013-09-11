@@ -8,7 +8,6 @@ buildscript {
     }
 }
 
-
 apply plugin: 'android'
 
 repositories {
@@ -23,9 +22,29 @@ dependencies {
 }
 
 
+
+def getVersionCode = { ->
+    try {
+        def code = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'log', '--oneline'
+            standardOutput = code
+        }
+        return code.toString().split("\n").size()
+    }
+    catch (ignored) {
+        return -1;
+    }
+}
+
 android {
     compileSdkVersion 18
     buildToolsVersion "18.0.1"
+
+    defaultConfig {
+      versionCode  2100 + getVersionCode()
+      versionName  "2.1." + getVersionCode()
+    }
 
     sourceSets {
         main {
