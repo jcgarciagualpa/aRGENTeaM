@@ -479,7 +479,6 @@ public class Peli extends CustomMenu implements OnClickListener {
             for (Entry<String, String> ocurrencia : torrents.entrySet()) {
                 String torrentbtn = ocurrencia.getKey();
                 String txttorrbtn = ocurrencia.getValue();
-                // String txttorrbtn = String.valueOf(t);
                 btntorrent = new Button(Peli.this);
                 btntorrent.setId(t);
                 btntorrent.setTag(torrentbtn);

@@ -18,7 +18,7 @@
     <Button
             android:id="@+id/btnFTP"
             android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/titulo"
             android:text="FTP"
@@ -27,7 +27,7 @@
     <Button
             android:id="@+id/btnBorrar"
             android:layout_width="100dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/btnFTP"
             android:layout_alignBottom="@+id/btnFTP"
             android:layout_toLeftOf="@+id/btnFTP"

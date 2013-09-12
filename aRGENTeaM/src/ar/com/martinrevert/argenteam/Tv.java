@@ -213,7 +213,6 @@ public class Tv extends CustomMenu implements OnClickListener {
 			for (Element emule : ed2k) {
 
 				mula = emule.attr("href");
-				// palito = mula.indexOf("|");
 				String previo = mula.substring(13);
 				String theend = previo.substring(palito, previo.indexOf("|"));
 				Log.v("LINKS", mula);
@@ -238,6 +237,11 @@ public class Tv extends CustomMenu implements OnClickListener {
 
 				String previo = torro.substring(64);
 				terminacion = previo.substring(0, previo.indexOf("&"));
+
+                    if (terminacion.equalsIgnoreCase("acker.publichd.eu/announce")) {
+                        terminacion = "Magnet Link sin nombre - Grupo PublicHD";
+                    }
+
 				}catch(Exception e){
 					terminacion = "Magnet Link";
 				}
