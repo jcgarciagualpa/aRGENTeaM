@@ -889,11 +889,12 @@ containing a value of this type.
         public static final int ic_action_share=0x7f020063;
         public static final int ic_launcher=0x7f020064;
         public static final int ic_stat_ic_argenteam_gcm=0x7f020065;
-        public static final int list_selector=0x7f020066;
-        public static final int stub=0x7f020067;
-        public static final int stublandscape=0x7f020068;
-        public static final int stubportrait=0x7f020069;
-        public static final int youtube=0x7f02006a;
+        public static final int imdb=0x7f020066;
+        public static final int list_selector=0x7f020067;
+        public static final int stub=0x7f020068;
+        public static final int stublandscape=0x7f020069;
+        public static final int stubportrait=0x7f02006a;
+        public static final int youtube=0x7f02006b;
     }
     public static final class id {
         public static final int about=0x7f080060;

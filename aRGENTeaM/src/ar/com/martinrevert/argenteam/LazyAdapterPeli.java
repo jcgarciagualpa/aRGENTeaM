@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.fedorvlasov.lazylist.ImageLoader;
 
-public class LazyAdapter extends BaseAdapter {
+public class LazyAdapterPeli extends BaseAdapter {
     
 	int position;
     private Activity activity;
@@ -28,7 +28,7 @@ public class LazyAdapter extends BaseAdapter {
     public ImageLoader imageLoader;
 
 
-    public LazyAdapter(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
+    public LazyAdapterPeli(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
         activity = a;
         titulo=t;
         imagen=i;

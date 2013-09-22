@@ -131,7 +131,7 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 			if (doc.select("div.score").first() != null) {
 				Element puntaje = doc.select("div.score").first();
 				rating = puntaje.text();
-				rating = rating.substring(0, 1) + ""
+				rating = rating.substring(0, 1) + "."
 						+ rating.substring(1, rating.length());
 			} else {
 				rating = "Sin puntaje";

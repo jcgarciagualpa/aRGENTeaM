@@ -2,6 +2,6 @@
 package yuku.ambilwarna;
 
 public final class BuildConfig {
-    public final static boolean DEBUG = false;
+    public static final boolean DEBUG = false;
 
 }

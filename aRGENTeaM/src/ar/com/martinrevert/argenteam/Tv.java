@@ -239,7 +239,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 				terminacion = previo.substring(0, previo.indexOf("&"));
 
                     if (terminacion.equalsIgnoreCase("acker.publichd.eu/announce")) {
-                        terminacion = "Magnet Link sin nombre - Grupo PublicHD";
+                        terminacion = "Magnet Link sin nombre";
                     }
 
 				}catch(Exception e){

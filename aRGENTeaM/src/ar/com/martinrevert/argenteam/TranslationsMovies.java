@@ -25,7 +25,7 @@ import android.widget.ListView;
 public class TranslationsMovies extends CustomMenu {
 
 	ListView lista;
-	LazyAdapter adapter;
+	LazyAdapterPeli adapter;
 
 	String[] titulo = null;
 	String[] fech = null;
@@ -129,7 +129,7 @@ public class TranslationsMovies extends CustomMenu {
 			} finally{
 				reader.close();
 			}
-			adapter = new LazyAdapter(TranslationsMovies.this, titulo, imag,
+			adapter = new LazyAdapterPeli(TranslationsMovies.this, titulo, imag,
 					fech, ver, post);
 
 			return 1;

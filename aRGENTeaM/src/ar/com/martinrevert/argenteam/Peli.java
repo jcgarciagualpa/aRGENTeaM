@@ -138,6 +138,12 @@ public class Peli extends CustomMenu implements OnClickListener {
             titul = titulo.text();
             Log.v("TITULO", titul);
 
+            Elements im = doc.select("div.section scene-info");
+            String imdb = im.text();
+            Log.v("IMDB", imdb);
+
+
+
             if (doc.select("div.score").first() != null) {
                 Element puntaje = doc.select("div.score").first();
                 rating = puntaje.text();
@@ -237,7 +243,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                     String previo = torro.substring(64);
                     terminacion = previo.substring(0, previo.indexOf("&"));
                     if (terminacion.equalsIgnoreCase("acker.publichd.eu/announce")) {
-                        terminacion = "Magnet Link sin nombre - Grupo PublicHD";
+                        terminacion = "Magnet Link sin nombre";
                     }
                 } catch (Exception e) {
                     terminacion = "Magnet link";
@@ -370,11 +376,7 @@ public class Peli extends CustomMenu implements OnClickListener {
 
             RelativeLayout.LayoutParams sinopsisparams = new RelativeLayout.LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            if (yout != "bla") {
-                sinopsisparams.addRule(RelativeLayout.BELOW, youtu.getId());
-            } else {
-                sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
-            }
+            sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
             sinopsis.setLayoutParams(sinopsisparams);
 
             RelativeLayout.LayoutParams ratingparams = new RelativeLayout.LayoutParams(
@@ -395,9 +397,11 @@ public class Peli extends CustomMenu implements OnClickListener {
             datos.setLayoutParams(paramsdatos);
 
             RelativeLayout.LayoutParams paramsyoutu = new RelativeLayout.LayoutParams(
-                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
-            paramsyoutu.addRule(RelativeLayout.BELOW, image.getId());
+            paramsyoutu.addRule(RelativeLayout.RIGHT_OF, image.getId());
+
+            paramsyoutu.addRule(RelativeLayout.BELOW, datos.getId());
 
             youtu.setLayoutParams(paramsyoutu);
 

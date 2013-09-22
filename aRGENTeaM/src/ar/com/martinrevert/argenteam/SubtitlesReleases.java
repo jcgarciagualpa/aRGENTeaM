@@ -27,7 +27,7 @@ import android.widget.ListView;
 public class SubtitlesReleases extends CustomMenu {
 
     ListView lista;
-    LazyAdapter adapter;
+    LazyAdapterPeli adapter;
 
     String[] titulo = null;
     String[] fech = null;
@@ -141,7 +141,7 @@ public class SubtitlesReleases extends CustomMenu {
                 reader.close();
             }
 
-            adapter = new LazyAdapter(SubtitlesReleases.this, titulo, imag, fech, ver, post);
+            adapter = new LazyAdapterPeli(SubtitlesReleases.this, titulo, imag, fech, ver, post);
 
             return 1;
 
