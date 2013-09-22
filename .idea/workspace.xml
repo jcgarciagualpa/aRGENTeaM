@@ -15,23 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89b6190b-49fc-4a02-872e-ebd4c90f355a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/aRGENTeaM/build/res/all/debug/drawable/imdb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/aRGENTeaM/res/drawable/imdb.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/LazyAdapter.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/LazyAdapterPeli.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build/exploded-bundles/ARGENTeaMLibrariesAmbilWarnaUnspecified.aar/classes.jar" afterPath="$PROJECT_DIR$/aRGENTeaM/build/exploded-bundles/ARGENTeaMLibrariesAmbilWarnaUnspecified.aar/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/AmbilWarna/AmbilWarna.iml" afterPath="$PROJECT_DIR$/libraries/AmbilWarna/AmbilWarna.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build/source/buildConfig/debug/ar/com/martinrevert/argenteam/BuildConfig.java" afterPath="$PROJECT_DIR$/aRGENTeaM/build/source/buildConfig/debug/ar/com/martinrevert/argenteam/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/AmbilWarna/build/source/buildConfig/debug/yuku/ambilwarna/BuildConfig.java" afterPath="$PROJECT_DIR$/libraries/AmbilWarna/build/source/buildConfig/debug/yuku/ambilwarna/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/AmbilWarna/build/source/buildConfig/release/yuku/ambilwarna/BuildConfig.java" afterPath="$PROJECT_DIR$/libraries/AmbilWarna/build/source/buildConfig/release/yuku/ambilwarna/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Peli.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Peli.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build/source/r/debug/ar/com/martinrevert/argenteam/R.java" afterPath="$PROJECT_DIR$/aRGENTeaM/build/source/r/debug/ar/com/martinrevert/argenteam/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SubtitlesReleases.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/SubtitlesReleases.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TranslationsMovies.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TranslationsMovies.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Tv.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/Tv.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TvSeasons.java" afterPath="$PROJECT_DIR$/aRGENTeaM/src/ar/com/martinrevert/argenteam/TvSeasons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/aRGENTeaM-aRGENTeaM.iml" afterPath="$PROJECT_DIR$/aRGENTeaM/aRGENTeaM-aRGENTeaM.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aRGENTeaM/build.gradle" afterPath="$PROJECT_DIR$/aRGENTeaM/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/AmbilWarna/build.gradle" afterPath="$PROJECT_DIR$/libraries/AmbilWarna/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aRGENTeaM.iws" />
@@ -1138,7 +1121,11 @@
       <created>1379847431876</created>
       <updated>1379847431876</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- Magnet link con nombres extraños&#10;">
+      <created>1379847512598</created>
+      <updated>1379847512598</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1186,7 +1173,8 @@
     <MESSAGE value="- Sistema de versionaniento automático de APK" />
     <MESSAGE value="- Corrección decimal de rating&#10;- PubliHD torrents anónimos en series" />
     <MESSAGE value="- agregado .gitignore&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- agregado .gitignore&#10;" />
+    <MESSAGE value="- Magnet link con nombres extraños&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Magnet link con nombres extraños&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
