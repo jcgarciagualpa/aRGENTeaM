@@ -1125,7 +1125,11 @@
       <created>1379847512598</created>
       <updated>1379847512598</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Ultimo commit .idea&#10;">
+      <created>1379847542222</created>
+      <updated>1379847542222</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1174,7 +1178,8 @@
     <MESSAGE value="- Corrección decimal de rating&#10;- PubliHD torrents anónimos en series" />
     <MESSAGE value="- agregado .gitignore&#10;" />
     <MESSAGE value="- Magnet link con nombres extraños&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Magnet link con nombres extraños&#10;" />
+    <MESSAGE value="- Ultimo commit .idea&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Ultimo commit .idea&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
