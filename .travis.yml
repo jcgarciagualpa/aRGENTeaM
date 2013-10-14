@@ -43,5 +43,5 @@ before_script:
   - ./wait_for_emulator
 
 script:
-  - gradle connectedInstrumentTest
+ # - gradle connectedInstrumentTest
 
