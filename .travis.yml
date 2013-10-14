@@ -42,6 +42,6 @@ before_install:
 
 ./wait_for_emulator
 
-#script:
+script:
   - gradle connectedInstrumentTest
 
