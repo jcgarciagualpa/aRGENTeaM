@@ -39,7 +39,7 @@ def getVersionCode = { ->
 
 android {
     compileSdkVersion 17
-    buildToolsVersion "18.0.1"
+    buildToolsVersion '18.0.1'
 
     defaultConfig {
       versionCode  2100 + getVersionCode()
