@@ -81,7 +81,7 @@ public class Peli extends CustomMenu implements OnClickListener {
     public String mula;
     public String btntxt;
     public String rating;
-    private boolean p2p;
+             private boolean p2p;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
