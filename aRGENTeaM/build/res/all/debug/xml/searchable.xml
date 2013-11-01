@@ -6,4 +6,4 @@
     android:voiceLanguageModel="web_search"
     android:voiceLanguage="en"
     android:includeInGlobalSearch="true">"
-</searchable><!-- From: file:/home/martin/workspace/aRGENTeaM/aRGENTeaM/res/xml/searchable.xml -->
+</searchable><!-- From: file:/home/martin/AndroidStudioProjects/aRGENTeaMProject/aRGENTeaM/src/main/res/xml/searchable.xml -->

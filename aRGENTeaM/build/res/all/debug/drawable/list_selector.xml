@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/gradient_bg_hover" android:state_pressed="true"/>
     <item android:drawable="@drawable/gradient_bg_hover" android:state_pressed="false" android:state_selected="true"/>
 
-</selector><!-- From: file:/home/martin/workspace/aRGENTeaM/aRGENTeaM/res/drawable/list_selector.xml -->
+</selector><!-- From: file:/home/martin/AndroidStudioProjects/aRGENTeaMProject/aRGENTeaM/src/main/res/drawable/list_selector.xml -->

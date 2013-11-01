@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/home/martin/workspace/aRGENTeaM/aRGENTeaM/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w600dp/values.xml -->
+    <!-- From: file:/home/martin/AndroidStudioProjects/aRGENTeaMProject/aRGENTeaM/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-w600dp/values.xml -->
+    <eat-comment />
+
     <dimen name="abc_action_bar_default_height">56dip</dimen>
     <dimen name="abc_action_bar_icon_vertical_padding">4dip</dimen>
     <dimen name="abc_action_bar_subtitle_bottom_margin">9dip</dimen>
