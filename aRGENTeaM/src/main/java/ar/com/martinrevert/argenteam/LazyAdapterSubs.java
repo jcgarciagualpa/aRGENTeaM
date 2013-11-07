@@ -196,7 +196,7 @@ public class LazyAdapterSubs extends BaseAdapter {
 
 			catch (Exception ex) {
 				ex.printStackTrace();
-				result = "No se pudo tranferir '"+su+"' via FTP. Su IP o DNS del FTP está mal configurado. Verifique tambien puerto, usuario y password";
+				result = "No se pudo transferir '"+su+"' via FTP. Su IP o DNS del FTP está mal configurado. Verifique tambien puerto, usuario y password";
 
 			}
 

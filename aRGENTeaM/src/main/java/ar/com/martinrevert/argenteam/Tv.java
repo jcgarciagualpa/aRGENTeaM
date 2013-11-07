@@ -191,22 +191,30 @@ public class Tv extends CustomMenu implements OnClickListener {
 			Iterator<Element> subt = doc.select("a[href^=/subtitles]")
 					.iterator();
 
-			while (subt.hasNext()) {
+            while (subt.hasNext()) {
 
-				Element subti = subt.next();
-				subtitulo = subti.attr("href");
-				Log.v("SUBTITULO", subtitulo);
+                Element subti = subt.next();
+                subtitulo = subti.attr("href");
+                Log.v("SUBTITULO", subtitulo);
 
-				if (subtitulo.endsWith("CC")) {
-					Log.v("CC", "NO");
-				} else {
-					Element rel = releases.next();
-					release = rel.text();
-					Log.v("RELEASES", release);
-					movie.put(release, subtitulo);
-				}
+                if (subtitulo.endsWith("CC")) {
+                    Log.v("CC", "NO");
 
-			}
+                }else{
+
+                    Element rel = releases.next();
+                    release = rel.text();
+                    if (release.contains("Streaming")){
+                        Log.v("RELEASES", "PUM");
+                        rel = releases.next();
+                        release = rel.text();
+                    }
+                    Log.v("RELEASES", release);
+                    movie.put(release, subtitulo);
+                }
+
+
+            }
 
 			Elements ed2k = doc.select("a[href^=ed2k]");
 
@@ -306,7 +314,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			downlsubs.setTextSize(0, 20);
 
 			TextView downltorrents = new TextView(Tv.this);
-			downltorrents.setText("Descargar torrents uTorrent");
+			downltorrents.setText("Descargar torrents");
 			downltorrents.setId(99986);
 			downltorrents.setTextColor(0xffFF992B);
 			downltorrents.setTextSize(0, 20);

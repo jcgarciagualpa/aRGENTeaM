@@ -81,7 +81,7 @@ public class Peli extends CustomMenu implements OnClickListener {
     public String mula;
     public String btntxt;
     public String rating;
-             private boolean p2p;
+    private boolean p2p;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -224,9 +224,16 @@ public class Peli extends CustomMenu implements OnClickListener {
 
                 if (subtitulo.endsWith("CC")) {
                     Log.v("CC", "NO");
-                } else {
+
+                }else{
+
                     Element rel = releases.next();
                     release = rel.text();
+                    if (release.contains("Streaming")){
+                        Log.v("RELEASES", "PUM");
+                        rel = releases.next();
+                        release = rel.text();
+                    }
                     Log.v("RELEASES", release);
                     movie.put(release, subtitulo);
                 }
@@ -324,7 +331,7 @@ public class Peli extends CustomMenu implements OnClickListener {
             downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
             TextView downltorrents = new TextView(Peli.this);
-            downltorrents.setText("Descargar torrents uTorrent");
+            downltorrents.setText("Descargar torrents");
             downltorrents.setId(99986);
             downltorrents.setTextColor(0xffFF992B);
             downltorrents.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
