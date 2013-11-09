@@ -12,7 +12,7 @@ martinrevert@gmail.com
 
 Open Source Libraries used:
 
-Apache Commons Net 3.1 http://commons.apache.org/proper/commons-net/index.html
+Apache Commons Net 3.3 http://commons.apache.org/proper/commons-net/index.html
 
 Joda Time 2.2 http://www.joda.org/joda-time/
 
