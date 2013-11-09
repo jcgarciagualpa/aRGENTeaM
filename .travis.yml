@@ -39,7 +39,7 @@ before_install:
   - emulator -avd test -no-skin -no-audio -no-window &
 
 before_script:
-#  - chmod +x gradlew
+  #  - chmod +x gradlew
   - chmod +x wait_for_emulator
   - ./wait_for_emulator
 
