@@ -21,6 +21,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -182,13 +183,13 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 			titulo.setText(titul);
 			titulo.setId(99999);
 			titulo.setTextColor(0xffFF992B);
-			titulo.setTextSize(0, 23);
+			titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
 			TextView puntines = new TextView(TvSeasons.this);
 			puntines.setText("Rating: " + rating);
 			puntines.setId(99987);
 			puntines.setTextColor(0xffFFFC00);
-			puntines.setTextSize(0, 20);
+			puntines.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView detall = new TextView(TvSeasons.this);
 			detall.setText(detalle);
@@ -205,13 +206,13 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 			sinopsis.setText("Sinopsis");
 			sinopsis.setId(99990);
 			sinopsis.setTextColor(0xffFF992B);
-			sinopsis.setTextSize(0, 20);
+			sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downlsubs = new TextView(TvSeasons.this);
 			downlsubs.setText("Temporadas");
 			downlsubs.setId(99989);
 			downlsubs.setTextColor(0xffFF992B);
-			downlsubs.setTextSize(0, 20);
+			downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			
 
@@ -225,8 +226,10 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			paramsimage.addRule(RelativeLayout.BELOW, puntines.getId());
 			paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
-			paramsimage.width = 160;
-			paramsimage.height = 236;
+			//paramsimage.width = 160;
+			//paramsimage.height = 236;
+            paramsimage.width = 320;
+            paramsimage.height = 472;
 			image.setLayoutParams(paramsimage);
 
 			RelativeLayout layouttemporadas = new RelativeLayout(TvSeasons.this);

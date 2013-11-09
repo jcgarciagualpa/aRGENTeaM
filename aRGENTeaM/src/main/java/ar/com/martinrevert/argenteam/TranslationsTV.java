@@ -39,7 +39,7 @@ public class TranslationsTV extends CustomMenu {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista);
 		lista = (ListView) findViewById(R.id.listView1);
-		if (isOnline() == true) {
+		if (isOnline()) {
 			new AsyncRequest().execute();
 		} else {
 			vibrateToast("Sin Internet");
@@ -57,7 +57,6 @@ public class TranslationsTV extends CustomMenu {
 
 		@Override
 		protected void onPreExecute() {
-			// TODO Auto-generated method stub
 			super.onPreExecute();
 			dialog.setMessage("Cargando...");
 			dialog.show();

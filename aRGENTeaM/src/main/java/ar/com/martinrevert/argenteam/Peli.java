@@ -352,8 +352,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             paramsimage.addRule(RelativeLayout.BELOW, puntines.getId());
             paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
-            //paramsimage.width = 320;
-            //paramsimage.height = 236;
+
             paramsimage.width = 320;
             paramsimage.height = 472;
 

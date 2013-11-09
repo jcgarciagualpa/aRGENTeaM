@@ -209,7 +209,7 @@ public class SearchableActivity extends CustomMenu {
 							imag[countimg] = "http://www.argenteam.net/images/header-background.gif";
 						} else {
 							String imageurl = img.select("img").first()
-									.attr("src").toString();
+									.attr("src");
 							imag[countimg] = imageurl;
 						}
 

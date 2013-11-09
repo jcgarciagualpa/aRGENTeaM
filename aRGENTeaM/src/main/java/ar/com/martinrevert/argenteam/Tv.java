@@ -26,6 +26,7 @@ import android.preference.PreferenceManager;
 
 import android.util.Log;
 
+import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -280,13 +281,13 @@ public class Tv extends CustomMenu implements OnClickListener {
 			titulo.setText(titul);
 			titulo.setId(99999);
 			titulo.setTextColor(0xffFF992B);
-			titulo.setTextSize(0, 23);
+			titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
 			TextView puntines = new TextView(Tv.this);
 			puntines.setText(rating);
 			puntines.setId(99987);
 			puntines.setTextColor(0xffFFFC00);
-			puntines.setTextSize(0, 20);
+			puntines.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView detall = new TextView(Tv.this);
 			detall.setText(detalle);
@@ -305,25 +306,25 @@ public class Tv extends CustomMenu implements OnClickListener {
 			sinopsis.setText("Sinopsis");
 			sinopsis.setId(99990);
 			sinopsis.setTextColor(0xffFF992B);
-			sinopsis.setTextSize(0, 20);
+			sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downlsubs = new TextView(Tv.this);
 			downlsubs.setText("Descargar subtitulos");
 			downlsubs.setId(99989);
 			downlsubs.setTextColor(0xffFF992B);
-			downlsubs.setTextSize(0, 20);
+			downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downltorrents = new TextView(Tv.this);
 			downltorrents.setText("Descargar torrents");
 			downltorrents.setId(99986);
 			downltorrents.setTextColor(0xffFF992B);
-			downltorrents.setTextSize(0, 20);
+			downltorrents.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downlelinks = new TextView(Tv.this);
 			downlelinks.setText("Descargar eLinks eMule");
 			downlelinks.setId(99988);
 			downlelinks.setTextColor(0xffFF992B);
-			downlelinks.setTextSize(0, 20);
+			downlelinks.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			imageLoader.DisplayImage(post, image);
 
@@ -550,7 +551,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			Tv.this.startActivityForResult(subintent, 0);
 
 		} else {
-			if (v.getId() >= 2000 && v.getId() < 3000 && p2p == false) {
+			if (v.getId() >= 2000 && v.getId() < 3000 && !p2p) {
 				Log.v("TORRENT", "BOTON");
 				String tag = (String) v.getTag();
 
@@ -560,7 +561,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 				subintent.putExtra("passed", URIpost);
 				Tv.this.startActivityForResult(subintent, 0);
 			} else {
-				if (v.getId() >= 1000 && v.getId() < 2000 && p2p == false) {
+				if (v.getId() >= 1000 && v.getId() < 2000 && !p2p) {
 				Log.v("ELINK", "BOTON!");
 				String tag = (String) v.getTag();
 				String URIpost = tag;
@@ -570,7 +571,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 				
 				}else {
 					String tag = (String) v.getTag();
-					if (isP2P(tag) == true) {
+					if (isP2P(tag)) {
 						Intent sharingIntent = new Intent(
 								android.content.Intent.ACTION_VIEW);
 						sharingIntent
