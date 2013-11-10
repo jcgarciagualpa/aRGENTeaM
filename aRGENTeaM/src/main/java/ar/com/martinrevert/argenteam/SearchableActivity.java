@@ -107,7 +107,7 @@ public class SearchableActivity extends CustomMenu {
 						try {
 							Thread.sleep(3000);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
+							//TODO enganchar excepcion si algo falló
 							e.printStackTrace();
 						}
 						finish();

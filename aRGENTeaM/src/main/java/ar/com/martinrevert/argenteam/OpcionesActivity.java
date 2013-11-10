@@ -9,14 +9,10 @@ public class OpcionesActivity extends PreferenceActivity {
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+		// TODO Implementar Fragment Preferences
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.opciones);
 
-
-	
-
-		
 	}
 
     @Override

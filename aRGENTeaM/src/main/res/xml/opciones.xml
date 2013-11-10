@@ -6,7 +6,8 @@
         <CheckBoxPreference
                 android:key="movieoff"
                 android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de películas."
-                android:title="On/Off"/>
+                android:title="On/Off"
+                android:defaultValue="true"/>
         <RingtonePreference
                 android:title="Sonido de mensaje"
                 android:key="prefRingtonemovie"
@@ -23,7 +24,8 @@
         <CheckBoxPreference
                 android:key="tvoff"
                 android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de series de TV."
-                android:title="On/Off"/>
+                android:title="On/Off"
+                android:defaultValue="true"/>
         <RingtonePreference
                 android:title="Sonido de mensaje"
                 android:key="prefRingtonetv"
@@ -39,7 +41,8 @@
         <CheckBoxPreference
                 android:key="vibraoff"
                 android:summary="Si está marcado, el dispositivo vibrará al recibir notificaciones."
-                android:title="Vibración notificaciones"/>
+                android:title="Vibración notificaciones"
+                android:defaultValue="true"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Ignorar setup interno P2P">
