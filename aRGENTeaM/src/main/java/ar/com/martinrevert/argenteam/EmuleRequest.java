@@ -33,8 +33,7 @@ public class EmuleRequest extends CustomMenu {
 	private String webserver;
 	private String puerto;
 	private String pass;
-	private String ed2klink;
-	private String passed;
+    private String passed;
 	ProgressDialog dialog;
 
 	@Override
@@ -54,7 +53,7 @@ public class EmuleRequest extends CustomMenu {
 				+ " password " + pass);
 		Log.v("MESAGGE", message);
 		
-		if (isOnline() && webserver != "" && puerto != "" && pass != "") {
+		if (isOnline() && !webserver.equals("") && !puerto.equals("") && !pass.equals("")) {
 			new RequestTask().execute(message);
 		} else {
 			vibrateToast("Sin internet o mal configurado server eMule");
@@ -68,7 +67,6 @@ public class EmuleRequest extends CustomMenu {
 
 		@Override
 		protected void onPreExecute() {
-			// TODO Auto-generated method stub
 			super.onPreExecute();
 			dialog.setMessage("Enviando link a tu eMule...");
 			dialog.show();
@@ -91,14 +89,14 @@ public class EmuleRequest extends CustomMenu {
 
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				// TODO Capturar excepción en enviar return amigable
 				e.printStackTrace();
 				
 				if (--numtries == 0)
 					try {
 						throw e;
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
+						// TODO Capturar excepción en enviar return amigable
 						e1.printStackTrace();
 					}
 				
@@ -119,8 +117,8 @@ public class EmuleRequest extends CustomMenu {
 			}else{
 			
 			Log.v("EMULE", result);// Do anything with response..
-			ed2klink = "http://" + webserver + ":" + puerto + result
-					+ "&w=transfer&ed2k=" + passed;
+                String ed2klink = "http://" + webserver + ":" + puerto + result
+                        + "&w=transfer&ed2k=" + passed;
 
 			new TransferFile().execute(ed2klink);
 		}
@@ -131,8 +129,6 @@ public class EmuleRequest extends CustomMenu {
 
 		@Override
 		protected String doInBackground(String... uribla) {
-			// TODO Auto-generated method stub
-
 			URL url = null;
 			try {
 				url = new URL(uribla[0]);
@@ -190,8 +186,7 @@ public class EmuleRequest extends CustomMenu {
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
-		Log.v("onDestroy", "aqui deberia hacerse logout de la sesión en Emule");
-	}
+        // TODO Hacer Logout de la sesión Emule
+		}
 }

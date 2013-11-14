@@ -17,108 +17,102 @@ import android.util.Log;
 
 public class BittorrentRequest extends CustomMenu {
 
-	ProgressDialog dialog;
-	private String webserver;
-	private String puerto;
-	private String usuario;
-	private String password;
-	private String passed;
-	private String message;
-	private String auth;
-	Document doc = null;
+    ProgressDialog dialog;
+    private String auth;
+    Document doc = null;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-		super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-		dialog = new ProgressDialog(this);
-		SharedPreferences torrentserver = PreferenceManager
-				.getDefaultSharedPreferences(getBaseContext());
-		webserver = torrentserver.getString("webservertorrent", "");
-		puerto = torrentserver.getString("puertotorrent", "");
-		usuario = torrentserver.getString("usuariotorrent", "");
-		password = torrentserver.getString("passwordtorrent", "");
+        dialog = new ProgressDialog(this);
+        SharedPreferences torrentserver = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext());
+        String webserver = torrentserver.getString("webservertorrent", "");
+        String puerto = torrentserver.getString("puertotorrent", "");
+        String usuario = torrentserver.getString("usuariotorrent", "");
+        String password = torrentserver.getString("passwordtorrent", "");
 
-		passed = getIntent().getStringExtra("passed");
+        String passed = getIntent().getStringExtra("passed");
 
-		byte[] encodedLogin = (usuario + ":" + password).getBytes();
-		auth = "Basic " + Base64.encodeBytes(encodedLogin);
+        byte[] encodedLogin = (usuario + ":" + password).getBytes();
+        auth = "Basic " + Base64.encodeBytes(encodedLogin);
 
-		// En caso de dejar de soportar cambiar a lib android.util.BASE64 y
-		// habilitar esto
-		// auth = "Basic " + Base64.encodeToString(encodedLogin, 0);
+        // En caso de dejar de soportar cambiar a lib android.util.BASE64 y
+        // habilitar esto
+        // auth = "Basic " + Base64.encodeToString(encodedLogin, 0);
 
-		message = "http://" + webserver + ":" + puerto
-				+ "/gui/?action=add-url&s=" + passed;
+        String message = "http://" + webserver + ":" + puerto
+                + "/gui/?action=add-url&s=" + passed;
 
-		if (isOnline() && webserver != "" && puerto != ""
-				&& usuario != "" && password != "") {
-			new RequestTask().execute(message);
-		} else {
-			vibrateToast("Sin internet o tienes mal configurados parámetros de uTorrent");
-			finish();
+        if (isOnline() && !webserver.equals("") && !puerto.equals("")
+                && !usuario.equals("") && !password.equals("")) {
+            new RequestTask().execute(message);
+        } else {
+            vibrateToast("Sin internet o tienes mal configurados parámetros de descarga torrent");
+            finish();
 
-		}
+        }
 
-	}
+    }
 
-	private class RequestTask extends AsyncTask<String, String, String> {
+    private class RequestTask extends AsyncTask<String, String, String> {
 
-		private String response;
+        private String response;
 
-		@Override
-		protected void onPreExecute() {
+        @Override
+        protected void onPreExecute() {
 
-			super.onPreExecute();
-			dialog.setMessage("Enviando link a tu uTorrent...");
-			dialog.show();
-		}
+            super.onPreExecute();
+            dialog.setMessage("Enviando link a tu uTorrent...");
+            dialog.show();
+        }
 
-		@Override
-		protected String doInBackground(String... uri) {
+        @Override
+        protected String doInBackground(String... uri) {
 
-			int numtries = 3;
-			while (true) {
-				try {
+            int numtries = 3;
+            while (true) {
+                try {
 
-					doc = Jsoup.connect(uri[0]).timeout(60000)
-							.header("Authorization", auth).get();
+                    doc = Jsoup.connect(uri[0]).timeout(60000)
+                            .header("Authorization", auth).get();
 
-					response = doc.body().text();
+                    response = doc.body().text();
+                    //TODO Hacer algo con la respuesta para confirmar éxito o no
+                    Log.v("TORRENT", response);
 
-					Log.v("TORRENT", response);
+                } catch (IOException e) {
 
-				} catch (IOException e) {
+                    e.printStackTrace();
 
-					e.printStackTrace();
+                    if (--numtries == 0)
+                        try {
+                            throw e;
+                        } catch (IOException e1) {
+                            //TODO Capturar excepción y usar return en caso de problemas
+                            e1.printStackTrace();
+                        }
 
-					if (--numtries == 0)
-						try {
-							throw e;
-						} catch (IOException e1) {
+                }
+                return response;
+            }
 
-							e1.printStackTrace();
-						}
+        }
 
-				}
-				return response;
-			}
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
 
-		}
+            dialog.dismiss();
 
-		@Override
-		protected void onPostExecute(String result) {
-			super.onPostExecute(result);
+            vibrateToast("Magnet Link torrent enviado correctamente para descarga");
 
-			dialog.dismiss();
+            finish();
 
-			vibrateToast("Link torrent enviado correctamente a tu uTorrent");
+        }
 
-			finish();
-
-		}
-
-	}
+    }
 
 }
