@@ -110,9 +110,9 @@ public class EmuleRequest extends CustomMenu {
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
-			
+
 			if (result == null){
-				vibrateToast("Parametros de conexión a eMule erróneos");
+				vibrateToast("Parametros de conexión a eMule erróneos o eMule o la aplicación no iniciada en la PC");
 				finish();
 			}else{
 			

@@ -15,7 +15,6 @@ repositories {
 
 dependencies {
     compile project(':libraries:AmbilWarna')
-    compile project(':libraries:AndroidFileBrowser')
     compile files('libs/gcm.jar')
     compile files('libs/libGoogleAnalyticsV2.jar')
     compile 'com.android.support:appcompat-v7:19.0.+'

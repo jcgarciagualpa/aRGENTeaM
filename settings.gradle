@@ -1,1 +1,1 @@
-include ':libraries:AmbilWarna',':libraries:AndroidFileBrowser',':aRGENTeaM'
+include ':aRGENTeaM', ':libraries:AmbilWarna'

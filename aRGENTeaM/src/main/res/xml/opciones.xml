@@ -70,27 +70,27 @@
                 android:title="Password eMule"/>
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="Configuración interfaz Web uTorrent">
+    <PreferenceCategory android:title="Configuración interfaz Web uTorrent/BitTorrent">
         <EditTextPreference
                 android:key="webservertorrent"
                 android:summary="Ejemplos: &apos;192.168.1.100&apos; o &apos;mipc.no-ip.org&apos;"
-                android:title="uTorrent IP o DNS"/>
+                android:title="uTorrent/BitTorrent IP o DNS"/>
 
         <EditTextPreference
                 android:key="puertotorrent"
-                android:summary="El password que se hayas configurado en Preferencias-&gt;Interfaz web en uTorrent"
-                android:title="Puerto uTorrent"/>
+                android:summary="El puerto que se hayas configurado en Preferencias-&gt;Interfaz web"
+                android:title="Puerto uTorrent/BitTorrent"/>
 
         <EditTextPreference
                 android:key="usuariotorrent"
-                android:summary="El usuario que hayas configurado en Preferencias-&gt;Interfaz web en uTorrent."
-                android:title="Usuario uTorrent"/>
+                android:summary="El usuario que hayas configurado en Preferencias-&gt;Interfaz web"
+                android:title="Usuario uTorrent/BitTorrent"/>
 
         <EditTextPreference
                 android:key="passwordtorrent"
                 android:password="true"
-                android:summary="El password que hayas configurado en Preferencias-&gt;Interfaz web en uTorrent"
-                android:title="Password uTorrent"/>
+                android:summary="El password que hayas configurado en Preferencias-&gt;Interfaz web"
+                android:title="Password uTorren/BitTorrent"/>
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Envío de subtitulos a servidor FTP">
