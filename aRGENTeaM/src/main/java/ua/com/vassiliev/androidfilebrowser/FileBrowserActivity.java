@@ -33,7 +33,7 @@ import android.view.*;
 import android.widget.*;
 
 //Import of resources file for file browser
-import ua.com.vassiliev.androidfilebrowser.R;
+import ar.com.martinrevert.argenteam.R;
 
 public class FileBrowserActivity extends Activity {
 	// Intent Action Constants
