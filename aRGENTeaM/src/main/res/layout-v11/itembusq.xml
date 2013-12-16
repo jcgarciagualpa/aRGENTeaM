@@ -3,9 +3,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top"
-                android:background="@android:drawable/list_selector_background">
-
-
+                android:background="?android:attr/selectableItemBackground">
 
     <ImageView
             android:id="@+id/image"
@@ -14,7 +12,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:contentDescription="@string/stubportrait"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/stubportrait"/>
 
     <TextView
@@ -28,7 +26,7 @@
             android:textSize="18sp"/>
 
     <TextView
-            android:id="@+id/version"
+            android:id="@+id/tipo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titulo"
@@ -37,15 +35,5 @@
             android:textSize="12sp"
             android:textColor="#FFFFFF"/>
 
-    <TextView
-            android:id="@+id/fech"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/image"
-            android:layout_marginLeft="2dp"
-            android:layout_toRightOf="@+id/image"
-            android:gravity="bottom"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"/>
 
 </RelativeLayout>

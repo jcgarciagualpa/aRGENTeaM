@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="already_registered">El dispositivo ya está registrado en el server</string>
+    <string name="app_name">aRGENTeaM</string>
+    <string name="error_config">Error de configuración</string>
+    <string name="ga_trackingId">UA-335227060</string>
+    <string name="options_clear">Limpiar</string>
+    <string name="options_exit">Salir</string>
+    <string name="options_register">Registrar</string>
+    <string name="options_unregister">Desregistrar</string>
+    <string name="search_hint">buscar</string>
+    <string name="server_register_error">No se puede registrar en 3rd party GCM server</string>
+    <string name="server_registered">GCM Server: Dispositivo existosamente agregado</string>
+    <string name="server_registering">Probando (intento %1$d/%2$d) de registrar 3rd party en GCM server</string>
+    <string name="server_unregister_error">No se puedo desregistrar en 3rd party GCM server (%1$s).</string>
+    <string name="server_unregistered">GCM Server:  Dispositivo removido exitosamente.</string>
+    <string name="stublandscape">stublandscape</string>
+    <string name="stubportrait">stubportrait</string>
+
+</resources>
