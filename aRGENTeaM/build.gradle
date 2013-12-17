@@ -19,9 +19,9 @@ dependencies {
     compile files('libs/libGoogleAnalyticsV2.jar')
     compile 'com.android.support:appcompat-v7:19.0.+'
     compile 'com.android.support:support-v4:19.0.+'
-    compile 'joda-time:joda-time:2.2@jar'
-    compile 'org.jsoup:jsoup:1.7.2@jar'
     compile 'commons-net:commons-net:3.3@jar'
+    compile 'org.jsoup:jsoup:1.7.3@jar'
+    compile 'joda-time:joda-time:2.3@jar'
 }
 
 
