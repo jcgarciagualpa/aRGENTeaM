@@ -15,10 +15,10 @@ Open Source libraries used:
 Apache Commons Net 3.3
 http://commons.apache.org/proper/commons-net/index.html
 
-Joda Time 2.2
+Joda Time 2.3
 http://www.joda.org/joda-time/
 
-JSOUP 1.7.2
+JSOUP 1.7.3
 http://jsoup.org/
 
 LazyList by Fedor Lazov
