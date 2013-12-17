@@ -49,6 +49,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
@@ -61,6 +62,7 @@ public class Peli extends CustomMenu implements OnClickListener {
     private ImageView image;
     private ImageButton youtu;
 
+
     public String detalle;
     public String titul;
     public String post;
@@ -69,9 +71,8 @@ public class Peli extends CustomMenu implements OnClickListener {
     public String release;
     public String key;
     public String subtitle;
-    public String ruta;
     public String sub;
-    public String emule;
+
 
 
     Map<String, String> movie = new HashMap<String, String>();
@@ -107,7 +108,6 @@ public class Peli extends CustomMenu implements OnClickListener {
 
         ProgressDialog dialog = new ProgressDialog(Peli.this);
         private String pegaitems;
-        private int palito;
         private Button btnelink;
         private String terminacion;
 
@@ -157,11 +157,10 @@ public class Peli extends CustomMenu implements OnClickListener {
             titul = titulo.text();
             Log.v("TITULO", titul);
 
-            Elements im = doc.select("div.section scene-info");
+            //ToDo IMDB???
+         /*   Elements im = doc.select("div.section scene-info");
             String imdb = im.text();
-            Log.v("IMDB", imdb);
-
-
+            Log.v("IMDB", imdb);*/
 
             if (doc.select("div.score").first() != null) {
                 Element puntaje = doc.select("div.score").first();
@@ -248,6 +247,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                 mula = emule.attr("href");
                 // palito = mula.indexOf("|");
                 String previo = mula.substring(13);
+                int palito = 0;
                 String theend = previo.substring(palito, previo.indexOf("|"));
                 Log.v("LINKS", mula);
                 Log.v("LINKS", theend);
@@ -299,11 +299,17 @@ public class Peli extends CustomMenu implements OnClickListener {
             titulo.setTextColor(0xffFF992B);
             titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
-            TextView puntines = new TextView(Peli.this);
-            puntines.setText("Rating: " + rating);
-            puntines.setId(99987);
-            puntines.setTextColor(0xffFFFC00);
-            puntines.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            RatingBar rate = new RatingBar(Peli.this, null, android.R.attr.ratingBarStyleSmall);
+            if (rating.equals("Sin puntaje"))
+            {rate.setRating(0.0f);}
+            else{
+            rate.setRating (Float.parseFloat(rating)/2);}
+            rate.setNumStars(10);
+            rate.setMax(10);
+            rate.setId(99987);
+            rate.setStepSize((float)0.01);
+            rate.setIsIndicator(true);
+
 
             TextView detall = new TextView(Peli.this);
             detall.setText(detalle);
@@ -350,7 +356,7 @@ public class Peli extends CustomMenu implements OnClickListener {
 
             RelativeLayout.LayoutParams paramsimage = new RelativeLayout.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-            paramsimage.addRule(RelativeLayout.BELOW, puntines.getId());
+            paramsimage.addRule(RelativeLayout.BELOW, rate.getId());
             paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
 
             paramsimage.width = 320;
@@ -405,10 +411,10 @@ public class Peli extends CustomMenu implements OnClickListener {
             sinopsis.setLayoutParams(sinopsisparams);
 
             RelativeLayout.LayoutParams ratingparams = new RelativeLayout.LayoutParams(
-                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             ratingparams.addRule(RelativeLayout.BELOW, titulo.getId());
             ratingparams.addRule(RelativeLayout.ALIGN_LEFT);
-            puntines.setLayoutParams(ratingparams);
+            rate.setLayoutParams(ratingparams);
 
             RelativeLayout.LayoutParams paramsdetall = new RelativeLayout.LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -418,21 +424,18 @@ public class Peli extends CustomMenu implements OnClickListener {
             RelativeLayout.LayoutParams paramsdatos = new RelativeLayout.LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             paramsdatos.addRule(RelativeLayout.RIGHT_OF, image.getId());
-            paramsdatos.addRule(RelativeLayout.BELOW, puntines.getId());
+            paramsdatos.addRule(RelativeLayout.BELOW, rate.getId());
             datos.setLayoutParams(paramsdatos);
 
             RelativeLayout.LayoutParams paramsyoutu = new RelativeLayout.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-
             paramsyoutu.addRule(RelativeLayout.RIGHT_OF, image.getId());
-
             paramsyoutu.addRule(RelativeLayout.BELOW, datos.getId());
-
             youtu.setLayoutParams(paramsyoutu);
 
             relativelayout.addView(titulo);
             relativelayout.addView(image);
-            relativelayout.addView(puntines);
+            relativelayout.addView(rate);
             relativelayout.addView(detall);
             relativelayout.addView(datos);
 

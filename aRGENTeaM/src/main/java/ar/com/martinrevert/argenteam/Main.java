@@ -3,6 +3,7 @@ package ar.com.martinrevert.argenteam;
 import com.fedorvlasov.lazylist.FileCache;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,11 +24,10 @@ public class Main extends CustomMenu {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+        Resources res = getResources();
 
-		lista = (ListView) findViewById(R.id.listamenu);
-		String[] options = { "Lanzamientos Películas",
-				"Lanzamientos Series de TV", "Películas en traducción",
-				"Series de TV en traducción", "Mis subtítulos", "Facebook" };
+        lista = (ListView) findViewById(R.id.listamenu);
+		String[] options = res.getStringArray(R.array.menu_array);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, options);
 		lista.setAdapter(adapter);
@@ -69,4 +69,6 @@ public class Main extends CustomMenu {
 		});
 
 	}
+
+
 }

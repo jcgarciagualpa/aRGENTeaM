@@ -54,7 +54,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 	public String subtitle;
 	public String ruta;
 	public String sub;
-	public String emule;
+
 
 	Map<String, String> movie = new HashMap<String, String>();
 	TreeMap<String, String> elinks = new TreeMap<String, String>();

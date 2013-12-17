@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basics, toasts and utility -->
     <string name="app_name">aRGENTeaM</string>
-    <string name="search_hint">buscar</string>
+    <string name="search_hint">search</string>
     <string name="stubportrait">stubportrait</string>
     <string name="stublandscape">stublandscape</string>
+
+    <!-- GCM -->
     <string name="error_config">Error config</string>
     <string name="already_registered">Device is already registered on server.</string>
     <string name="gcm_registered">From GCM: device successfully registered!</string>

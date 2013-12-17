@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
@@ -41,14 +42,9 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 	public String detalle;
 	public String titul;
 	public String post;
-	public String yout;
-	public String subtitulo;
-	public String release;
 	public String key;
 	public String subtitle;
-	public String ruta;
 	public String sub;
-	public String emule;
 
 	
 	TreeMap<String, String> temporadas = new TreeMap<String, String>();
@@ -185,11 +181,17 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 			titulo.setTextColor(0xffFF992B);
 			titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
-			TextView puntines = new TextView(TvSeasons.this);
-			puntines.setText("Rating: " + rating);
-			puntines.setId(99987);
-			puntines.setTextColor(0xffFFFC00);
-			puntines.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            RatingBar rate = new RatingBar(TvSeasons.this, null, android.R.attr.ratingBarStyleSmall);
+            if (rating.equals("Sin puntaje"))
+            {rate.setRating(0.0f);}
+            else{
+                rate.setRating (Float.parseFloat(rating)/2);}
+            rate.setNumStars(10);
+            rate.setMax(10);
+            rate.setId(99987);
+            rate.setStepSize((float)0.01);
+            rate.setIsIndicator(true);
+
 
 			TextView detall = new TextView(TvSeasons.this);
 			detall.setText(detalle);
@@ -224,10 +226,9 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 
 			RelativeLayout.LayoutParams paramsimage = new RelativeLayout.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-			paramsimage.addRule(RelativeLayout.BELOW, puntines.getId());
+			paramsimage.addRule(RelativeLayout.BELOW, rate.getId());
 			paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
-			//paramsimage.width = 160;
-			//paramsimage.height = 236;
+
             paramsimage.width = 320;
             paramsimage.height = 472;
 			image.setLayoutParams(paramsimage);
@@ -255,10 +256,10 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 			sinopsis.setLayoutParams(sinopsisparams);
 
 			RelativeLayout.LayoutParams ratingparams = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			ratingparams.addRule(RelativeLayout.BELOW, titulo.getId());
 			ratingparams.addRule(RelativeLayout.ALIGN_LEFT);
-			puntines.setLayoutParams(ratingparams);
+			rate.setLayoutParams(ratingparams);
 
 			RelativeLayout.LayoutParams paramsdetall = new RelativeLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -268,12 +269,12 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
 			RelativeLayout.LayoutParams paramsdatos = new RelativeLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 			paramsdatos.addRule(RelativeLayout.RIGHT_OF, image.getId());
-			paramsdatos.addRule(RelativeLayout.BELOW, puntines.getId());
+			paramsdatos.addRule(RelativeLayout.BELOW, rate.getId());
 			datos.setLayoutParams(paramsdatos);
 
 			relativelayout.addView(titulo);
 			relativelayout.addView(image);
-			relativelayout.addView(puntines);
+			relativelayout.addView(rate);
 			relativelayout.addView(detall);
 			relativelayout.addView(datos);
 
