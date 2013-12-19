@@ -44,7 +44,7 @@ public class SubtitlesReleasesTV extends CustomMenu {
 		if (isOnline() == true) {
 			new AsyncRequest().execute();
 		} else {
-			vibrateToast("Sin Internet");
+			vibrateToast(R.string.sininternet);
 			finish();
 			
 		}
@@ -144,7 +144,7 @@ public class SubtitlesReleasesTV extends CustomMenu {
             if (result == 1) {
                 lista.setAdapter(adapter);
             } else {
-                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                vibrateToast(R.string.sinportal);
                 finish();
 
             }

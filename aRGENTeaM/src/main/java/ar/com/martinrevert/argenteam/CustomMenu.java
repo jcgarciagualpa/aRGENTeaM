@@ -41,8 +41,6 @@ public class CustomMenu extends ActionBarActivity {
         EasyTracker.getInstance().activityStop(this);
     }
 
-    private String version;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -93,6 +91,7 @@ public class CustomMenu extends ActionBarActivity {
                 return true;
 
             case R.id.about:
+                String version;
                 try {
                     version = getPackageManager().getPackageInfo(getPackageName(),
                             0).versionName;
@@ -142,7 +141,7 @@ public class CustomMenu extends ActionBarActivity {
 
     }
 
-    public Void vibrateToast(String message) {
+    public Void vibrateToast(int message) {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         int duration = Toast.LENGTH_LONG;
         v.vibrate(300);

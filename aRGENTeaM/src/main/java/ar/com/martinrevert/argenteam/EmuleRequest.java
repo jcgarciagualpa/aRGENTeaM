@@ -56,7 +56,7 @@ public class EmuleRequest extends CustomMenu {
 		if (isOnline() && !webserver.equals("") && !puerto.equals("") && !pass.equals("")) {
 			new RequestTask().execute(message);
 		} else {
-			vibrateToast("Sin internet o mal configurado server eMule");
+			vibrateToast(R.string.sinemule);
 			finish();
 			
 		}
@@ -112,7 +112,7 @@ public class EmuleRequest extends CustomMenu {
 			super.onPostExecute(result);
 
 			if (result == null){
-				vibrateToast("Parametros de conexión a eMule erróneos o eMule o la aplicación no iniciada en la PC");
+				vibrateToast(R.string.sinemuleiniciado);
 				finish();
 			}else{
 			
@@ -179,7 +179,7 @@ public class EmuleRequest extends CustomMenu {
 			super.onPostExecute(result);
 			
 			dialog.dismiss();
-			vibrateToast("elink agregado correctamente en tu eMule");
+			vibrateToast(R.string.emulesendedok);
 			finish();
 		}
 	}

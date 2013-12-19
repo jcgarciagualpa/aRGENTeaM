@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.7.+'
     }
 }
 
@@ -45,7 +45,7 @@ android {
     buildToolsVersion '19'
 
     defaultConfig {
-      versionCode  2100 + getVersionCode()
+      versionCode  21000 + getVersionCode()
       versionName  "2.1." + getVersionCode()
     }
 

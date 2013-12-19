@@ -50,7 +50,7 @@ public class BittorrentRequest extends CustomMenu {
                 && !usuario.equals("") && !password.equals("")) {
             new RequestTask().execute(message);
         } else {
-            vibrateToast("Sin internet o tienes mal configurados parámetros de descarga torrent");
+            vibrateToast(R.string.sintorrent);
             finish();
 
         }
@@ -107,7 +107,7 @@ public class BittorrentRequest extends CustomMenu {
 
             dialog.dismiss();
 
-            vibrateToast("Magnet Link torrent enviado correctamente para descarga");
+            vibrateToast(R.string.torrentsendedok);
 
             finish();
 

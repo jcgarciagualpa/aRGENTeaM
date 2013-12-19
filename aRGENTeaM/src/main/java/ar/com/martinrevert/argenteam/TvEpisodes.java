@@ -69,7 +69,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 		if (isOnline()) {
 			new GetPage().execute(message);
 		} else {
-			vibrateToast("Sin Internet");
+			vibrateToast(R.string.sininternet);
 			finish();
 
 		}
@@ -173,7 +173,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
             dialog.dismiss();
 
             if (result == 0) {
-                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                vibrateToast(R.string.sinportal);
                 finish();
             }
 

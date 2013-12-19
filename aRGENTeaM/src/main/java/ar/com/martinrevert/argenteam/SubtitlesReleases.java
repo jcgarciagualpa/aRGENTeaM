@@ -12,7 +12,6 @@ import org.mcsoxford.rss.RSSFeed;
 import org.mcsoxford.rss.RSSItem;
 import org.mcsoxford.rss.RSSReader;
 
-
 import android.app.ProgressDialog;
 
 import android.net.Uri;
@@ -46,7 +45,7 @@ public class SubtitlesReleases extends CustomMenu {
         if (isOnline()) {
             new AsyncRequest().execute();
         } else {
-            vibrateToast("Sin Internet");
+            vibrateToast(R.string.sininternet);
             finish();
 
         }
@@ -154,7 +153,7 @@ public class SubtitlesReleases extends CustomMenu {
             if (result == 1) {
                 lista.setAdapter(adapter);
             } else {
-                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                vibrateToast(R.string.sinportal);
                 finish();
 
             }

@@ -98,7 +98,7 @@ public class Peli extends CustomMenu implements OnClickListener {
         if (isOnline()) {
             new GetPage().execute(message);
         } else {
-            vibrateToast("Sin Internet");
+            vibrateToast(R.string.sininternet);
             finish();
 
         }
@@ -289,7 +289,7 @@ public class Peli extends CustomMenu implements OnClickListener {
             dialog.dismiss();
 
             if (result == 0) {
-                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                vibrateToast(R.string.sinportal);
                 finish();
             }
 
@@ -597,7 +597,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                         startActivity(sharingIntent);
                     } else {
 
-                        vibrateToast("No hay apps instaladas para manejar el requerimiento. Deschequear parametro 'P2P off' en Configuraciones o instalar una app para manejar links P2P");
+                        vibrateToast(R.string.sinp2papp);
                     }
                 }
             }

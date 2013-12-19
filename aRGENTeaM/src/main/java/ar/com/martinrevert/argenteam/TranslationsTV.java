@@ -42,7 +42,7 @@ public class TranslationsTV extends CustomMenu {
 		if (isOnline()) {
 			new AsyncRequest().execute();
 		} else {
-			vibrateToast("Sin Internet");
+			vibrateToast(R.string.torrentsendedok);
 			finish();
 
 		}
@@ -142,7 +142,7 @@ public class TranslationsTV extends CustomMenu {
             if (result == 1) {
                 lista.setAdapter(adapter);
             } else {
-                vibrateToast("aRGENTeaM no está disponible o no tienes Internet");
+                vibrateToast(R.string.sinportal);
                 finish();
 
             }

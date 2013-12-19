@@ -39,7 +39,7 @@ public class DownloadFile extends CustomMenu {
         if (isOnline()) {
         	new DownloadFileAsync().execute(message);
 		} else {
-			vibrateToast("Sin Internet");
+			vibrateToast(R.string.sininternet);
 			finish();
 			
 		}
