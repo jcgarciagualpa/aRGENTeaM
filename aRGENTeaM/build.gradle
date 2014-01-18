@@ -45,6 +45,11 @@ android {
     compileSdkVersion 19
     buildToolsVersion '19.0.1'
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
     defaultConfig {
       versionCode  21000 + getVersionCode()
       versionName  "2.1." + getVersionCode()
