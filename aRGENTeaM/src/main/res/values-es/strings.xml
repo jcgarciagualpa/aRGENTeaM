@@ -1,20 +1,44 @@
 <resources>
 
-    <string name="already_registered">El dispositivo ya está registrado en el server</string>
+    <!-- Menu -->
+    <string name="search">Buscar</string>
+    <string name="share">Compartir</string>
+    <string name="settings">Configuración</string>
+    <string name="about">Acerca</string>
+
+
+    <!-- Basics, toasts and utility -->
     <string name="app_name">aRGENTeaM</string>
-    <string name="error_config">Error de configuración</string>
-    <string name="ga_trackingId">UA-335227060</string>
-    <string name="options_clear">Limpiar</string>
-    <string name="options_exit">Salir</string>
-    <string name="options_register">Registrar</string>
-    <string name="options_unregister">Desregistrar</string>
     <string name="search_hint">buscar</string>
-    <string name="server_register_error">No se puede registrar en 3rd party GCM server</string>
-    <string name="server_registered">GCM Server: Dispositivo existosamente agregado</string>
-    <string name="server_registering">Probando (intento %1$d/%2$d) de registrar 3rd party en GCM server</string>
-    <string name="server_unregister_error">No se puedo desregistrar en 3rd party GCM server (%1$s).</string>
-    <string name="server_unregistered">GCM Server:  Dispositivo removido exitosamente.</string>
-    <string name="stublandscape">stublandscape</string>
     <string name="stubportrait">stubportrait</string>
+    <string name="stublandscape">stublandscape</string>
+    <string name="sininternet">Sin Internet</string>
+    <string name="sinportal">No aRGENTeaM access or you just don\'t have Internet enabled on this device</string>
+    <string name="sinp2papp">There\'s no P2P app installed to fulfill this request. Uncheck \"P2P off\" in Settings or install a proper P2P app</string>
+    <string name="sintorrent">No network access or bad torrent parameters in Settings</string>
+    <string name="torrentsendedok">Magnet Link sended OK to your torrent app</string>
+    <string name="sinemule">No network access or bad ed2k parameters in Settings</string>
+    <string name="sinemuleiniciado">Bad ed2k parameters in Settings or ed2k app is not started to receive the elink</string>
+    <string name="emulesendedok">Elink sended ok to your ed2k app</string>
+
+    <!-- GCM -->
+    <string name="error_config">Error config</string>
+    <string name="already_registered">Device is already registered on server.</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$d pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="options_register">Register</string>
+    <string name="options_unregister">Unregister</string>
+    <string name="options_clear">Clear</string>
+    <string name="options_exit">Exit</string>
+
 
 </resources>
