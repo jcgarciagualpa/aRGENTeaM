@@ -34,6 +34,8 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URL;
