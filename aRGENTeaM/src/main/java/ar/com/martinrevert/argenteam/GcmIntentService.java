@@ -15,9 +15,8 @@
  */
 package ar.com.martinrevert.argenteam;
 
-import static com.google.android.gcm.app.CommonUtilities.SENDER_ID;
-
 import android.app.Notification;
+import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -27,15 +26,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.SystemClock;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
-
-import com.google.android.gcm.GCMBaseIntentService;
-import com.google.android.gcm.GCMRegistrar;
-import com.google.android.gcm.app.ServerUtilities;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -46,87 +43,57 @@ import java.util.Random;
 /**
  * IntentService responsible for handling GCM messages.
  */
-public class GCMIntentService extends GCMBaseIntentService {
+public class GcmIntentService extends IntentService {
 
-    private static final String TAG = "GCMIntentService";
+    private static final String TAG = "GcmIntentService";
 
-    public GCMIntentService() {
-        super(SENDER_ID);
+    public GcmIntentService() {
+        super("GcmIntentService");
     }
 
     @Override
-    protected void onRegistered(Context context, String registrationId) {
-        Log.i(TAG, "Device registered: regId = " + registrationId);
-        // displayMessage(context, getString(R.string.gcm_registered));
-        ServerUtilities.register(context, registrationId);
-    }
-
-    @Override
-    protected void onUnregistered(Context context, String registrationId) {
-        Log.i(TAG, "Device unregistered");
-        //displayMessage(context, getString(R.string.gcm_unregistered));
-        if (GCMRegistrar.isRegisteredOnServer(context)) {
-            ServerUtilities.unregister(context, registrationId);
-        } else {
-            // This callback results from the call to unregister made on
-            // ServerUtilities when the registration to the server failed.
-            Log.i(TAG, "Ignoring unregister callback");
-        }
-    }
-
-    @Override
-    protected void onMessage(Context context, Intent intent) {
-        Log.i(TAG, "Received message");
-
+    protected void onHandleIntent(Intent intent) {
         String message;
         String tipo;
         String urlimagen;
         String urlarticulo;
         String fecha;
 
-        message = intent.getExtras().getString("message");
-        tipo = intent.getExtras().getString("tipo");
-        urlimagen = intent.getExtras().getString("urlimagen");
-        urlarticulo = intent.getExtras().getString("urlarticulo");
-        fecha = intent.getExtras().getString("fecha");
+        Context context = getApplicationContext();
 
+        Bundle extras = intent.getExtras();
 
-        //displayMessage(context, message);
-        // notifies user
-        generarNotification(context, message, urlimagen, urlarticulo, tipo, fecha);
-    }
+        GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
+        // The getMessageType() intent parameter must be the intent you received
+        // in your BroadcastReceiver.
+        String messageType = gcm.getMessageType(intent);
 
-    @Override
-    protected void onDeletedMessages(Context context, int total) {
-        Log.i(TAG, "Received deleted messages notification");
-        String message = getString(R.string.gcm_deleted, total);
-        String tipo = "";
-        String urlimagen = "";
-        String urlarticulo = "";
-        String fecha = "";
-        //displayMessage(context, message);
-        // notifies user
-        generarNotification(context, message, urlimagen, urlarticulo, tipo, fecha);
-    }
-
-    @Override
-    public void onError(Context context, String errorId) {
-        Log.i(TAG, "Received error: " + errorId);
-        //  displayMessage(context, getString(R.string.gcm_error, errorId));
-    }
-
-    @Override
-    protected boolean onRecoverableError(Context context, String errorId) {
-        // log message
-        Log.i(TAG, "Received recoverable error: " + errorId);
-        //displayMessage(context, getString(R.string.gcm_recoverable_error,
-        //  errorId));
-        return super.onRecoverableError(context, errorId);
-    }
-
-    private int dpToPx(int dp) {
-        float density = getApplicationContext().getResources().getDisplayMetrics().density;
-        return Math.round((float) dp * density);
+        if (!extras.isEmpty()) {  // has effect of unparcelling Bundle
+            /*
+             * Filter messages based on message type. Since it is likely that GCM will be
+             * extended in the future with new message types, just ignore any message types you're
+             * not interested in, or that you don't recognize.
+             */
+            if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
+                generarNotification(context,"Error: " + extras.toString(),"","","","");
+            } else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
+                generarNotification(context, "Deleted messages on server: " + extras.toString(),"","","","");
+                // If it's a regular GCM message, do some work.
+            } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
+                // Aqui obtengo los datos del mensaje que viene en el Intent.
+                message = intent.getExtras().getString("message");
+                tipo = intent.getExtras().getString("tipo");
+                urlimagen = intent.getExtras().getString("urlimagen");
+                urlarticulo = intent.getExtras().getString("urlarticulo");
+                fecha = intent.getExtras().getString("fecha");
+                Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
+                // Post notification of received message.
+                generarNotification(context, message, urlimagen, urlarticulo, tipo, fecha);
+                Log.i(TAG, "Received: " + extras.toString());
+            }
+        }
+        // Release the wake lock provided by the WakefulBroadcastReceiver.
+        GcmBroadcastReceiver.completeWakefulIntent(intent);
     }
 
     public Bitmap getRemoteImage(final String aURL, String tipo) {
@@ -140,7 +107,7 @@ public class GCMIntentService extends GCMBaseIntentService {
             bis.close();
             return scaledBitmap;
         } catch (IOException e) {
-            // ToDo Mostrar imagen generica si falla el request
+            // ToDo Mostrar imagen generica si falla el request usando el "tipo"
 
         }
         return null;
@@ -150,8 +117,6 @@ public class GCMIntentService extends GCMBaseIntentService {
      * Issues a notification to inform the user that server has sent a message.
      */
     private void generarNotification(Context context, String message, String urlimagen, String urlarticulo, String tipo, String fecha) {
-        int icon = R.drawable.ic_stat_ic_argenteam_gcm;
-
         SharedPreferences preferencias = PreferenceManager
                 .getDefaultSharedPreferences(getBaseContext());
         boolean vib = preferencias.getBoolean("vibraoff", false);
