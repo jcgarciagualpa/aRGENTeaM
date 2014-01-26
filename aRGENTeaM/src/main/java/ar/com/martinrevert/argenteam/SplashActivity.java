@@ -46,7 +46,7 @@ public class SplashActivity extends Activity {
     public static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    public static final String SERVER_URL = "http://ec2-54-232-58-123.sa-east-1.compute.amazonaws.com/martinrevert/atGCM/rest1.php";
+    public static final String SERVER_URL = "http://www.martinrevert.com.ar/atGCM/rest.php/register/";
     private long ms = 0;
 
     /**
