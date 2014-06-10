@@ -1,8 +1,15 @@
 #aRGENTeaM for Android
 
+Find the app here:
 [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=ar.com.martinrevert.argenteam)
 
-[![Build Status](https://travis-ci.org/martinrevert/aRGENTeaM.png)](https://travis-ci.org/martinrevert/aRGENTeaM)
+Build status:
+
+Master
+[![Build Status](https://travis-ci.org/martinrevert/aRGENTeaM.svg?branch=master)](https://travis-ci.org/martinrevert/aRGENTeaM)
+
+Experimental
+[![Build Status](https://travis-ci.org/martinrevert/aRGENTeaM.svg?branch=travis)](https://travis-ci.org/martinrevert/aRGENTeaM)
 
 Developer:
 Martin Revert
