@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.8.+'
+        classpath 'com.android.tools.build:gradle:0.11.+'
     }
 }
 
@@ -16,8 +16,8 @@ repositories {
 dependencies {
     compile project(':libraries:AmbilWarna')
     compile files('libs/libGoogleAnalyticsServices.jar')
-    compile 'com.android.support:appcompat-v7:19.0.+'
-    compile 'com.android.support:support-v4:19.0.+'
+    compile 'com.android.support:appcompat-v7:19.1.+'
+    compile 'com.android.support:support-v4:19.1.+'
     compile 'commons-net:commons-net:3.3@jar'
     compile 'org.jsoup:jsoup:1.7.3@jar'
     compile 'joda-time:joda-time:2.3@jar'
@@ -43,7 +43,7 @@ def getVersionCode = { ->
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.0.1'
+    buildToolsVersion '19.1.0'
 
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
