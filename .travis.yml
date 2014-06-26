@@ -16,7 +16,7 @@ before_install:
   - wget https://dl-ssl.google.com/android/repository/build-tools_r20-linux.zip
   - unzip build-tools_r20-linux.zip -d $ANDROID_HOME
   - mkdir -p $ANDROID_HOME/build-tools/
-  - mv $ANDROID_HOME/android-4.4.2 $ANDROID_HOME/build-tools/20
+  - mv $ANDROID_HOME/android-4.4W $ANDROID_HOME/build-tools/20
 
   # Install required components.
   # For a full list, run `android list sdk -a --extended`
