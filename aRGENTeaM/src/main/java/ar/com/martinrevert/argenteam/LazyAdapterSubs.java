@@ -114,26 +114,6 @@ public class LazyAdapterSubs extends BaseAdapter {
 
 		});
 
-		/*
-		 * vi.setOnClickListener(new OnClickListener(){
-		 * 
-		 * @Override public void onClick(View arg0) {
-		 * 
-		 * 
-		 * if(btnFTP.getId()) { String URIpost = post[position].toString();
-		 * Log.v("URL", URIpost); Intent peliPage = new
-		 * Intent(activity,Peli.class); peliPage.putExtra("passed", URIpost);
-		 * activity.startActivityForResult(peliPage, 0);
-		 * 
-		 * } else { Log.v("ZAFAR EXPLOSION", "PUM"); }
-		 * 
-		 * }
-		 * 
-		 * 
-		 * 
-		 * });
-		 */
-
 		return vi;
 	}
 

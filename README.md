@@ -42,3 +42,6 @@ http://code.google.com/p/android-color-picker/
 
 OkHttp 1.3.0
 http://square.github.io/okhttp/
+
+Android Directory Chooser
+https://github.com/passy/Android-DirectoryChooser

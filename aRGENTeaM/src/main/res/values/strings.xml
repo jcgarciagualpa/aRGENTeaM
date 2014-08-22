@@ -16,10 +16,10 @@
     <string name="sinportal">No aRGENTeaM access or you just don\'t have Internet enabled on this device</string>
     <string name="sinp2papp">There\'s no P2P app installed to fulfill this request. Uncheck \"P2P off\" in Settings or install a proper P2P app</string>
     <string name="sintorrent">No network access or bad torrent parameters in Settings</string>
-    <string name="torrentsendedok">Magnet Link sended OK to your torrent app</string>
+    <string name="torrentsendedok">Magnet Link sent OK to your torrent app</string>
     <string name="sinemule">No network access or bad ed2k parameters in Settings</string>
     <string name="sinemuleiniciado">Bad ed2k parameters in Settings or ed2k app is not started to receive the elink</string>
-    <string name="emulesendedok">Elink sended ok to your ed2k app</string>
+    <string name="emulesendedok">Elink sent OK to your ed2k app</string>
 
     <!-- GCM -->
     <string name="error_config">Error config</string>
