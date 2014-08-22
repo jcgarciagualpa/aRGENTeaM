@@ -161,9 +161,6 @@ public class LazyAdapterSubs extends BaseAdapter {
 			String userftp = ftpprefs.getString("userftp","");
 			String passwordftp = ftpprefs.getString("passwordftp","");
 			
-		//	String server = "192.168.1.107";
-		//	String username = "ftpuser";
-		//	String password = "123";
 
 			Bundle param = para[0];
 			String su = param.getString("su");
@@ -179,7 +176,7 @@ public class LazyAdapterSubs extends BaseAdapter {
 				if (estatus != null) {
 					Log.v("LOGIN", "login OK:" + estatus);
 					ftp.changeWorkingDirectory(directorioftp);
-					ftp.setAutodetectUTF8(true);
+					//ftp.setAutodetectUTF8(true);
 					String destino = su;
 					InputStream in = new FileInputStream(pa);
 					ftp.setFileType(FTP.BINARY_FILE_TYPE);
