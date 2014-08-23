@@ -23,6 +23,8 @@ android:
   licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
+  before install:
+    - chmod +x gradlew
 
     # Emulator Management: Create, Start and Wait
   before_script:
@@ -33,4 +35,4 @@ android:
   script:
     # ./gradlew connectedInstrumentTest
   after script:
-    ./gradlew assembleDebug
+    # some shell after the main tests

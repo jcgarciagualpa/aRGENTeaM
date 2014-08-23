@@ -5,10 +5,10 @@ Find the app here:
 
 Build status:
 
-Master
+Master (branch 'master') 
 [![Build Status](https://travis-ci.org/martinrevert/aRGENTeaM.svg?branch=master)](https://travis-ci.org/martinrevert/aRGENTeaM)
 
-Experimental
+Experimental (branch 'travis-master')
 [![Build Status](https://travis-ci.org/martinrevert/aRGENTeaM.svg?branch=travis-master)](https://travis-ci.org/martinrevert/aRGENTeaM)
 
 Developer:
