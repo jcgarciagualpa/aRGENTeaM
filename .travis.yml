@@ -1,11 +1,6 @@
 language: android
 jdk: oraclejdk7
 
-env:
-  matrix:
-    - ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
-
-
 android:
   components:
     # The BuildTools version used by your project
@@ -31,11 +26,11 @@ android:
 
     # Emulator Management: Create, Start and Wait
   before_script:
-    # echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
-    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+    - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
     - emulator -avd test -no-skin -no-audio -no-window &
-    - chmod +x gradlew
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
   script:
     # ./gradlew connectedInstrumentTest
+  after script:
+    ./gradlew assembleDebug
