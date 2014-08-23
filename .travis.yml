@@ -30,5 +30,6 @@ android:
   script:
     - ./gradlew assembleDebug
     # ./gradlew connectedInstrumentTest
-  after script:
+  after_failure:
     # some shell after the main tests
+    - ./gradlew assembleDebug
