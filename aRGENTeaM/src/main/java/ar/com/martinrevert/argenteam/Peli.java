@@ -321,7 +321,7 @@ public class Peli extends CustomMenu implements OnClickListener {
             datos.setId(99997);
 
             youtu = new ImageButton(Peli.this);
-            youtu.setImageResource(R.drawable.youtube);
+            youtu.setImageResource(R.drawable.ic_youtube);
             youtu.setId(99975);
 
             TextView sinopsis = new TextView(Peli.this);

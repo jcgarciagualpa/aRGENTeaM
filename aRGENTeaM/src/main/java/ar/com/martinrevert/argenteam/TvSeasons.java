@@ -34,313 +34,315 @@ import android.widget.TextView;
 
 public class TvSeasons extends CustomMenu implements OnClickListener {
 
-	private ImageLoader imageLoader;
-	private String message;
-	private ImageView image;
-	
+    private ImageLoader imageLoader;
+    private String message;
+    private ImageView image;
 
-	public String detalle;
-	public String titul;
-	public String post;
-	public String key;
-	public String subtitle;
-	public String sub;
 
-	
-	TreeMap<String, String> temporadas = new TreeMap<String, String>();
-	
+    public String detalle;
+    public String titul;
+    public String post;
+    public String key;
+    public String subtitle;
+    public String sub;
 
-	public String mula;
-	public String btntxt;
-	public String rating;
-	public String season;
-	public String tag;
 
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    TreeMap<String, String> temporadas = new TreeMap<String, String>();
 
-		image = new ImageView(TvSeasons.this);
-		image.setId(99995);
-		imageLoader = new ImageLoader(getBaseContext(),"movie");
 
-		message = getIntent().getStringExtra("passed");
+    public String mula;
+    public String btntxt;
+    public String rating;
+    public String season;
+    public String tag;
 
-		if (isOnline()) {
-			new GetPage().execute(message);
-		} else {
-			vibrateToast(R.string.sininternet);
-			finish();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		}
-	}
+        image = new ImageView(TvSeasons.this);
+        image.setId(99995);
+        imageLoader = new ImageLoader(getBaseContext(), "movie");
 
-	private class GetPage extends AsyncTask<String, Void, Integer> {
+        message = getIntent().getStringExtra("passed");
 
-		ProgressDialog dialog = new ProgressDialog(TvSeasons.this);
-		private String pegaitems;
-		
+        if (isOnline()) {
+            new GetPage().execute(message);
+        } else {
+            vibrateToast(R.string.sininternet);
+            finish();
 
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			dialog.setMessage("Cargando...");
-			dialog.show();
-		}
+        }
+    }
 
-		@SuppressLint("NewApi")
-		@Override
-		protected Integer doInBackground(String... query) {
+    private class GetPage extends AsyncTask<String, Void, Integer> {
 
-			Document doc = null;
-			int numtries = 3;
-			while (true) {
+        ProgressDialog dialog = new ProgressDialog(TvSeasons.this);
+        private String pegaitems;
 
-				try {
-					doc = Jsoup.connect(query[0]).timeout(60000)
-							.cookie("tca", "Y").get();
-					break;
-				} catch (Exception e) {
 
-					e.printStackTrace();
-					if (--numtries == 0)
-						try {
-							throw e;
-						} catch (Exception e1) {
-							e1.printStackTrace();
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog.setMessage("Cargando...");
+            dialog.show();
+        }
+
+        @SuppressLint("NewApi")
+        @Override
+        protected Integer doInBackground(String... query) {
+
+            Document doc = null;
+            int numtries = 3;
+            while (true) {
+
+                try {
+                    doc = Jsoup.connect(query[0]).timeout(60000)
+                            .cookie("tca", "Y").get();
+                    break;
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                    if (--numtries == 0)
+                        try {
+                            throw e;
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
                             return 0;
-						}
+                        }
 
-				}
-			}
+                }
+            }
 
-			String deta = doc.select("div.details").first().text();
-			detalle = Jsoup.parse(deta).text();
-			Log.v("DETAILS", detalle);
+            String deta = doc.select("div.details").first().text();
+            detalle = Jsoup.parse(deta).text();
+            Log.v("DETAILS", detalle);
 
-			Element poster = doc.select("div.pmovie > img").first();
-			post = poster.attr("src");
-			Log.v("POSTER", post);
-
-			Element titulo = doc.select("div.pmovie > h1").first();
-			titul = titulo.text();
-			Log.v("TITULO", titul);
-
-			if (doc.select("div.score").first() != null) {
-				Element puntaje = doc.select("div.score").first();
-				rating = puntaje.text();
-				rating = rating.substring(0, 1) + "."
-						+ rating.substring(1, rating.length());
-			} else {
-				rating = "Sin puntaje";
-			}
-			Log.v("RATING", rating);
+            if (doc.select("div.pmovie > img").first() == null) {
+                post = "http://www.argenteam.net/images/header-background.gif";
+            } else {
+                Element poster = doc.select("div.pmovie > img").first();
+                post = poster.attr("src");
+            }
+            Log.v("POSTER", post);
 
 
-			Iterator<Element> items = doc.select("div.pmovie > div.item")
-					.iterator();
+            Element titulo = doc.select("div.pmovie > h1").first();
+            titul = titulo.text();
+            Log.v("TITULO", titul);
 
-			StringBuilder sb = new StringBuilder();
+            if (doc.select("div.score").first() != null) {
+                Element puntaje = doc.select("div.score").first();
+                rating = puntaje.text();
+                rating = rating.substring(0, 1) + "."
+                        + rating.substring(1, rating.length());
+            } else {
+                rating = "Sin puntaje";
+            }
+            Log.v("RATING", rating);
 
-			while (items.hasNext()) {
-				Element version = items.next();
-				String vers = version.text();
-				sb.append(vers);
-				sb.append("\n");
 
-			}
-			pegaitems = sb.toString();
+            Iterator<Element> items = doc.select("div.pmovie > div.item")
+                    .iterator();
 
-			Iterator<Element> seasons = doc.select("div.season-list > div.season-item > a").iterator();
-			
+            StringBuilder sb = new StringBuilder();
 
-			while (seasons.hasNext()) {
-				Element sea = seasons.next();
-				season = sea.text();
-				tag = sea.attr("href");
-				Log.v("TEMPORADA", season+ " "+tag);
-				temporadas.put(tag,season);
+            while (items.hasNext()) {
+                Element version = items.next();
+                String vers = version.text();
+                sb.append(vers);
+                sb.append("\n");
 
-			}
+            }
+            pegaitems = sb.toString();
 
-		return 1;
-		}// Fin doinbackground
+            Iterator<Element> seasons = doc.select("div.season-list > div.season-item > a").iterator();
 
-		@Override
-		protected void onPostExecute(Integer result) {
+
+            while (seasons.hasNext()) {
+                Element sea = seasons.next();
+                season = sea.text();
+                tag = sea.attr("href");
+                Log.v("TEMPORADA", season + " " + tag);
+                temporadas.put(tag, season);
+
+            }
+
+            return 1;
+        }// Fin doinbackground
+
+        @Override
+        protected void onPostExecute(Integer result) {
             super.onPostExecute(result);
-			dialog.dismiss();
+            dialog.dismiss();
 
             if (result == 0) {
                 vibrateToast(R.string.sinportal);
                 finish();
             }
 
-			TextView titulo = new TextView(TvSeasons.this);
-			titulo.setText(titul);
-			titulo.setId(99999);
-			titulo.setTextColor(0xffFF992B);
-			titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+            TextView titulo = new TextView(TvSeasons.this);
+            titulo.setText(titul);
+            titulo.setId(99999);
+            titulo.setTextColor(0xffFF992B);
+            titulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
             RatingBar rate = new RatingBar(TvSeasons.this, null, android.R.attr.ratingBarStyleSmall);
-            if (rating.equals("Sin puntaje"))
-            {rate.setRating(0.0f);}
-            else{
-                rate.setRating (Float.parseFloat(rating)/2);}
+            if (rating.equals("Sin puntaje")) {
+                rate.setRating(0.0f);
+            } else {
+                rate.setRating(Float.parseFloat(rating) / 2);
+            }
             rate.setNumStars(10);
             rate.setMax(10);
             rate.setId(99987);
-            rate.setStepSize((float)0.01);
+            rate.setStepSize((float) 0.01);
             rate.setIsIndicator(true);
 
 
-			TextView detall = new TextView(TvSeasons.this);
-			detall.setText(detalle);
-			detall.setId(99998);
-			detall.setTextColor(0xffFFFFFF);
+            TextView detall = new TextView(TvSeasons.this);
+            detall.setText(detalle);
+            detall.setId(99998);
+            detall.setTextColor(0xffFFFFFF);
 
-			TextView datos = new TextView(TvSeasons.this);
-			datos.setText(pegaitems);
-			datos.setId(99997);
+            TextView datos = new TextView(TvSeasons.this);
+            datos.setText(pegaitems);
+            datos.setId(99997);
 
-			
 
-			TextView sinopsis = new TextView(TvSeasons.this);
-			sinopsis.setText("Sinopsis");
-			sinopsis.setId(99990);
-			sinopsis.setTextColor(0xffFF992B);
-			sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            TextView sinopsis = new TextView(TvSeasons.this);
+            sinopsis.setText("Sinopsis");
+            sinopsis.setId(99990);
+            sinopsis.setTextColor(0xffFF992B);
+            sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
-			TextView downlsubs = new TextView(TvSeasons.this);
-			downlsubs.setText("Temporadas");
-			downlsubs.setId(99989);
-			downlsubs.setTextColor(0xffFF992B);
-			downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            TextView downlsubs = new TextView(TvSeasons.this);
+            downlsubs.setText("Temporadas");
+            downlsubs.setId(99989);
+            downlsubs.setTextColor(0xffFF992B);
+            downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
-			
 
-			imageLoader.DisplayImage(post, image);
+            imageLoader.DisplayImage(post, image);
 
-			ScrollView scrollview = new ScrollView(TvSeasons.this);
-			RelativeLayout relativelayout = new RelativeLayout(TvSeasons.this);
-			relativelayout.setId(100000);
+            ScrollView scrollview = new ScrollView(TvSeasons.this);
+            RelativeLayout relativelayout = new RelativeLayout(TvSeasons.this);
+            relativelayout.setId(100000);
 
-			RelativeLayout.LayoutParams paramsimage = new RelativeLayout.LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-			paramsimage.addRule(RelativeLayout.BELOW, rate.getId());
-			paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
+            RelativeLayout.LayoutParams paramsimage = new RelativeLayout.LayoutParams(
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            paramsimage.addRule(RelativeLayout.BELOW, rate.getId());
+            paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
 
             paramsimage.width = 320;
             paramsimage.height = 472;
-			image.setLayoutParams(paramsimage);
+            image.setLayoutParams(paramsimage);
 
-			RelativeLayout layouttemporadas = new RelativeLayout(TvSeasons.this);
-			layouttemporadas.setId(100001);
-			RelativeLayout.LayoutParams paramssubs = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			paramssubs.addRule(RelativeLayout.BELOW, downlsubs.getId());
-			layouttemporadas.setLayoutParams(paramssubs);
+            RelativeLayout layouttemporadas = new RelativeLayout(TvSeasons.this);
+            layouttemporadas.setId(100001);
+            RelativeLayout.LayoutParams paramssubs = new RelativeLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            paramssubs.addRule(RelativeLayout.BELOW, downlsubs.getId());
+            layouttemporadas.setLayoutParams(paramssubs);
 
-			RelativeLayout.LayoutParams tituloparams = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			tituloparams.addRule(RelativeLayout.ALIGN_TOP);
-			titulo.setLayoutParams(tituloparams);
+            RelativeLayout.LayoutParams tituloparams = new RelativeLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            tituloparams.addRule(RelativeLayout.ALIGN_TOP);
+            titulo.setLayoutParams(tituloparams);
 
-			RelativeLayout.LayoutParams subtiparams = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			subtiparams.addRule(RelativeLayout.BELOW, detall.getId());
-			downlsubs.setLayoutParams(subtiparams);
+            RelativeLayout.LayoutParams subtiparams = new RelativeLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            subtiparams.addRule(RelativeLayout.BELOW, detall.getId());
+            downlsubs.setLayoutParams(subtiparams);
 
-			RelativeLayout.LayoutParams sinopsisparams = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
-			sinopsis.setLayoutParams(sinopsisparams);
+            RelativeLayout.LayoutParams sinopsisparams = new RelativeLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
+            sinopsis.setLayoutParams(sinopsisparams);
 
-			RelativeLayout.LayoutParams ratingparams = new RelativeLayout.LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-			ratingparams.addRule(RelativeLayout.BELOW, titulo.getId());
-			ratingparams.addRule(RelativeLayout.ALIGN_LEFT);
-			rate.setLayoutParams(ratingparams);
+            RelativeLayout.LayoutParams ratingparams = new RelativeLayout.LayoutParams(
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            ratingparams.addRule(RelativeLayout.BELOW, titulo.getId());
+            ratingparams.addRule(RelativeLayout.ALIGN_LEFT);
+            rate.setLayoutParams(ratingparams);
 
-			RelativeLayout.LayoutParams paramsdetall = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			paramsdetall.addRule(RelativeLayout.BELOW, sinopsis.getId());
-			detall.setLayoutParams(paramsdetall);
+            RelativeLayout.LayoutParams paramsdetall = new RelativeLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            paramsdetall.addRule(RelativeLayout.BELOW, sinopsis.getId());
+            detall.setLayoutParams(paramsdetall);
 
-			RelativeLayout.LayoutParams paramsdatos = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			paramsdatos.addRule(RelativeLayout.RIGHT_OF, image.getId());
-			paramsdatos.addRule(RelativeLayout.BELOW, rate.getId());
-			datos.setLayoutParams(paramsdatos);
+            RelativeLayout.LayoutParams paramsdatos = new RelativeLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            paramsdatos.addRule(RelativeLayout.RIGHT_OF, image.getId());
+            paramsdatos.addRule(RelativeLayout.BELOW, rate.getId());
+            datos.setLayoutParams(paramsdatos);
 
-			relativelayout.addView(titulo);
-			relativelayout.addView(image);
-			relativelayout.addView(rate);
-			relativelayout.addView(detall);
-			relativelayout.addView(datos);
+            relativelayout.addView(titulo);
+            relativelayout.addView(image);
+            relativelayout.addView(rate);
+            relativelayout.addView(detall);
+            relativelayout.addView(datos);
 
-			
-			relativelayout.addView(sinopsis);
-			relativelayout.addView(downlsubs);
-			
 
-			Button btnsub = null;
-			
+            relativelayout.addView(sinopsis);
+            relativelayout.addView(downlsubs);
 
-			int k = 1;
-			
-			for (Entry<String, String> entry : temporadas.entrySet()) {
-				sub = entry.getKey();
-				key = entry.getValue();
-				btnsub = new Button(TvSeasons.this);
-				btnsub.setText(key);
-				btnsub.setId(k);
-				btnsub.setTag(sub);
-				btnsub.setOnClickListener(TvSeasons.this);
 
-				if (k == 1) {
-					RelativeLayout.LayoutParams lay1 = new RelativeLayout.LayoutParams(
-							RelativeLayout.LayoutParams.MATCH_PARENT,
-							RelativeLayout.LayoutParams.WRAP_CONTENT);
-					lay1.addRule(RelativeLayout.ALIGN_PARENT_TOP,
-							titulo.getId());
+            Button btnsub = null;
 
-					layouttemporadas.addView(btnsub, lay1);
-				} else {
-					RelativeLayout.LayoutParams lay2 = new RelativeLayout.LayoutParams(
-							RelativeLayout.LayoutParams.MATCH_PARENT,
-							RelativeLayout.LayoutParams.WRAP_CONTENT);
-					lay2.addRule(RelativeLayout.BELOW, btnsub.getId() - 1);
-					layouttemporadas.addView(btnsub, lay2);
-				}
-				k++;
 
-			} // fin for temporadas
+            int k = 1;
 
-			
+            for (Entry<String, String> entry : temporadas.entrySet()) {
+                sub = entry.getKey();
+                key = entry.getValue();
+                btnsub = new Button(TvSeasons.this);
+                btnsub.setText(key);
+                btnsub.setId(k);
+                btnsub.setTag(sub);
+                btnsub.setOnClickListener(TvSeasons.this);
 
-			relativelayout.addView(layouttemporadas);
-			
-			scrollview.addView(relativelayout);
-			setContentView(scrollview);
+                if (k == 1) {
+                    RelativeLayout.LayoutParams lay1 = new RelativeLayout.LayoutParams(
+                            RelativeLayout.LayoutParams.MATCH_PARENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    lay1.addRule(RelativeLayout.ALIGN_PARENT_TOP,
+                            titulo.getId());
 
-			}// Fin onPostExecute
-	}// Fin asyctask
+                    layouttemporadas.addView(btnsub, lay1);
+                } else {
+                    RelativeLayout.LayoutParams lay2 = new RelativeLayout.LayoutParams(
+                            RelativeLayout.LayoutParams.MATCH_PARENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    lay2.addRule(RelativeLayout.BELOW, btnsub.getId() - 1);
+                    layouttemporadas.addView(btnsub, lay2);
+                }
+                k++;
 
-	@Override
-	public void onClick(View v) {
+            } // fin for temporadas
 
-		if (v.getId() >= 1 && v.getId() < 1000) {
 
-			// String indice = String.valueOf(v.getId());
-			String link = (String) v.getTag();
-			String URIpost = "http://www.argenteam.net" + link;
-			Intent subintent = new Intent(TvSeasons.this, TvEpisodes.class);
-			subintent.putExtra("passed", URIpost);
-			TvSeasons.this.startActivityForResult(subintent, 0);
+            relativelayout.addView(layouttemporadas);
 
-		
+            scrollview.addView(relativelayout);
+            setContentView(scrollview);
 
-		}
+        }// Fin onPostExecute
+    }// Fin asyctask
 
-	}
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() >= 1 && v.getId() < 1000) {
+
+            // String indice = String.valueOf(v.getId());
+            String link = (String) v.getTag();
+            String URIpost = "http://www.argenteam.net" + link;
+            Intent subintent = new Intent(TvSeasons.this, TvEpisodes.class);
+            subintent.putExtra("passed", URIpost);
+            TvSeasons.this.startActivityForResult(subintent, 0);
+
+
+        }
+
+    }
 }

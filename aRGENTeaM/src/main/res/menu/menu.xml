@@ -5,7 +5,7 @@
     <group>
         <item
             android:id="@+id/search"
-            android:icon="@drawable/ic_action_search"
+            android:icon="@drawable/ic_action_action_search"
             android:orderInCategory="1"
             android:title="@string/search"
             android:visible="true"
@@ -13,7 +13,7 @@
         </item>
         <item
             android:id="@+id/share"
-            android:icon="@drawable/ic_action_share"
+            android:icon="@drawable/ic_action_social_share"
             android:orderInCategory="2"
             android:title="@string/share"
             android:visible="true"
@@ -21,7 +21,7 @@
         </item>
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_action_settings"
+            android:icon="@drawable/ic_action_action_settings"
             android:orderInCategory="3"
             android:title="@string/settings"
             android:visible="true"
@@ -29,7 +29,7 @@
         </item>
         <item
             android:id="@+id/about"
-            android:icon="@drawable/action_about"
+            android:icon="@drawable/ic_action_action_about"
             android:orderInCategory="4"
             android:title="@string/about"
             android:visible="true"

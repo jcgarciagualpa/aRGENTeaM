@@ -5,13 +5,20 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:0.12.2'
 
     }
 }
 apply plugin: 'com.android.library'
-
 android {
+    signingConfigs {
+        release {
+            keyAlias 'android'
+            keyPassword 'android'
+            storeFile file('/home/martin/release.keystore')
+            storePassword 'android'
+        }
+    }
     compileSdkVersion 19
     buildToolsVersion '20'
     sourceSets {
@@ -27,4 +34,11 @@ android {
     lintOptions {
         abortOnError false
     }
+    defaultConfig {
+        signingConfig signingConfigs.release
+    }
+    productFlavors {
+    }
+}
+dependencies {
 }

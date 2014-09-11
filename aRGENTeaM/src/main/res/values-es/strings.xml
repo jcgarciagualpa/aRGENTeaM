@@ -40,5 +40,15 @@
     <string name="options_clear">Clear</string>
     <string name="options_exit">Exit</string>
 
+    <string-array name="menu_array">
+        <item>Lanzamientos Películas</item>
+        <item>Lanzamientos Series de TV</item>
+        <item>Películas en traducción</item>
+        <item>Series de TV en traducción</item>
+        <item>Mis subtítulos</item>
+        <item>Facebook</item>
+    </string-array>
+    <string name="none">vacío</string>
+
 
 </resources>

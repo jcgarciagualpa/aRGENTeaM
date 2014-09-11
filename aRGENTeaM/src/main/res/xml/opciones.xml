@@ -4,7 +4,8 @@
     <PreferenceCategory android:title="Path carpeta de subtítulos">
         <Preference
             android:key="myKey"
-            android:summary="Elige la carpeta donde guardarás los subtitulos localmente">
+            android:summary="Elige la carpeta donde guardarás los subtitulos localmente"
+              >
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory android:title="Notificaciones Peliculas">
@@ -106,12 +107,13 @@
 
         <EditTextPreference
             android:key="puertoftp"
-            android:summary="Puerto Servidor FTP. Por default suele ser 21"
-            android:title="Puerto FTP Server" />
+            android:summary="Puerto Servidor FTP. Por default suele ser 21. Si se deja vacío asume puerto 21 como default"
+            android:title="Puerto FTP Server"
+            android:numeric="integer"/>
 
         <EditTextPreference
             android:key="directorioftp"
-            android:summary="Directorio en Servidor FTP. Por default, si se deja vacío, guarda en el directorio raíz del server FTP"
+            android:summary="Directorio en Servidor FTP. Por default, si se deja vacío, guarda en el directorio raíz del server FTP. Caso contrario, para guardar en carpeta Video usar &apos;/Video&apos;"
             android:title="Directorio FTP Server" />
 
         <EditTextPreference

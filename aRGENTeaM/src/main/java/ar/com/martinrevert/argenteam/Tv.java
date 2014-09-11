@@ -299,7 +299,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			datos.setId(99997);
 
 			youtu = new ImageButton(Tv.this);
-			youtu.setImageResource(R.drawable.youtube);
+			youtu.setImageResource(R.drawable.ic_youtube);
 			youtu.setId(99975);
 
 			TextView sinopsis = new TextView(Tv.this);
