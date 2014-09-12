@@ -149,8 +149,16 @@ public class Peli extends CustomMenu implements OnClickListener {
                 Log.v("DETAILS", detalle);
             }
 
-            Element poster = doc.select("div.pmovie > img").first();
-            post = poster.attr("src");
+        //    Element poster = doc.select("div.pmovie > img").first();
+        //    post = poster.attr("src");
+        //    Log.v("POSTER", post);
+
+            if (doc.select("div.pmovie > img").first() == null) {
+                post = "http://www.argenteam.net/images/header-background.gif";
+            } else {
+                Element poster = doc.select("div.pmovie > img").first();
+                post = poster.attr("src");
+            }
             Log.v("POSTER", post);
 
             Element titulo = doc.select("div.pmovie > h1").first();

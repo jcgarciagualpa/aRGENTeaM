@@ -162,7 +162,7 @@ public class ImageLoader {
                     return;
                 BitmapDisplayer bd=new BitmapDisplayer(bmp, photoToLoad);
 
-                //Estp es un agragado de la vieja implementación
+                //Estp es un agregado de la vieja implementación
                 Activity a=(Activity)photoToLoad.imageView.getContext();
                 a.runOnUiThread(bd);
                 //Esto es una impklementacion nueva para Fragments, mas arriba esta el comentado el handler

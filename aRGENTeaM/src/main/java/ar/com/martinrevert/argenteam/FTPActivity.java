@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import android.annotation.SuppressLint;
 
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -46,17 +45,9 @@ public class FTPActivity extends CustomMenu {
 		@Override
 		protected Void doInBackground(Void... arg0) {
 
-			int sdkVersion = Build.VERSION.SDK_INT;
 
-			if (sdkVersion == 7) {
-
-				String archivos = Environment.getExternalStorageDirectory()
-						.getAbsolutePath() + dirPath;
-				files = new File(archivos).listFiles();
-			} else {
-				files = Environment.getExternalStoragePublicDirectory(dirPath)
+		files = Environment.getExternalStoragePublicDirectory(dirPath)
 						.listFiles();
-			}
 
 			if (files != null) {
 

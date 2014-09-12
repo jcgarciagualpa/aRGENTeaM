@@ -29,7 +29,7 @@ public class OpcionesActivity extends PreferenceActivity {
                 chooserIntent.putExtra(
                         DirectoryChooserActivity.EXTRA_NEW_DIR_NAME,
                         "mis_subs");
-                chooserIntent.putExtra(DirectoryChooserActivity.EXTRA_INITIAL_DIRECTORY, "/aRGENTeaM/");
+                chooserIntent.putExtra(DirectoryChooserActivity.EXTRA_INITIAL_DIRECTORY, "/storage/emulated/0/aRGENTeaM");
                 startActivityForResult(chooserIntent, REQUEST_DIRECTORY);
 
                 return false;

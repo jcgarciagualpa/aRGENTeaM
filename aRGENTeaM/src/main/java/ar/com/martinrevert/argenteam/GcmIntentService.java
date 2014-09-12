@@ -100,6 +100,18 @@ public class GcmIntentService extends IntentService {
 
     public Bitmap getRemoteImage(final String aURL, String tipo) {
         try {
+            if (aURL.isEmpty()){
+                if(tipo.equals("movie")) {
+                    return BitmapFactory.decodeResource(this.getResources(),
+                            R.drawable.stubportrait);
+                }
+                else {
+
+                    return BitmapFactory.decodeResource(this.getResources(),
+                            R.drawable.stublandscape);
+
+                }
+            }
             URL imagelink = new URL(aURL);
             final URLConnection conn = imagelink.openConnection();
             conn.connect();
@@ -109,10 +121,10 @@ public class GcmIntentService extends IntentService {
             bis.close();
             return scaledBitmap;
         } catch (IOException e) {
-            // ToDo Mostrar imagen generica si falla el request usando el "tipo"
+                        e.printStackTrace();
 
         }
-        return null;
+    return null;
     }
 
     /**
