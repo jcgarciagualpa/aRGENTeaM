@@ -6,20 +6,20 @@
     <string name="settings">Configuración</string>
     <string name="about">Acerca</string>
 
-
     <!-- Basics, toasts and utility -->
     <string name="app_name">aRGENTeaM</string>
-    <string name="search_hint">buscar</string>
+    <string name="search_hint">buscar peli, serie tv, actor, director</string>
     <string name="stubportrait">stubportrait</string>
     <string name="stublandscape">stublandscape</string>
     <string name="sininternet">Sin Internet</string>
-    <string name="sinportal">No aRGENTeaM access or you just don\'t have Internet enabled on this device</string>
-    <string name="sinp2papp">There\'s no P2P app installed to fulfill this request. Uncheck \"P2P off\" in Settings or install a proper P2P app</string>
-    <string name="sintorrent">No network access or bad torrent parameters in Settings</string>
-    <string name="torrentsendedok">Magnet Link sended OK to your torrent app</string>
+    <string name="sinportal">No se puede acceder al portal aRGENTeaM o no hay acceso Internet disponible en este dispositivo.</string>
+    <string name="sinp2papp">No hay una app P2P para completar este pedido. Descheckea \"P2P off\" en Configuración orinstala una app P2P.</string>
+    <string name="sintorrent">Sin acceso a Internet o la configuración de parámetros torrent en Configuración está mal.</string>
+    <string name="torrentsendedok">Magnet Link enviado OK a tu app torrent</string>
     <string name="sinemule">No network access or bad ed2k parameters in Settings</string>
     <string name="sinemuleiniciado">Bad ed2k parameters in Settings or ed2k app is not started to receive the elink</string>
-    <string name="emulesendedok">Elink sended ok to your ed2k app</string>
+    <string name="emulesendedok">Elink enviado a tu aplicación ed2k</string>
+    <string name="nodirsubs">Especifica antes la ruta donde descagarás subtitulos en Configuración</string>
 
     <!-- GCM -->
     <string name="error_config">Error config</string>
@@ -48,7 +48,56 @@
         <item>Mis subtítulos</item>
         <item>Facebook</item>
     </string-array>
-    <string name="none">vacío</string>
 
+    <!-- Opciones/Settings -->
+    <string name="pathsubstitle">Your FTP server password</string>
+
+
+    <string name="notifpeli">Your FTP server password</string>
+    <string name="notifpelititle">Your FTP server password</string>
+    <string name="notifpeliring">Your FTP server password</string>
+    <string name="notifpeliringtitle">Your FTP server password</string>
+    <string name="notifpeliled">Your FTP server password</string>
+    <string name="notifpeliledtitle">Your FTP server password</string>
+
+    <string name="notiftv">Your FTP server password</string>
+    <string name="notiftvtitle">Your FTP server password</string>
+    <string name="notiftvring">Your FTP server password</string>
+    <string name="notiftvringtitle">Your FTP server password</string>
+    <string name="notiftvled">Your FTP server password</string>
+    <string name="notiftvledtitle">Your FTP server password</string>
+
+    <string name="vibraofftitle">Vibración</string>
+    <string name="vibraoff">Vibration</string>
+
+    <string name="p2p">Your FTP server password</string>
+    <string name="p2ptitle">Your FTP server password</string>
+
+    <string name="passemultitle">Your FTP server password</string>
+    <string name="passemule">Your FTP server password</string>
+    <string name="portemuletitle">Your FTP server password</string>
+    <string name="portemule">Your FTP server password</string>
+    <string name="webserveremuletitle">Your FTP server password</string>
+    <string name="webserveremule">Your FTP server password</string>
+
+    <string name="webservertorrenttitle">Your FTP server password</string>
+    <string name="webservertorrent">Your FTP server password</string>
+    <string name="porttorrenttitle">Your FTP server password</string>
+    <string name="porttorrent">Your FTP server password</string>
+    <string name="usertorrenttitle">Your FTP server password</string>
+    <string name="usertorrent">Your FTP server password</string>
+    <string name="passtorrenttitle">Your FTP server password</string>
+    <string name="passtorrent">Your FTP server password</string>
+
+    <string name="ftpservertitle">Your FTP server password</string>
+    <string name="ftpserver">Your FTP server password</string>
+    <string name="puertoftptitle">Your FTP server password</string>
+    <string name="puertoftp">Your FTP server password</string>
+    <string name="directorioftptitle">Your FTP server password</string>
+    <string name="directorioftp">Your FTP server destination folder</string>
+    <string name="passftp">Tu password FTP</string>
+    <string name="titlepassftp">Password FTP</string>
+    <string name="titleuserftp">Usuario FTP</string>
+    <string name="userftp">El usuario de tu server FTP</string>
 
 </resources>

@@ -3,13 +3,12 @@
 
     <PreferenceCategory android:title="Path carpeta de subtítulos">
         <Preference
-            android:key="myKey"
-            android:summary="Elige la carpeta donde guardarás los subtitulos localmente"
-              >
-        </Preference>
+            android:key="pathsubs"
+            android:title="@string/pathsubstitle"></Preference>
+
     </PreferenceCategory>
     <PreferenceCategory android:title="Notificaciones Peliculas">
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="movieoff"
             android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de películas."
@@ -27,7 +26,7 @@
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Notificaciones Series de TV">
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="tvoff"
             android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de series de TV."
@@ -44,7 +43,7 @@
             android:title="Configurar color LED notificación Series de TV" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Vibración">
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="vibraoff"
             android:summary="Si está marcado, el dispositivo vibrará al recibir notificaciones."
@@ -52,7 +51,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Ignorar setup interno P2P">
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="p2p"
             android:summary="Marcando este checkbox enviarás los links magnet torrent y ed2k a aplicaciones Android(TM) de 3ros."
             android:title="Parámetros P2P off" />
@@ -107,9 +106,9 @@
 
         <EditTextPreference
             android:key="puertoftp"
+            android:numeric="integer"
             android:summary="Puerto Servidor FTP. Por default suele ser 21. Si se deja vacío asume puerto 21 como default"
-            android:title="Puerto FTP Server"
-            android:numeric="integer"/>
+            android:title="Puerto FTP Server" />
 
         <EditTextPreference
             android:key="directorioftp"
@@ -118,14 +117,14 @@
 
         <EditTextPreference
             android:key="userftp"
-            android:summary="Usuario configurado en FTP"
-            android:title="Usuario FTP" />
+            android:summary="@string/userftp"
+            android:title="@string/titleuserftp" />
 
         <EditTextPreference
             android:key="passwordftp"
             android:password="true"
-            android:summary="El password FTP"
-            android:title="Password FTP" />
+            android:summary="@string/passftp"
+            android:title="@string/titlepassftp" />
 
     </PreferenceCategory>
 
