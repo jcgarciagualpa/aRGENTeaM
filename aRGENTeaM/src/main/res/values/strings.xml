@@ -79,7 +79,7 @@
     <string name="portemuletitle">Your FTP server password</string>
     <string name="portemule">Your FTP server password</string>
     <string name="webserveremuletitle">Your FTP server password</string>
-    <string name="webserveremule">Your FTP server password</string>
+    <string name="webserveremule">Your eMule/aMule web server DNS or IP</string>
 
     <string name="webservertorrenttitle">Your FTP server password</string>
     <string name="webservertorrent">Your FTP server password</string>

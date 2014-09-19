@@ -78,7 +78,7 @@
     <string name="portemuletitle">Your FTP server password</string>
     <string name="portemule">Your FTP server password</string>
     <string name="webserveremuletitle">Your FTP server password</string>
-    <string name="webserveremule">Your FTP server password</string>
+    <string name="webserveremule">Tu eMule/aMule web server DNS o IP</string>
 
     <string name="webservertorrenttitle">Your FTP server password</string>
     <string name="webservertorrent">Your FTP server password</string>
@@ -94,7 +94,7 @@
     <string name="puertoftptitle">Your FTP server password</string>
     <string name="puertoftp">Your FTP server password</string>
     <string name="directorioftptitle">Your FTP server password</string>
-    <string name="directorioftp">Your FTP server destination folder</string>
+    <string name="directorioftp">El directorio destino en tu FTP server</string>
     <string name="passftp">Tu password FTP</string>
     <string name="titlepassftp">Password FTP</string>
     <string name="titleuserftp">Usuario FTP</string>
