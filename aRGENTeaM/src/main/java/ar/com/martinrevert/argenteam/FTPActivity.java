@@ -30,6 +30,13 @@ public class FTPActivity extends CustomMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.missubtitulos);
         lista = (ListView) findViewById(R.id.listSubs);
+        String dirRuta = getPath();
+        Log.v("dirRuta", dirRuta);
+        if (dirRuta.equals("")){
+            vibrateToast(R.string.nodirsubs);
+            finish();
+        }
+
 
         new GetSubsSDcard().execute();
 
@@ -38,8 +45,8 @@ public class FTPActivity extends CustomMenu {
     public class GetSubsSDcard extends AsyncTask<Void, Void, Void> {
 
         File[] files;
+        String dirRuta = getPath();
 
-        File dirPath = new File(getPath());
 
         @Override
         protected void onPreExecute() {
@@ -50,6 +57,7 @@ public class FTPActivity extends CustomMenu {
         protected Void doInBackground(Void... arg0) {
 
 
+            File dirPath = new File(dirRuta);
             files = dirPath.listFiles();
 
             if (files != null) {

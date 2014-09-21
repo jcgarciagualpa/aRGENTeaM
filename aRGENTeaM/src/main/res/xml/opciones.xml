@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="Path carpeta de subtítulos">
+    <PreferenceCategory android:title="@string/pathsubscategory">
         <Preference
             android:key="pathsubs"
-            android:title="@string/pathsubstitle"></Preference>
+            android:title="@string/pathsubstitle">
+
+            </Preference>
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Notificaciones Peliculas">
-        <SwitchPreference
+        <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:defaultValue="true"
             android:key="movieoff"
             android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de películas."
-            android:title="On/Off" />
+            />
         <RingtonePreference
             android:key="prefRingtonemovie"
             android:ringtoneType="notification"
@@ -26,11 +28,12 @@
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Notificaciones Series de TV">
-        <SwitchPreference
+        <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:defaultValue="true"
             android:key="tvoff"
             android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de series de TV."
-            android:title="On/Off" />
+
+        />
         <RingtonePreference
             android:key="prefRingtonetv"
             android:ringtoneType="notification"
@@ -43,7 +46,7 @@
             android:title="Configurar color LED notificación Series de TV" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Vibración">
-        <SwitchPreference
+        <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:defaultValue="true"
             android:key="vibraoff"
             android:summary="Si está marcado, el dispositivo vibrará al recibir notificaciones."
@@ -51,7 +54,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Ignorar setup interno P2P">
-        <SwitchPreference
+        <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:key="p2p"
             android:summary="Marcando este checkbox enviarás los links magnet torrent y ed2k a aplicaciones Android(TM) de 3ros."
             android:title="Parámetros P2P off" />
@@ -107,13 +110,13 @@
         <EditTextPreference
             android:key="puertoftp"
             android:numeric="integer"
-            android:summary="Puerto Servidor FTP. Por default suele ser 21. Si se deja vacío asume puerto 21 como default"
-            android:title="Puerto FTP Server" />
+            android:summary="@string/puertoftp"
+            android:title="@string/puertoftptitle" />
 
         <EditTextPreference
             android:key="directorioftp"
-            android:summary="Directorio en Servidor FTP. Por default, si se deja vacío, guarda en el directorio raíz del server FTP. Caso contrario, para guardar en carpeta Video usar &apos;/Video&apos;"
-            android:title="Directorio FTP Server" />
+            android:summary="@string/directorioftp"
+            android:title="@string/directorioftptitle" />
 
         <EditTextPreference
             android:key="userftp"

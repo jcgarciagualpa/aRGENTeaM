@@ -51,18 +51,16 @@
         <item>Facebook Official News Page</item>
     </string-array>
 
-    <string name="pathsubstitle">Your FTP server password</string>
+    <string name="pathsubstitle">Click this preference to set your path</string>
 
 
     <string name="notifpeli">Your FTP server password</string>
-    <string name="notifpelititle">Your FTP server password</string>
     <string name="notifpeliring">Your FTP server password</string>
     <string name="notifpeliringtitle">Your FTP server password</string>
     <string name="notifpeliled">Your FTP server password</string>
     <string name="notifpeliledtitle">Your FTP server password</string>
 
     <string name="notiftv">Your FTP server password</string>
-    <string name="notiftvtitle">Your FTP server password</string>
     <string name="notiftvring">Your FTP server password</string>
     <string name="notiftvringtitle">Your FTP server password</string>
     <string name="notiftvled">Your FTP server password</string>
@@ -93,12 +91,13 @@
     <string name="ftpservertitle">Your FTP server password</string>
     <string name="ftpserver">Your FTP server password</string>
     <string name="puertoftptitle">Your FTP server password</string>
-    <string name="puertoftp">Your FTP server password</string>
-    <string name="directorioftptitle">Your FTP server password</string>
+    <string name="puertoftp"> FTP servert port. By default always is 21. If you leave this empty it will assume your port is 21</string>
+    <string name="directorioftptitle">Your FTP server videos folder</string>
     <string name="directorioftp">Your FTP server destination folder</string>
     <string name="passftp">Your FTP server password</string>
     <string name="titlepassftp">FTP password</string>
     <string name="titleuserftp">FTP user</string>
     <string name="userftp">Your FTP Server user</string>
+    <string name="pathsubscategory">Subtitles download directory</string>
 
 </resources>

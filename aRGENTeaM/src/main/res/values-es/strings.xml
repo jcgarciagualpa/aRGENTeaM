@@ -50,18 +50,15 @@
     </string-array>
 
     <!-- Opciones/Settings -->
-    <string name="pathsubstitle">Your FTP server password</string>
 
 
     <string name="notifpeli">Your FTP server password</string>
-    <string name="notifpelititle">Your FTP server password</string>
     <string name="notifpeliring">Your FTP server password</string>
     <string name="notifpeliringtitle">Your FTP server password</string>
     <string name="notifpeliled">Your FTP server password</string>
     <string name="notifpeliledtitle">Your FTP server password</string>
 
     <string name="notiftv">Your FTP server password</string>
-    <string name="notiftvtitle">Your FTP server password</string>
     <string name="notiftvring">Your FTP server password</string>
     <string name="notiftvringtitle">Your FTP server password</string>
     <string name="notiftvled">Your FTP server password</string>
@@ -92,12 +89,14 @@
     <string name="ftpservertitle">Your FTP server password</string>
     <string name="ftpserver">Your FTP server password</string>
     <string name="puertoftptitle">Your FTP server password</string>
-    <string name="puertoftp">Your FTP server password</string>
-    <string name="directorioftptitle">Your FTP server password</string>
-    <string name="directorioftp">El directorio destino en tu FTP server</string>
+    <string name="puertoftp">Puerto Servidor FTP. Por default suele ser 21. Si se deja vacío asume puerto 21 como default</string>
+    <string name="directorioftp">Directorio en Servidor FTP. Por default, si se deja vacío, guarda en el directorio raíz del server FTP. Caso contrario, para guardar en carpeta Video usar \'/Video\'.</string>
     <string name="passftp">Tu password FTP</string>
     <string name="titlepassftp">Password FTP</string>
     <string name="titleuserftp">Usuario FTP</string>
     <string name="userftp">El usuario de tu server FTP</string>
+    <string name="directorioftptitle">Tu directorio de videos en el server FTP</string>
+    <string name="pathsubstitle">Click aquí para configurar tu ruta</string>
+    <string name="pathsubscategory">Directorio descarga subtitulos</string>
 
 </resources>

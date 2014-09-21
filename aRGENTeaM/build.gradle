@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.2'
+        classpath 'com.android.tools.build:gradle:0.13.0'
     }
 }
 
@@ -59,8 +59,8 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
     defaultConfig {
-        versionCode 21000+getVersionCode()
-        versionName "2.1." + getVersionCode()
+        versionCode 22000+getVersionCode()
+        versionName "2.2." + getVersionCode()
         signingConfig signingConfigs.release
     }
     lintOptions {
