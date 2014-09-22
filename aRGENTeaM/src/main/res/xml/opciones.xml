@@ -5,107 +5,108 @@
         <Preference
             android:key="pathsubs"
             android:title="@string/pathsubstitle">
-
             </Preference>
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="Notificaciones Peliculas">
+    <PreferenceCategory android:title="@string/notifcategory">
         <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:defaultValue="true"
             android:key="movieoff"
-            android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de películas."
+            android:summary="@string/notifpeli"
             />
         <RingtonePreference
             android:key="prefRingtonemovie"
             android:ringtoneType="notification"
-            android:summary="Elegir el sonido de la notificación"
-            android:title="Sonido de mensaje" />
+            android:summary="@string/notifpeliring"
+            android:title="@string/notifpeliringtitle" />
         <yuku.ambilwarna.widget.AmbilWarnaPreference
             android:defaultValue="0xff6699cc"
             android:key="ledMovie"
-            android:summary="Enciende LED intermitente si el dispositivo dispone del feature"
-            android:title="Configurar color LED notificación peliculas" />
+            android:summary="@string/notifpeliled"
+            android:title="@string/notifpeliledtitle" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="Notificaciones Series de TV">
+    <PreferenceCategory android:title="@string/notiftvcategory">
         <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:defaultValue="true"
             android:key="tvoff"
-            android:summary="Si está marcado podrás recibir notificaciones de nuevos subtiulos de series de TV."
-
+            android:summary="@string/notiftv"
         />
         <RingtonePreference
             android:key="prefRingtonetv"
             android:ringtoneType="notification"
-            android:summary="Elegir el sonido de la notificación"
-            android:title="Sonido de mensaje" />
+            android:summary="@string/notiftvring"
+            android:title="@string/notiftvringtitle" />
         <yuku.ambilwarna.widget.AmbilWarnaPreference
             android:defaultValue="0xff6699cc"
             android:key="ledTV"
-            android:summary="Enciende LED intermitente si el dispositivo dispone del feature"
-            android:title="Configurar color LED notificación Series de TV" />
+            android:summary="@string/notiftvled"
+            android:title="@string/notiftvledtitle" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Vibración">
+    <PreferenceCategory android:title="@string/vibraoffcategory">
         <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:defaultValue="true"
             android:key="vibraoff"
-            android:summary="Si está marcado, el dispositivo vibrará al recibir notificaciones."
-            android:title="Vibración notificaciones" />
+            android:summary="@string/vibraoff"
+            android:title="@string/vibraofftitle" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Ignorar setup interno P2P">
+    <PreferenceCategory android:title="@string/p2pcategory">
         <ar.com.martinrevert.argenteam.CustomSwitchPreference
             android:key="p2p"
-            android:summary="Marcando este checkbox enviarás los links magnet torrent y ed2k a aplicaciones Android(TM) de 3ros."
-            android:title="Parámetros P2P off" />
-
+            android:summary="@string/p2p"
+            android:title="@string/p2ptitle"
+            />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Configuración Interfaz Web eMule">
+    <PreferenceCategory android:title="@string/emucategory">
         <EditTextPreference
             android:key="webserver"
-            android:summary="Ejemplos: &apos;192.168.1.100&apos; o &apos;mipc.no-ip.org&apos;"
-            android:title="eMule Server IP o DNS" />
+            android:summary="@string/webserveremule"
+            android:title="@string/webserveremuletitle" />
 
         <EditTextPreference
             android:key="puerto"
-            android:summary="Por defecto debes configurar &apos;4711&apos; si no lo cambiaste desde eMule."
-            android:title="Puerto eMule" />
+            android:summary="@string/portemule"
+            android:title="@string/portemuletitle"
+            android:numeric="integer"/>
 
         <EditTextPreference
             android:key="password"
             android:password="true"
-            android:summary="El password de Admin que se haya configurado en &apos;Web Interface&apos; en eMule"
-            android:title="Password eMule" />
+            android:summary="@string/passemule"
+            android:title="@string/passemultitle" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="Configuración interfaz Web uTorrent/BitTorrent">
+    <PreferenceCategory android:title="@string/torrentcategory">
         <EditTextPreference
             android:key="webservertorrent"
-            android:summary="Ejemplos: &apos;192.168.1.100&apos; o &apos;mipc.no-ip.org&apos;"
-            android:title="uTorrent/BitTorrent IP o DNS" />
+            android:summary="@string/webservertorrent"
+            android:title="@string/webservertorrenttitle"
+            />
 
         <EditTextPreference
             android:key="puertotorrent"
-            android:summary="El puerto que se hayas configurado en Preferencias-&gt;Interfaz web"
-            android:title="Puerto uTorrent/BitTorrent" />
+            android:numeric="integer"
+            android:summary="@string/porttorrent"
+            android:title="@string/porttorrenttitle" />
 
         <EditTextPreference
             android:key="usuariotorrent"
-            android:summary="El usuario que hayas configurado en Preferencias-&gt;Interfaz web"
-            android:title="Usuario uTorrent/BitTorrent" />
+            android:summary="@string/usertorrent"
+            android:title="@string/usertorrenttitle" />
 
         <EditTextPreference
             android:key="passwordtorrent"
             android:password="true"
-            android:summary="El password que hayas configurado en Preferencias-&gt;Interfaz web"
-            android:title="Password uTorrent/BitTorrent" />
+            android:summary="@string/passtorrent"
+            android:title="@string/passtorrenttitle" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="Envío de subtitulos a servidor FTP">
+    <PreferenceCategory android:title="@string/ftpservercategory">
         <EditTextPreference
             android:key="ftpserver"
-            android:summary="Host servidor FTP al que enviar subtitulos descargados"
-            android:title="DNS o IP FTP Server" />
+            android:summary="@string/ftpserver"
+            android:title="@string/ftpservertitle" />
 
         <EditTextPreference
             android:key="puertoftp"

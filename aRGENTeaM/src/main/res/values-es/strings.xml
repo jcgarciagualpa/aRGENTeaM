@@ -52,43 +52,42 @@
     <!-- Opciones/Settings -->
 
 
-    <string name="notifpeli">Your FTP server password</string>
-    <string name="notifpeliring">Your FTP server password</string>
-    <string name="notifpeliringtitle">Your FTP server password</string>
-    <string name="notifpeliled">Your FTP server password</string>
-    <string name="notifpeliledtitle">Your FTP server password</string>
+    <string name="notifpeliring">Elegir el sonido de la notificación</string>
+    <string name="notifpeliringtitle">Sonido de la notificación</string>
+    <string name="notifpeliled">Enciende LED intermitente si el dispositivo dispone del feature</string>
+    <string name="notifpeliledtitle">Configurar color LED notificación peliculas</string>
 
-    <string name="notiftv">Your FTP server password</string>
-    <string name="notiftvring">Your FTP server password</string>
-    <string name="notiftvringtitle">Your FTP server password</string>
-    <string name="notiftvled">Your FTP server password</string>
-    <string name="notiftvledtitle">Your FTP server password</string>
+    <string name="notiftv">Enciendelo si deseas recibir notificaciones de nuevos subs de series de TV</string>
+    <string name="notiftvring">Elegir el sonido de la notificación</string>
+    <string name="notiftvringtitle">Sonido de la notificación</string>
+    <string name="notiftvled">Enciende LED intermitente si el dispositivo dispone del feature</string>
+    <string name="notiftvledtitle">Configurar color LED notificación series TV</string>
 
     <string name="vibraofftitle">Vibración</string>
-    <string name="vibraoff">Vibration</string>
+    <string name="vibraoff">Especifica si quieres que tu dispositivo vibre ante cualquier notificación</string>
 
-    <string name="p2p">Your FTP server password</string>
-    <string name="p2ptitle">Your FTP server password</string>
+    <string name="p2p">Activando este switch enviarás los links magnet torrent y ed2k a aplicaciones Android(TM) de 3ros.</string>
+    <string name="p2ptitle">Parámetros P2P off</string>
 
-    <string name="passemultitle">Your FTP server password</string>
-    <string name="passemule">Your FTP server password</string>
-    <string name="portemuletitle">Your FTP server password</string>
-    <string name="portemule">Your FTP server password</string>
-    <string name="webserveremuletitle">Your FTP server password</string>
-    <string name="webserveremule">Tu eMule/aMule web server DNS o IP</string>
+    <string name="passemultitle">Password eMule</string>
+    <string name="passemule">Tu password eMule</string>
+    <string name="portemuletitle">Puerto eMule</string>
+    <string name="portemule">Por defecto debes configurar \'4711\' si no lo cambiaste desde eMule.</string>
+    <string name="webserveremuletitle">Tu eMule/aMule web server DNS o IP</string>
+    <string name="webserveremule">Ejemplos: \'192.168.1.100\' o \'mipc.no-ip.org\'</string>
 
-    <string name="webservertorrenttitle">Your FTP server password</string>
-    <string name="webservertorrent">Your FTP server password</string>
-    <string name="porttorrenttitle">Your FTP server password</string>
-    <string name="porttorrent">Your FTP server password</string>
-    <string name="usertorrenttitle">Your FTP server password</string>
-    <string name="usertorrent">Your FTP server password</string>
-    <string name="passtorrenttitle">Your FTP server password</string>
-    <string name="passtorrent">Your FTP server password</string>
+    <string name="webservertorrenttitle">Tu uTorrent/BitTorrent web server DNS o IP</string>
+    <string name="webservertorrent">Ejemplos: \'192.168.1.100\' o \'mipc.no-ip.org\'</string>
 
-    <string name="ftpservertitle">Your FTP server password</string>
-    <string name="ftpserver">Your FTP server password</string>
-    <string name="puertoftptitle">Your FTP server password</string>
+    <string name="porttorrent">El puerto que se haya configurado en Preferencias->Interfaz web</string>
+    <string name="usertorrenttitle">Usuario uTorrent/BitTorrent user</string>
+    <string name="usertorrent">Tu usuario uTorrent/BitTorrent</string>
+    <string name="passtorrenttitle">uTorrent/BitTorrent password</string>
+    <string name="passtorrent">Tu uTorrent/BiTorrent password</string>
+
+    <string name="ftpservertitle">DNS o IP de tu FTP server</string>
+    <string name="ftpserver">Ejemplos: \'192.168.1.100\' o \'ftp://mipc.no-ip.org\'</string>
+    <string name="puertoftptitle">El puerto de tu server FTP </string>
     <string name="puertoftp">Puerto Servidor FTP. Por default suele ser 21. Si se deja vacío asume puerto 21 como default</string>
     <string name="directorioftp">Directorio en Servidor FTP. Por default, si se deja vacío, guarda en el directorio raíz del server FTP. Caso contrario, para guardar en carpeta Video usar \'/Video\'.</string>
     <string name="passftp">Tu password FTP</string>
@@ -98,5 +97,14 @@
     <string name="directorioftptitle">Tu directorio de videos en el server FTP</string>
     <string name="pathsubstitle">Click aquí para configurar tu ruta</string>
     <string name="pathsubscategory">Directorio descarga subtitulos</string>
+    <string name="notifcategory">Notificaciones de Películas</string>
+    <string name="notiftvcategory">Notificaciones Series de TV</string>
+    <string name="vibraoffcategory">Vibración de Notificaciones</string>
+    <string name="p2pcategory">Usar app P2P interna o externa</string>
+    <string name="emucategory">Configuración eMule</string>
+    <string name="ftpservercategory">Envía subtitulos a tu tu servidor FTP de videos</string>
+    <string name="torrentcategory">Configuracion interfaz web utorrent/bittorrent</string>
+    <string name="notifpeli">Enciendelo si deseas recibir notificaciones de nuevos subs de movies</string>
+    <string name="porttorrenttitle">Puerto uTorrent/BitTorrent</string>
 
 </resources>
