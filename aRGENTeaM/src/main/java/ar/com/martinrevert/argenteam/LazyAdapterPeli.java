@@ -16,8 +16,7 @@ import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapterPeli extends BaseAdapter {
     
-	int position;
-    private Activity activity;
+	private Activity activity;
     private String[] titulo;
     private String[] imagen;
     private String[] fecha;
@@ -58,14 +57,14 @@ public class LazyAdapterPeli extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.item, null);
+            vi = inflater.inflate(R.layout.item, parent,false);
      TextView fech=(TextView) vi.findViewById(R.id.fech);
      TextView text=(TextView) vi.findViewById(R.id.titulo);
      TextView vers=(TextView) vi.findViewById(R.id.version);
      ImageView image=(ImageView) vi.findViewById(R.id.image);
-     
+
      text.setText(titulo[position]);
-     fech.setText("Publicado: "+fecha[position]);
+     fech.setText(activity.getResources().getString(R.string.publishedon)+" "+fecha[position]);
      vers.setText(version[position]);
      
      imageLoader.DisplayImage(imagen[position], image);
@@ -76,7 +75,6 @@ public class LazyAdapterPeli extends BaseAdapter {
 
          @Override
          public void onClick(View arg0) {
-
 
              if (activity instanceof SubtitlesReleases) {
                  String URIpost = post[position];

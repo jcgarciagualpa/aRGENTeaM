@@ -16,8 +16,7 @@ import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapterFacebook extends BaseAdapter {
     
-	int position;
-    private Activity activity;
+	private Activity activity;
     private String[] titulo;
     private String[] imagen;
     private String[] fecha;
@@ -26,10 +25,8 @@ public class LazyAdapterFacebook extends BaseAdapter {
     
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader;
-	private View vi; 
-    
-   
-    
+
+
     public LazyAdapterFacebook(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
         activity = a;
         titulo=t;
@@ -56,40 +53,38 @@ public class LazyAdapterFacebook extends BaseAdapter {
     }
     
     public View getView(final int position, View convertView, ViewGroup parent) {
-        vi=convertView;
+        View vi = convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.item, null);
-     TextView fech=(TextView)vi.findViewById(R.id.fech);
-     TextView text=(TextView)vi.findViewById(R.id.titulo);
-     TextView vers=(TextView)vi.findViewById(R.id.version);
-     ImageView image=(ImageView)vi.findViewById(R.id.image);
+            vi = inflater.inflate(R.layout.item, parent,false);
+     TextView fech=(TextView) vi.findViewById(R.id.fech);
+     TextView text=(TextView) vi.findViewById(R.id.titulo);
+     TextView vers=(TextView) vi.findViewById(R.id.version);
+     ImageView image=(ImageView) vi.findViewById(R.id.image);
      
      text.setText(titulo[position]);
-     fech.setText("Publicado: "+fecha[position]);
+     fech.setText(activity.getResources().getString(R.string.publishedon)+" "+fecha[position]);
      vers.setText(version[position]);
-     
+
      imageLoader.DisplayImage(imagen[position], image);
      
      
      
-     vi.setOnClickListener(new OnClickListener(){
+     vi.setOnClickListener(new OnClickListener() {
 
-		@Override
-		public void onClick(View arg0) {
-			
-			
-			
-				String URIpost = post[position].toString();
-				Log.v("URL", URIpost);
-				Intent FBPage = new Intent(activity,FacebookWebview.class);
-				FBPage.putExtra("passed", URIpost);
-				activity.startActivityForResult(FBPage, 0);
-				
+         @Override
+         public void onClick(View arg0) {
 
-		}
 
-		
-    	 
+             String URIpost = post[position];
+             Log.v("URL", URIpost);
+             Intent FBPage = new Intent(activity, FacebookWebview.class);
+             FBPage.putExtra("passed", URIpost);
+             activity.startActivityForResult(FBPage, 0);
+
+
+         }
+
+
      });
      
         return vi;

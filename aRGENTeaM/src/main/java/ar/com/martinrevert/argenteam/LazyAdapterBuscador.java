@@ -17,8 +17,7 @@ import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapterBuscador extends BaseAdapter {
     
-	int position;
-    private Activity activity;
+	private Activity activity;
     private String[] titulo;
     private String[] imagen;
     private String[] post;
@@ -57,7 +56,7 @@ public class LazyAdapterBuscador extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.itembusq, null);
+            vi = inflater.inflate(R.layout.itembusq, parent,false);
      
      TextView text=(TextView)vi.findViewById(R.id.titulo);
      
@@ -79,7 +78,7 @@ public class LazyAdapterBuscador extends BaseAdapter {
 			
 						
 			if(tipo[position].equals("Pelicula")) {
-				String URIpost = post[position].toString();
+				String URIpost = post[position];
 				Log.v("URL", URIpost);
 				Intent peliPage = new Intent(activity,Peli.class);
 				peliPage.putExtra("passed", URIpost);
@@ -87,7 +86,7 @@ public class LazyAdapterBuscador extends BaseAdapter {
 				
 				}
 				else  {
-					String URIpost = post[position].toString();
+					String URIpost = post[position];
 					Log.v("URL", URIpost);
 					Intent peliPage = new Intent(activity,TvSeasons.class);
 					peliPage.putExtra("passed", URIpost);

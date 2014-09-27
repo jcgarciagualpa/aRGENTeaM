@@ -333,25 +333,25 @@ public class Peli extends CustomMenu implements OnClickListener {
             youtu.setId(99975);
 
             TextView sinopsis = new TextView(Peli.this);
-            sinopsis.setText("Sinopsis");
+            sinopsis.setText(R.string.plot);
             sinopsis.setId(99990);
             sinopsis.setTextColor(0xffFF992B);
             sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
             TextView downlsubs = new TextView(Peli.this);
-            downlsubs.setText("Descargar subtitulos");
+            downlsubs.setText(R.string.downloadsubs);
             downlsubs.setId(99989);
             downlsubs.setTextColor(0xffFF992B);
             downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
             TextView downltorrents = new TextView(Peli.this);
-            downltorrents.setText("Descargar torrents");
+            downltorrents.setText(R.string.downloadtorrents);
             downltorrents.setId(99986);
             downltorrents.setTextColor(0xffFF992B);
             downltorrents.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
             TextView downlelinks = new TextView(Peli.this);
-            downlelinks.setText("Descargar eLinks eMule");
+            downlelinks.setText(R.string.downloademule);
             downlelinks.setId(99988);
             downlelinks.setTextColor(0xffFF992B);
             downlelinks.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
@@ -578,8 +578,7 @@ public class Peli extends CustomMenu implements OnClickListener {
         } else {
             if (v.getId() >= 2000 && v.getId() < 3000 && !p2p) {
                 Log.v("TORRENT", "BOTON");
-                String tag = (String) v.getTag();
-                String URIpost = tag;
+                String URIpost = (String) v.getTag();
                 Intent subintent = new Intent(Peli.this,
                         BittorrentRequest.class);
                 subintent.putExtra("passed", URIpost);
@@ -587,8 +586,7 @@ public class Peli extends CustomMenu implements OnClickListener {
             } else {
                 if (v.getId() >= 1000 && v.getId() < 2000 && !p2p) {
                     Log.v("ELINK", "BOTON!");
-                    String tag = (String) v.getTag();
-                    String URIpost = tag;
+                    String URIpost = (String) v.getTag();
                     Intent subintent = new Intent(Peli.this, EmuleRequest.class);
                     subintent.putExtra("passed", URIpost);
                     Peli.this.startActivityForResult(subintent, 0);

@@ -65,7 +65,7 @@ public class BittorrentRequest extends CustomMenu {
         protected void onPreExecute() {
 
             super.onPreExecute();
-            dialog.setMessage("Enviando link a tu uTorrent...");
+            dialog.setMessage(BittorrentRequest.this.getResources().getString(R.string.sendtorrent));
             dialog.show();
         }
 

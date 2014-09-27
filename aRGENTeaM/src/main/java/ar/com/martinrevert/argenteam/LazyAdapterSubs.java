@@ -30,7 +30,6 @@ import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapterSubs extends BaseAdapter {
 
-    int position;
     private Activity activity;
     private ArrayList<String> sub;
     private ArrayList<String> path;
@@ -73,7 +72,7 @@ public class LazyAdapterSubs extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         if (convertView == null)
-            vi = inflater.inflate(R.layout.itemsubs, null);
+            vi = inflater.inflate(R.layout.itemsubs, parent, false);
 
         text = (TextView) vi.findViewById(R.id.titulo);
         btnFTP = (Button) vi.findViewById(R.id.btnFTP);
@@ -150,7 +149,6 @@ public class LazyAdapterSubs extends BaseAdapter {
             String result;
             try {
                 FTPClient ftp = new FTPClient();
-                //ftp.connect(ftpserver);
                 if ((puertoftp) > 0) {
                     ftp.connect(ftpserver, puertoftp);
                 } else {

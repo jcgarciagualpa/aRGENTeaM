@@ -68,14 +68,14 @@ public class EmuleRequest extends CustomMenu {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog.setMessage("Enviando link a tu eMule...");
+			dialog.setMessage(EmuleRequest.this.getResources().getString(R.string.sended2k));
 			dialog.show();
 		}
 
 		@Override
 		protected String doInBackground(String... uri) {
 
-			Document doc = null;
+			Document doc;
 			int numtries = 3;
 			while(true){
 			try {

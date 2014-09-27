@@ -41,7 +41,7 @@ public class SubtitlesReleasesTV extends CustomMenu {
 		setContentView(R.layout.lista);
 		lista = (ListView) findViewById(R.id.listView1);
 		
-		if (isOnline() == true) {
+		if (isOnline()) {
 			new AsyncRequest().execute();
 		} else {
 			vibrateToast(R.string.sininternet);

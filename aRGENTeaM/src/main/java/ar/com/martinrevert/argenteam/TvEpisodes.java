@@ -210,13 +210,13 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			
 
 			TextView sinopsis = new TextView(TvEpisodes.this);
-			sinopsis.setText("Sinopsis");
+			sinopsis.setText(R.string.plot);
 			sinopsis.setId(99990);
 			sinopsis.setTextColor(0xffFF992B);
 			sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downlsubs = new TextView(TvEpisodes.this);
-			downlsubs.setText("Episodios");
+			downlsubs.setText(R.string.episodes);
 			downlsubs.setId(99989);
 			downlsubs.setTextColor(0xffFF992B);
 			downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
@@ -288,7 +288,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			relativelayout.addView(downlsubs);
 			
 
-			Button btnsub = null;
+			Button btnsub;
 			
 
 			int k = 1;

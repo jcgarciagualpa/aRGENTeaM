@@ -106,5 +106,14 @@
     <string name="ftpservercategory">Send subtitles to your FTP video server</string>
     <string name="torrentcategory">utorrent/bittorrent web interface configuration</string>
     <string name="porttorrenttitle">uTorrent/BitTorrent port</string>
+    <string name="publishedon">Published:</string>
+    <string name="plot">Plot</string>
+    <string name="downloadsubs">Download subtitles</string>
+    <string name="downloadtorrents">Download torrents</string>
+    <string name="downloademule">Download eMuLe</string>
+    <string name="episodes">Episodes</string>
+    <string name="seasons">Seasons</string>
+    <string name="sended2k">Sending eMuLe link...</string>
+    <string name="sendtorrent">Sending torrent link...</string>
 
 </resources>

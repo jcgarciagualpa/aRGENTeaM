@@ -106,5 +106,14 @@
     <string name="torrentcategory">Configuracion interfaz web utorrent/bittorrent</string>
     <string name="notifpeli">Enciendelo si deseas recibir notificaciones de nuevos subs de movies</string>
     <string name="porttorrenttitle">Puerto uTorrent/BitTorrent</string>
+    <string name="publishedon">Publicado:</string>
+    <string name="plot">Sinopsis</string>
+    <string name="downloadsubs">Descarga subtítulos</string>
+    <string name="downloadtorrents">Descarga torrents</string>
+    <string name="downloademule">Descarga eMuLe</string>
+    <string name="episodes">Episodios</string>
+    <string name="seasons">Temporadas</string>
+    <string name="sended2k">Enviando eMuLe link...</string>
+    <string name="sendtorrent">Enviando torrent link...</string>
 
 </resources>

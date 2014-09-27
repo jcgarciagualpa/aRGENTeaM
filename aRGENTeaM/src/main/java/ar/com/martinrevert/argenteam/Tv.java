@@ -303,25 +303,25 @@ public class Tv extends CustomMenu implements OnClickListener {
 			youtu.setId(99975);
 
 			TextView sinopsis = new TextView(Tv.this);
-			sinopsis.setText("Sinopsis");
+			sinopsis.setText(R.string.plot);
 			sinopsis.setId(99990);
 			sinopsis.setTextColor(0xffFF992B);
 			sinopsis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downlsubs = new TextView(Tv.this);
-			downlsubs.setText("Descargar subtitulos");
+			downlsubs.setText(R.string.downloadsubs);
 			downlsubs.setId(99989);
 			downlsubs.setTextColor(0xffFF992B);
 			downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downltorrents = new TextView(Tv.this);
-			downltorrents.setText("Descargar torrents");
+			downltorrents.setText(R.string.downloadtorrents);
 			downltorrents.setId(99986);
 			downltorrents.setTextColor(0xffFF992B);
 			downltorrents.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
 
 			TextView downlelinks = new TextView(Tv.this);
-			downlelinks.setText("Descargar eLinks eMule");
+			downlelinks.setText(R.string.downloademule);
 			downlelinks.setId(99988);
 			downlelinks.setTextColor(0xffFF992B);
 			downlelinks.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);

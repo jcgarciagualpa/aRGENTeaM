@@ -15,27 +15,27 @@ import android.widget.TextView;
 import com.fedorvlasov.lazylist.ImageLoader;
 
 public class LazyAdapterTV extends BaseAdapter {
-    
-	int position;
+
     private Activity activity;
     private String[] titulo;
     private String[] imagen;
     private String[] fecha;
     private String[] version;
     private String[] post;
-    private static LayoutInflater inflater=null;
+    private static LayoutInflater inflater = null;
     public ImageLoader imageLoader;
-    
+
+
     public LazyAdapterTV(Activity a, String[] t, String[] i, String[] f, String[] v, String[] p) {
         activity = a;
-        titulo=t;
-        imagen=i;
-        fecha=f;
-        version=v;
-        post=p;
-       
-        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        imageLoader=new ImageLoader(activity.getApplicationContext(), "tv");
+        titulo = t;
+        imagen = i;
+        fecha = f;
+        version = v;
+        post = p;
+
+        inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        imageLoader = new ImageLoader(activity.getApplicationContext(), "tv");
     }
 
     public int getCount() {
@@ -49,49 +49,47 @@ public class LazyAdapterTV extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-    
+
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View vi=convertView;
-        if(convertView==null)
-            vi = inflater.inflate(R.layout.itemseries, null);
-     TextView fech=(TextView)vi.findViewById(R.id.fech);
-     TextView text=(TextView)vi.findViewById(R.id.titulo);
-     TextView vers=(TextView)vi.findViewById(R.id.version);
-     ImageView image=(ImageView)vi.findViewById(R.id.image);
-     text.setText(titulo[position]);
-     fech.setText("Publicado: "+fecha[position]);
-     vers.setText(version[position]);
-     imageLoader.DisplayImage(imagen[position], image);
-     
-     
-     vi.setOnClickListener(new OnClickListener(){
+        View vi = convertView;
+        if (convertView == null)
+            vi = inflater.inflate(R.layout.itemseries, parent, false);
+        TextView fech = (TextView) vi.findViewById(R.id.fech);
+        TextView text = (TextView) vi.findViewById(R.id.titulo);
+        TextView vers = (TextView) vi.findViewById(R.id.version);
+        ImageView image = (ImageView) vi.findViewById(R.id.image);
+        text.setText(titulo[position]);
 
-		@Override
-		public void onClick(View arg0) {
-			
-			
-			if(activity instanceof SubtitlesReleasesTV) {
-			String URIpost = post[position];
-			Log.v("URL", URIpost);
-			
-			Intent peliPage = new Intent(activity,TvSeasons.class);
+        fech.setText(activity.getResources().getString(R.string.publishedon) + " " + fecha[position]);
+        vers.setText(version[position]);
+        imageLoader.DisplayImage(imagen[position], image);
 
-			peliPage.putExtra("passed", URIpost);
 
-			activity.startActivityForResult(peliPage, 0);
-			}
-			else{
-			Log.v("TVPUM","PUM");
-			}
+        vi.setOnClickListener(new OnClickListener() {
 
-			
-			
-		}
+            @Override
+            public void onClick(View arg0) {
 
-		
-    	 
-     });
-     
+
+                if (activity instanceof SubtitlesReleasesTV) {
+                    String URIpost = post[position];
+                    Log.v("URL", URIpost);
+
+                    Intent peliPage = new Intent(activity, TvSeasons.class);
+
+                    peliPage.putExtra("passed", URIpost);
+
+                    activity.startActivityForResult(peliPage, 0);
+                } else {
+                    Log.v("TVPUM", "PUM");
+                }
+
+
+            }
+
+
+        });
+
         return vi;
     }
 
