@@ -85,7 +85,10 @@ public class DownloadFile extends CustomMenu {
             super.onPreExecute();
 
             Log.v("ROOTDIR",rootDir.toString());
-         //   Log.v("DIRPATH",dirPath);
+            if (rootDir.toString().equals("")){
+                vibrateToast(R.string.nodirsubs);
+                finish();
+            }
             //Hay que actualizar esto para usar DialogFragments
             //http://android-developers.blogspot.in/2012/05/using-dialogfragments.html
             showDialog(DIALOG_DOWNLOAD_PROGRESS);
