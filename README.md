@@ -22,10 +22,10 @@ Open Source libraries used:
 Apache Commons Net 3.3
 http://commons.apache.org/proper/commons-net/index.html
 
-Joda Time 2.3
+Joda Time 2.4
 http://www.joda.org/joda-time/
 
-JSOUP 1.7.3
+JSOUP 1.8.1
 http://jsoup.org/
 
 LazyList by Fedor Lazov
@@ -40,7 +40,7 @@ http://developer.android.com/tools/support-library/index.html
 AmbilWarna Color Picker
 http://code.google.com/p/android-color-picker/
 
-OkHttp 1.3.0
+OkHttp 2.0.0
 http://square.github.io/okhttp/
 
 Android Directory Chooser
