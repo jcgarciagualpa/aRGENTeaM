@@ -40,7 +40,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-
 public class SplashActivity extends Activity {
 
     public static final String PROPERTY_REG_ID = "registration_id";
@@ -142,7 +141,7 @@ public class SplashActivity extends Activity {
      * {@code SharedPreferences}.
      *
      * @param context application's context.
-     * @param regId registration ID
+     * @param regId   registration ID
      */
     private void storeRegistrationId(Context context, String regId) {
         final SharedPreferences prefs = getGcmPreferences(context);
@@ -156,11 +155,11 @@ public class SplashActivity extends Activity {
 
     /**
      * Gets the current registration ID for application on GCM service, if there is one.
-     * <p>
+     * <p/>
      * If result is empty, the app needs to register.
      *
      * @return registration ID, or empty string if there is no existing
-     *         registration ID.
+     * registration ID.
      */
     private String getRegistrationId(Context context) {
         final SharedPreferences prefs = getGcmPreferences(context);
@@ -183,7 +182,7 @@ public class SplashActivity extends Activity {
 
     /**
      * Registers the application with GCM servers asynchronously.
-     * <p>
+     * <p/>
      * Stores the registration ID and the app versionCode in the application's
      * shared preferences.
      */
@@ -201,14 +200,10 @@ public class SplashActivity extends Activity {
 
                     // You should send the registration ID to your server over HTTP, so it
                     // can use GCM/HTTP or CCS to send messages to your app.
-                    sendRegistrationIdToBackend(regid);
+                    if (sendRegistrationIdToBackend(regid)) {
+                        storeRegistrationId(context, regid);
+                    }
 
-                    // For this demo: we don't need to send it because the device will send
-                    // upstream messages to a server that echo back the message using the
-                    // 'from' address in the message.
-
-                    // Persist the regID - no need to register again.
-                    storeRegistrationId(context, regid);
                 } catch (IOException ex) {
                     msg = "Error :" + ex.getMessage();
                     // If there is an error, don't just keep trying to register.
@@ -224,7 +219,6 @@ public class SplashActivity extends Activity {
             }
         }.execute(null, null, null);
     }
-
 
 
     @Override
@@ -255,23 +249,28 @@ public class SplashActivity extends Activity {
         return getSharedPreferences(SplashActivity.class.getSimpleName(),
                 Context.MODE_PRIVATE);
     }
+
     /**
      * Sends the registration ID to your server over HTTP, so it can use GCM/HTTP or CCS to send
      * messages to your app. Not needed for this demo since the device sends upstream messages
      * to a server that echoes back the message using the 'from' address in the message.
      */
-    private void sendRegistrationIdToBackend(String registerid) {
-      // Your implementation here.
+    private boolean sendRegistrationIdToBackend(String registerid) {
+        // Your implementation here.
 
         Map<String, String> params = new HashMap<String, String>();
         params.put("regId", registerid);
         try {
-            post(SERVER_URL, params);
-        }catch (Exception e){
+            if (post(SERVER_URL, params)) {
+                return true;
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
-    private static void post(String endpoint, Map<String, String> params)
+
+    private static boolean post(String endpoint, Map<String, String> params)
             throws IOException {
         URL url;
         try {
@@ -309,13 +308,17 @@ public class SplashActivity extends Activity {
             // handle the response
             int status = conn.getResponseCode();
             if (status != 200) {
-                throw new IOException("Post failed with error code " + status);
+                return false;
+                // throw new IOException("Post failed with error code " + status);
+
             }
+
         } finally {
             if (conn != null) {
                 conn.disconnect();
             }
         }
+        return true;
     }
 
 }

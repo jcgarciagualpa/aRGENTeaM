@@ -9,7 +9,6 @@ import org.jsoup.select.Elements;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -76,7 +75,7 @@ public class SearchableActivity extends CustomMenu {
 
 		@Override
 		protected Integer doInBackground(String... palabras) {
-			Document doc = null;
+			Document doc;
 			int numtries = 3;
 			while (true) {
 				try {
@@ -172,7 +171,6 @@ public class SearchableActivity extends CustomMenu {
 
 					while (sizemax.hasNext()) {
 
-						@SuppressWarnings("unused")
 						Element rel = sizemax.next();
 
 						size++;

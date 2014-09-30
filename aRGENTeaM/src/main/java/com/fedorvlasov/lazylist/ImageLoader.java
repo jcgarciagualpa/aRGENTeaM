@@ -126,6 +126,7 @@ public class ImageLoader {
             stream2.close();
             return bitmap;
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } 
         catch (IOException e) {
             e.printStackTrace();
