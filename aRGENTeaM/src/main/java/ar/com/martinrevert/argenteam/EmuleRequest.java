@@ -80,7 +80,7 @@ public class EmuleRequest extends CustomMenu {
 			while(true){
 			try {
 				doc = Jsoup.connect(uri[0]).data("w", "password")
-						.data("p", pass).timeout(60000).post();
+						.data("p", pass).timeout(10000).post();
 				Element data = doc.select("a[href$=transfer]").first();
 				String previo = data.attr("href");
 

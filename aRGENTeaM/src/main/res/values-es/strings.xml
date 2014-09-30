@@ -113,7 +113,7 @@
     <string name="downloademule">Descarga eMuLe</string>
     <string name="episodes">Episodios</string>
     <string name="seasons">Temporadas</string>
-    <string name="sended2k">Enviando eMuLe link...</string>
-    <string name="sendtorrent">Enviando torrent link...</string>
-
+    <string name="sended2k">Enviando eMuLe link</string>
+    <string name="sendtorrent">Enviando torrent link</string>
+    <string name="sinfacebook">No se pudo conectar con Facebook.Intenta de nuevo más tarde.</string>
 </resources>

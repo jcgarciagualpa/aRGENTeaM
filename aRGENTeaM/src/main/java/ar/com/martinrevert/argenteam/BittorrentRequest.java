@@ -76,7 +76,7 @@ public class BittorrentRequest extends CustomMenu {
             while (true) {
                 try {
 
-                    doc = Jsoup.connect(uri[0]).timeout(60000)
+                    doc = Jsoup.connect(uri[0]).timeout(10000)
                             .header("Authorization", auth).get();
 
                     response = doc.body().text();

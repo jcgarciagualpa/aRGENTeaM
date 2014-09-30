@@ -135,7 +135,7 @@ public class Faceb extends CustomMenu {
             if (result == 1) {
                 lista.setAdapter(adapter);
             } else {
-                vibrateToast(R.string.sinportal);
+                vibrateToast(R.string.sinfacebook);
                 finish();
 
             }

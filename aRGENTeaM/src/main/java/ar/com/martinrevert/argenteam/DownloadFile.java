@@ -16,7 +16,6 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -41,8 +40,6 @@ public class DownloadFile extends CustomMenu {
             finish();
 
         }
-
-
     }
 
 
@@ -68,27 +65,17 @@ public class DownloadFile extends CustomMenu {
 
     public class DownloadFileAsync extends AsyncTask<String, String, String> {
         public File rootDir = new File(getPath());
-      //  public String rootDir = Environment.getExternalStorageDirectory().toString();
-
-
-
-      //checkAndCreateDirectory(dirPath);
-      //  {
-      //      vibrateToast(R.string.nodirsubs);
-      //      return null;
-      //  }
-
-
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
-            Log.v("ROOTDIR",rootDir.toString());
-            if (rootDir.toString().equals("")){
+            Log.v("ROOTDIR", rootDir.toString());
+            if (rootDir.toString().equals("")) {
                 vibrateToast(R.string.nodirsubs);
                 finish();
             }
+
             //Hay que actualizar esto para usar DialogFragments
             //http://android-developers.blogspot.in/2012/05/using-dialogfragments.html
             showDialog(DIALOG_DOWNLOAD_PROGRESS);
@@ -145,23 +132,7 @@ public class DownloadFile extends CustomMenu {
         protected void onPostExecute(String unused) {
             mProgressDialog.dismiss();
             finish();
-
-
         }
-    }
-
-    public boolean checkAndCreateDirectory(String dirName) {
-        if (dirName == null) {
-            vibrateToast(R.string.nodirsubs);
-            return false;
-        } else {
-            File new_dir = new File(dirName);
-            if (!new_dir.exists()) {
-                new_dir.mkdirs();
-
-            }
-        }
-        return true;
     }
 
     public class Decompress {
@@ -186,7 +157,7 @@ public class DownloadFile extends CustomMenu {
                     if (ze.isDirectory()) {
                         _dirChecker(ze.getName());
                     } else {
-                        FileOutputStream fout = new FileOutputStream(_location +"/"+ ze.getName());
+                        FileOutputStream fout = new FileOutputStream(_location + "/" + ze.getName());
                         for (int c = zin.read(); c != -1; c = zin.read()) {
                             fout.write(c);
                         }
