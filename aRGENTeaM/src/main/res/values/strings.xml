@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Menu -->
     <string name="search">Search</string>
     <string name="share">Share</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
-
 
     <!-- Basics, toasts and utility -->
     <string name="app_name">aRGENTeaM</string>
@@ -49,35 +49,29 @@
         <item>TV Series subtitles being translated</item>
         <item>My spanish subtitles</item>
         <item>Facebook Official News Page</item>
+        <item>Trakt</item>
     </string-array>
 
     <string name="pathsubstitle">Click this preference to set your path</string>
-
-
     <string name="notifpeli">If "On" you will receive notifications of new movie subtitles</string>
     <string name="notifpeliring">Choose notification sound</string>
     <string name="notifpeliringtitle">Notification sound</string>
     <string name="notifpeliled">Lights the LED if your device has the feature </string>
     <string name="notifpeliledtitle">Configure movie notification LED color </string>
-
     <string name="notiftv">If "On" you will receive notifications of new TV Series subtitles</string>
     <string name="notiftvring">Choose notification sound</string>
     <string name="notiftvringtitle">Notification sound</string>
     <string name="notiftvled">Lights the LED if your device has the feature</string>
     <string name="notiftvledtitle">Configure TV series notification LED color</string>
-
     <string name="vibraofftitle">Vibration</string>
-
     <string name="p2p">Activating this switch you will send torrent magnet links and ed2k links to Android (TM) 3rd party apps on your device.</string>
     <string name="p2ptitle">P2P parameters off</string>
-
     <string name="passemultitle">eMule password</string>
     <string name="passemule">Your eMule password</string>
     <string name="portemuletitle">eMule port</string>
     <string name="portemule">By default you have to put here \'4711\' if you never changed it on eMule.</string>
     <string name="webserveremuletitle">Your eMule/aMule web server DNS or IP</string>
     <string name="webserveremule">Examples: \'192.168.1.100\' o \'mipc.no-ip.org\'</string>
-
     <string name="webservertorrenttitle">Your uTorrent/BitTorrent web server DNS o IP</string>
     <string name="webservertorrent">Examples: \'192.168.1.100\' o \'mipc.no-ip.org\'</string>
     <string name="porttorrent">The port that you configured on Preferences -> Web Interface</string>
@@ -85,7 +79,6 @@
     <string name="usertorrent">Your uTorrent/BitTorrent user</string>
     <string name="passtorrenttitle">uTorrent/BitTorrent password</string>
     <string name="passtorrent">Your uTorrent/BitTorrent password</string>
-
     <string name="ftpservertitle">DNS or IP of your FTP server</string>
     <string name="ftpserver">Examples: \'192.168.1.100\' o \'ftp://mipc.no-ip.org\'</string>
     <string name="puertoftptitle">Your FTP server port</string>
@@ -116,5 +109,13 @@
     <string name="sended2k">Sending eMuLe link</string>
     <string name="sendtorrent">Sending torrent link</string>
     <string name="sinfacebook">There is a problem connecting to Facebook. Please, try again later.</string>
+    <string name="title_activity_trakt">TraktActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
