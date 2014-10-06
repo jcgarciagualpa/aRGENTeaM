@@ -27,6 +27,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.IOException;
@@ -144,7 +145,8 @@ public class SplashActivity extends Activity {
      * @param regId   registration ID
      */
     private void storeRegistrationId(Context context, String regId) {
-        final SharedPreferences prefs = getGcmPreferences(context);
+       // final SharedPreferences prefs = getGcmPreferences(context);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         int appVersion = getAppVersion(context);
         Log.i(TAG, "Saving regId on app version " + appVersion);
         SharedPreferences.Editor editor = prefs.edit();
@@ -162,7 +164,8 @@ public class SplashActivity extends Activity {
      * registration ID.
      */
     private String getRegistrationId(Context context) {
-        final SharedPreferences prefs = getGcmPreferences(context);
+        //final SharedPreferences prefs = getGcmPreferences(context);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String registrationId = prefs.getString(PROPERTY_REG_ID, "");
         if (registrationId.isEmpty()) {
             Log.i(TAG, "Registration not found.");

@@ -138,6 +138,7 @@ public class GcmIntentService extends IntentService {
         boolean tvoff = preferencias.getBoolean("tvoff", false);
         String ringmovie = preferencias.getString("prefRingtonemovie", "");
         String ringtv = preferencias.getString("prefRingtonetv", "");
+       //Todo traducir ticker
         String ticker = "Nuevo subtítulo " + tipo + " en aRGENTeaM";
 
         Random randomGenerator = new Random();

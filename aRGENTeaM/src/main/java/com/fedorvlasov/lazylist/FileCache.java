@@ -1,37 +1,45 @@
 package com.fedorvlasov.lazylist;
 
 import java.io.File;
+
 import android.content.Context;
+import android.os.Environment;
 
 public class FileCache {
-    
+
+
     private File cacheDir;
-    
-    public FileCache(Context context){
+
+    public FileCache(Context context) {
         //Find the dir to save cached images
-        if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
-            cacheDir=new File(android.os.Environment.getExternalStorageDirectory(),"aRGENTeaM/cache");
-        else
-            cacheDir=context.getCacheDir();
-        if(!cacheDir.exists())
+        //   if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
+        //       cacheDir=new File(android.os.Environment.getExternalStorageDirectory(),"data/data/ar.com.martinrevert.argenteam/cache");
+        //   else
+        File dir;
+        dir = new File(Environment.getExternalStorageDirectory() + "/aRGENTeaM/cache");
+        if (dir.exists()) {
+            dir.delete();
+        }
+        cacheDir = context.getCacheDir();
+        if (!cacheDir.exists())
             cacheDir.mkdirs();
     }
-    
-    public File getFile(String url){
+
+    public File getFile(String url) {
         //I identify images by hashcode. Not a perfect solution, good for the demo.
-        String filename=String.valueOf(url.hashCode());
+        String filename = String.valueOf(url.hashCode());
         //Another possible solution (thanks to grantland)
         //String filename = URLEncoder.encode(url);
         File f = new File(cacheDir, filename);
         return f;
-        
+
     }
-    
-    public void clear(){
-        File[] files=cacheDir.listFiles();
-        if(files==null)
+
+    public void clear() {
+        File[] files = cacheDir.listFiles();
+        if (files == null)
             return;
-        for(File f:files)
+        for (File f : files)
             f.delete();
     }
 
