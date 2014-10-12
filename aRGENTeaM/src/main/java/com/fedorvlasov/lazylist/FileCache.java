@@ -4,6 +4,7 @@ import java.io.File;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 public class FileCache {
 
@@ -15,11 +16,23 @@ public class FileCache {
         //   if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
         //       cacheDir=new File(android.os.Environment.getExternalStorageDirectory(),"data/data/ar.com.martinrevert.argenteam/cache");
         //   else
-        File dir;
-        dir = new File(Environment.getExternalStorageDirectory() + "/aRGENTeaM/cache");
-        if (dir.exists()) {
-            dir.delete();
+        //
+        //Limpiar luego de que una buena parte de los usuarios tenga una versión mayor a 2.2.157
+        File dir1 = new File(Environment.getExternalStorageDirectory() + "/aRGENTeaM/cache");
+        if (dir1.exists()) {
+            dir1.delete();
         }
+
+        String dirPath = context.getFilesDir().getPath()+"/"+"shared_prefs/SplashActivity.xml";
+        File root = new File(dirPath);
+        root.setWritable(true,false);
+        Log.v("can write?", String.valueOf(root.canWrite()));
+        if (root.exists()) {
+            root.delete();
+            }
+
+
+
         cacheDir = context.getCacheDir();
         if (!cacheDir.exists())
             cacheDir.mkdirs();
