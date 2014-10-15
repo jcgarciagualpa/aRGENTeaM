@@ -35,11 +35,10 @@ public class TranslationsMovies extends CustomMenu {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista);
 		lista = (ListView) findViewById(R.id.listView1);
-		if (isOnline() == true) {
+		if (isOnline()) {
 			new AsyncRequest().execute();
 		} else {
 			vibrateToast(R.string.sininternet);
@@ -56,9 +55,8 @@ public class TranslationsMovies extends CustomMenu {
 
 		@Override
 		protected void onPreExecute() {
-			// TODO Auto-generated method stub
 			super.onPreExecute();
-			dialog.setMessage("Cargando...");
+            dialog.setMessage(getResources().getString(R.string.loading));
 			dialog.show();
 		}
 

@@ -58,11 +58,7 @@ import android.widget.TextView;
 public class Peli extends CustomMenu implements OnClickListener {
 
     private ImageLoader imageLoader;
-    private String message;
     private ImageView image;
-    private ImageButton youtu;
-
-
     public String detalle;
     public String titul;
     public String post;
@@ -73,14 +69,11 @@ public class Peli extends CustomMenu implements OnClickListener {
     public String subtitle;
     public String sub;
 
-
-
     Map<String, String> movie = new HashMap<String, String>();
     TreeMap<String, String> elinks = new TreeMap<String, String>();
     Map<String, String> torrents = new HashMap<String, String>();
 
     public String mula;
-    public String btntxt;
     public String rating;
     private boolean p2p;
 
@@ -93,7 +86,7 @@ public class Peli extends CustomMenu implements OnClickListener {
         image.setId(99995);
         imageLoader = new ImageLoader(getBaseContext(), "movie");
 
-        message = getIntent().getStringExtra("passed");
+        String message = getIntent().getStringExtra("passed");
 
         if (isOnline()) {
             new GetPage().execute(message);
@@ -115,19 +108,19 @@ public class Peli extends CustomMenu implements OnClickListener {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog.setMessage("Cargando...");
+            dialog.setMessage(getResources().getString(R.string.loading));
             dialog.show();
         }
 
         @Override
         protected Integer doInBackground(String... query) {
 
-            Document doc = null;
+            Document doc;
             int numtries = 3;
             while (true) {
 
                 try {
-                    doc = Jsoup.connect(query[0]).timeout(60000)
+                    doc = Jsoup.connect(query[0]).timeout(10000)
                             .cookie("tca", "Y").get();
                     break;
                 } catch (Exception e) {
@@ -328,7 +321,7 @@ public class Peli extends CustomMenu implements OnClickListener {
             datos.setText(pegaitems);
             datos.setId(99997);
 
-            youtu = new ImageButton(Peli.this);
+            ImageButton youtu = new ImageButton(Peli.this);
             youtu.setImageResource(R.drawable.ic_youtube);
             youtu.setId(99975);
 
@@ -447,7 +440,7 @@ public class Peli extends CustomMenu implements OnClickListener {
             relativelayout.addView(detall);
             relativelayout.addView(datos);
 
-            if (yout != "bla") {
+            if (!yout.equals("bla")) {
                 relativelayout.addView(youtu);
             }
             relativelayout.addView(sinopsis);
@@ -455,8 +448,8 @@ public class Peli extends CustomMenu implements OnClickListener {
             relativelayout.addView(downlelinks);
             relativelayout.addView(downltorrents);
 
-            Button btnsub = null;
-            Button btntorrent = null;
+            Button btnsub;
+            Button btntorrent;
 
             int k = 1;
             int m = 1000;

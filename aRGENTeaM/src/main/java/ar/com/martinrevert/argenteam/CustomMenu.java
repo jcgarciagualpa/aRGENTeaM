@@ -77,11 +77,11 @@ public class CustomMenu extends ActionBarActivity {
                 sharingIntent.setType("text/plain");
                 String shareBody = "https://play.google.com/store/apps/details?id=ar.com.martinrevert.argenteam";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
-                        "Subject Here");
+                        getResources().getString(R.string.lookthisapp));
                 sharingIntent
                         .putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent,
-                        "Compartir URL via"));
+                        getResources().getString(R.string.sharefriend)));
                 return true;
 
             case R.id.settings:
@@ -103,6 +103,7 @@ public class CustomMenu extends ActionBarActivity {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
                 builder1.setTitle("aRGENTeaM for Android " + version);
                 builder1.setIcon(R.drawable.stubportrait);
+                //ToDo Traducir esto
                 Spannable tex = new SpannableString("Esta aplicación es freeware provisto \"as is\".\n\n\nmartinrevert@gmail.com");
                 Linkify.addLinks(tex, Linkify.EMAIL_ADDRESSES);
 

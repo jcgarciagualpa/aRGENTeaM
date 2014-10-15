@@ -36,8 +36,7 @@ import android.widget.TextView;
 public class TvEpisodes extends CustomMenu implements OnClickListener {
 
 	private ImageLoader imageLoader;
-	private String message;
-	private ImageView image;
+    private ImageView image;
 	
 
 	public String detalle;
@@ -64,7 +63,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 		image.setId(99995);
 		imageLoader = new ImageLoader(getBaseContext(),"movie");
 
-		message = getIntent().getStringExtra("passed");
+        String message = getIntent().getStringExtra("passed");
 
 		if (isOnline()) {
 			new GetPage().execute(message);
@@ -84,7 +83,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog.setMessage("Cargando...");
+            dialog.setMessage(getResources().getString(R.string.loading));
 			dialog.show();
 		}
 
@@ -97,7 +96,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			while (true) {
 
 				try {
-					doc = Jsoup.connect(query[0]).timeout(60000)
+					doc = Jsoup.connect(query[0]).timeout(10000)
 							.cookie("tca", "Y").get();
 					break;
 				} catch (Exception e) {

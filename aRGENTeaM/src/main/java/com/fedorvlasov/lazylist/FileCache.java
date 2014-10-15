@@ -22,7 +22,7 @@ public class FileCache {
         if (dir1.exists()) {
             dir1.delete();
         }
-
+        //ToDo Buscar forma de borrar vieja instalación sharedpreferences
         String dirPath = context.getFilesDir().getPath()+"/"+"shared_prefs/SplashActivity.xml";
         File root = new File(dirPath);
         root.setWritable(true,false);

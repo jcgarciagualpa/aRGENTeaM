@@ -40,11 +40,9 @@ import android.widget.TextView;
 public class Tv extends CustomMenu implements OnClickListener {
 
 	private ImageLoader imageLoader;
-	private String message;
-	private ImageView image;
-	private ImageButton youtu;
+    private ImageView image;
 
-	public String detalle;
+    public String detalle;
 	public String titul;
 	public String post;
 	public String yout;
@@ -74,7 +72,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 		image.setId(99995);
 		imageLoader = new ImageLoader(getBaseContext(),"movie");
 
-		message = getIntent().getStringExtra("passed");
+        String message = getIntent().getStringExtra("passed");
 
 		Log.v("MESSAGE", message);
 
@@ -97,7 +95,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog.setMessage("Cargando...");
+            dialog.setMessage(getResources().getString(R.string.loading));
 			dialog.show();
 		}
 
@@ -110,7 +108,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			while (true) {
 
 				try {
-					doc = Jsoup.connect(query[0]).timeout(60000)
+					doc = Jsoup.connect(query[0]).timeout(10000)
 							.cookie("tca", "Y").get();
 					break;
 				} catch (Exception e) {
@@ -298,7 +296,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			datos.setText(pegaitems);
 			datos.setId(99997);
 
-			youtu = new ImageButton(Tv.this);
+            ImageButton youtu = new ImageButton(Tv.this);
 			youtu.setImageResource(R.drawable.ic_youtube);
 			youtu.setId(99975);
 
@@ -383,7 +381,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 
 			RelativeLayout.LayoutParams sinopsisparams = new RelativeLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			if (yout == "bla") {
+			if (yout.equals("bla")) {
 				sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
 			} else {
 				sinopsisparams.addRule(RelativeLayout.BELOW, youtu.getId());
@@ -420,7 +418,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			relativelayout.addView(detall);
 			// relativelayout.addView(datos);
 
-			if (yout != "bla") {
+			if (!yout.equals("bla")) {
 				relativelayout.addView(youtu);
 			}
 			relativelayout.addView(sinopsis);
@@ -428,8 +426,8 @@ public class Tv extends CustomMenu implements OnClickListener {
 			relativelayout.addView(downlelinks);
 			relativelayout.addView(downltorrents);
 
-			Button btnsub = null;
-			Button btntorrent = null;
+			Button btnsub;
+			Button btntorrent;
 
 			int k = 1;
 			int m = 1000;
@@ -525,14 +523,14 @@ public class Tv extends CustomMenu implements OnClickListener {
 
 			youtu.setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View arg0) {
+                @Override
+                public void onClick(View arg0) {
 
-					Log.v("YOUTUBE", "Click!");
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri
-							.parse(yout)));
-				}
-			});
+                    Log.v("YOUTUBE", "Click!");
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri
+                            .parse(yout)));
+                }
+            });
 
 		}// Fin onPostExecute
 	}// Fin asyctask

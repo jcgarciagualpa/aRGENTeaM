@@ -83,7 +83,7 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog.setMessage("Cargando...");
+            dialog.setMessage(getResources().getString(R.string.loading));
             dialog.show();
         }
 
@@ -96,7 +96,7 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
             while (true) {
 
                 try {
-                    doc = Jsoup.connect(query[0]).timeout(60000)
+                    doc = Jsoup.connect(query[0]).timeout(10000)
                             .cookie("tca", "Y").get();
                     break;
                 } catch (Exception e) {

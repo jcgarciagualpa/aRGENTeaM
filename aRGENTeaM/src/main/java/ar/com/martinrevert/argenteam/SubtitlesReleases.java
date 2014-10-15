@@ -67,7 +67,7 @@ public class SubtitlesReleases extends CustomMenu {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog.setMessage("Cargando...");
+            dialog.setMessage(getResources().getString(R.string.loading));
             dialog.show();
         }
 

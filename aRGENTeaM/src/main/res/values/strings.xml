@@ -116,5 +116,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="loading">Loading...</string>
+    <string name="ticker">New %1$s subtitle in aRGENTeaM</string>
+    <string name="searching">Searching \' %1$s \'</string>
+    <string name="nothing">No coincidences found</string>
+    <string name="sharefriend">Share this app to a friend</string>
+    <string name="lookthisapp">Hey!!! Look this Android app !!!</string>
 
 </resources>

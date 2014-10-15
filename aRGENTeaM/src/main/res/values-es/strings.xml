@@ -116,4 +116,10 @@
     <string name="sended2k">Enviando eMuLe link</string>
     <string name="sendtorrent">Enviando torrent link</string>
     <string name="sinfacebook">No se pudo conectar con Facebook.Intenta de nuevo más tarde.</string>
+    <string name="loading">Cargando...</string>
+    <string name="ticker">Nuevo subtitulo %1$s en aRGENTeaM</string>
+    <string name="searching">Buscando \'%1$s\'</string>
+    <string name="nothing">No se encontraron coincidencias</string>
+    <string name="sharefriend">Cuéntale a un amigo de esta app</string>
+    <string name="lookthisapp">Hey!!! Mira esta app Android !!!</string>
 </resources>

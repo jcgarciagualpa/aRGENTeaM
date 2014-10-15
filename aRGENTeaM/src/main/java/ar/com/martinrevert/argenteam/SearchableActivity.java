@@ -69,7 +69,9 @@ public class SearchableActivity extends CustomMenu {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog.setMessage("Buscando '" + query + "'");
+			String format = getResources().getString(R.string.searching);
+            String displaymensaje = String.format(format,query);
+            dialog.setMessage(displaymensaje);
 			dialog.show();
 		}
 
@@ -94,7 +96,7 @@ public class SearchableActivity extends CustomMenu {
 							public void run() {
 								dialog.dismiss();
 								int duration = Toast.LENGTH_LONG;
-								Toast toast = Toast.makeText(getBaseContext(), "No se encontraron coincidencias", duration);
+								Toast toast = Toast.makeText(getBaseContext(), getResources().getString(R.string.nothing), duration);
 								toast.show();
 								
 								
@@ -228,7 +230,7 @@ public class SearchableActivity extends CustomMenu {
 						Log.v("POST", pst[countpost]);
 						countpost++;
 					}
-
+                    //ToDo falta traducir tipos, ojo con LazyAdapterBuscador que discrimina en duro por tipo en castellano
 					Iterator<Element> tipos = doc
 							.select("div.pack-list > div.pack-list-item > div.search-item-desc > a > h1 > img")
 							.iterator();
