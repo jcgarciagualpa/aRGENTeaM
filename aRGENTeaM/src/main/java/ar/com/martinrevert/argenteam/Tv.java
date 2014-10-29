@@ -148,6 +148,7 @@ public class Tv extends CustomMenu implements OnClickListener {
 			Element puntaje = doc.select("div.episode-info > h1").first();
 			rating = puntaje.text();
 
+            //ToDo implementar trailer youtube API3
 			if (doc.select("div.trailer > div.media-content > object > param")
 					.first() == null) {
 				if (doc.select(

@@ -12,15 +12,15 @@ buildscript {
 apply plugin: 'com.android.library'
 android {
     signingConfigs {
-        release {
+      release {
             keyAlias 'android'
             keyPassword 'android'
             storeFile file('/home/martin/release.keystore')
             storePassword 'android'
         }
     }
-    compileSdkVersion 19
-    buildToolsVersion '20'
+    compileSdkVersion 21
+    buildToolsVersion '21.0.2'
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'

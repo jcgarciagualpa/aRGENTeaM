@@ -17,6 +17,7 @@ import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import java.lang.StringBuilder;
@@ -26,21 +27,27 @@ import android.widget.ListView;
 
 public class SubtitlesReleasesTV extends CustomMenu {
 
-	ListView lista;
-	LazyAdapterTV adapter;
-
-	String[] titulo = null;
-	String[] fech = null;
-	String[] ver = null;
-	String[] imag = null;
-	String[] post = null;
+	private ListView lista;
+	private LazyAdapterTV adapter;
+    private	String[] titulo = null;
+	private String[] fech = null;
+	private String[] ver = null;
+	private String[] imag = null;
+	private String[] post = null;
+    private Toolbar tvtoolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lista);
-		lista = (ListView) findViewById(R.id.listView1);
-		
+		setContentView(R.layout.tvreleases);
+
+        tvtoolbar = (Toolbar) findViewById(R.id.tvtoolbar);
+        setSupportActionBar(tvtoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("TV Releases");
+
+        lista = (ListView) findViewById(R.id.listViewTvRel);
+
 		if (isOnline()) {
 			new AsyncRequest().execute();
 		} else {

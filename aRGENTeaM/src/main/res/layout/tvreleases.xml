@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tvtoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+
+        <ListView
+            android:id="@+id/listViewTvRel"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:listSelector="@android:drawable/list_selector_background"
+           >
+        </ListView>
+</LinearLayout>

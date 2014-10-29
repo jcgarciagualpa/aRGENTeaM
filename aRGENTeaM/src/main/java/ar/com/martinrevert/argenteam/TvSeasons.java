@@ -2,26 +2,29 @@ package ar.com.martinrevert.argenteam;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
-
 import java.util.TreeMap;
-
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-
 import com.fedorvlasov.lazylist.ImageLoader;
 
-import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.util.Linkify;
 import android.util.Log;
-
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -35,7 +38,6 @@ import android.widget.TextView;
 public class TvSeasons extends CustomMenu implements OnClickListener {
 
     private ImageLoader imageLoader;
-    private String message;
     private ImageView image;
 
 
@@ -50,8 +52,6 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
     TreeMap<String, String> temporadas = new TreeMap<String, String>();
 
 
-    public String mula;
-    public String btntxt;
     public String rating;
     public String season;
     public String tag;
@@ -63,7 +63,7 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
         image.setId(99995);
         imageLoader = new ImageLoader(getBaseContext(), "movie");
 
-        message = getIntent().getStringExtra("passed");
+        String message = getIntent().getStringExtra("passed");
 
         if (isOnline()) {
             new GetPage().execute(message);
@@ -72,7 +72,89 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
             finish();
 
         }
+
+
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menutest, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //ToDo implementar favoritos toggle corazón en actionbar/toolbar
+        switch (item.getItemId()) {
+            case R.id.search:
+                onSearchRequested();
+
+                return true;
+            case R.id.share:
+                Intent sharingIntent = new Intent(
+                        android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "https://play.google.com/store/apps/details?id=ar.com.martinrevert.argenteam";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+                        getResources().getString(R.string.lookthisapp));
+                sharingIntent
+                        .putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent,
+                        getResources().getString(R.string.sharefriend)));
+                return true;
+
+            case R.id.settings:
+
+                startActivity(new Intent(this, OpcionesActivity.class));
+
+                return true;
+
+            case R.id.about:
+                String version = "";
+                try {
+                    version = getPackageManager().getPackageInfo(getPackageName(),
+                            0).versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+
+                    e.printStackTrace();
+                }
+
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setTitle("aRGENTeaM for Android " + version);
+                builder1.setIcon(R.drawable.stubportrait);
+                //ToDo Traducir esto
+                Spannable tex = new SpannableString("Esta aplicación es freeware provisto \"as is\".\n\n\nmartinrevert@gmail.com");
+                Linkify.addLinks(tex, Linkify.EMAIL_ADDRESSES);
+
+                builder1.setMessage(tex);
+
+                builder1.setNegativeButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int whichButton) {
+                                dialog.cancel();
+
+                            }
+                        });
+                AlertDialog alert1 = builder1.create();
+                alert1.show();
+                return true;
+
+            case android.R.id.home:
+                Intent intent = new Intent(this, Main.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
+
 
     private class GetPage extends AsyncTask<String, Void, Integer> {
 
@@ -87,7 +169,7 @@ public class TvSeasons extends CustomMenu implements OnClickListener {
             dialog.show();
         }
 
-        @SuppressLint("NewApi")
+
         @Override
         protected Integer doInBackground(String... query) {
 

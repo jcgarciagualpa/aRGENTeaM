@@ -171,7 +171,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                 rating = "Sin puntaje";
             }
             Log.v("RATING", rating);
-
+            //ToDo implementar trailer youtube API
             if (doc.select(
                     "div.pmovie > div.media > div.trailer > div.media-content > object > param")
                     .first() == null) {

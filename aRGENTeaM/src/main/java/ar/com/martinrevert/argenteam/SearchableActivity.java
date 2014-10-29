@@ -16,18 +16,20 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
 public class SearchableActivity extends CustomMenu {
 
-	public String[] pst;
-	public String[] imag;
-	public String[] titulo;
-	public String[] tipo;
-	public LazyAdapterBuscador adapter;
-	ListView lista;
+	private String[] pst;
+	private String[] imag;
+	private String[] titulo;
+	private String[] tipo;
+	private LazyAdapterBuscador adapter;
+	private ListView lista;
+    private Toolbar searchToolbar;
 	int size = 0;
 
 	private String query;
@@ -50,7 +52,8 @@ public class SearchableActivity extends CustomMenu {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista);
-		lista = (ListView) findViewById(R.id.listView1);
+
+        lista = (ListView) findViewById(R.id.listView1);
 
 		Intent intent = getIntent();
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {

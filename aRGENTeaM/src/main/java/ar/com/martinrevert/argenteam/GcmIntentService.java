@@ -77,9 +77,9 @@ public class GcmIntentService extends IntentService {
              * not interested in, or that you don't recognize.
              */
             if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
-                generarNotification(context,"Error: " + extras.toString(),"","","","");
+                generarNotification(context, "Error: " + extras.toString(), "", "", "", "");
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
-                generarNotification(context, "Deleted messages on server: " + extras.toString(),"","","","");
+                generarNotification(context, "Deleted messages on server: " + extras.toString(), "", "", "", "");
                 // If it's a regular GCM message, do some work.
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
                 // Aqui obtengo los datos del mensaje que viene en el Intent.
@@ -100,12 +100,11 @@ public class GcmIntentService extends IntentService {
 
     public Bitmap getRemoteImage(final String aURL, String tipo) {
         try {
-            if (aURL.isEmpty()){
-                if(tipo.equals("movie")) {
+            if (aURL.isEmpty()) {
+                if (tipo.equals("movie")) {
                     return BitmapFactory.decodeResource(this.getResources(),
                             R.drawable.stubportrait);
-                }
-                else {
+                } else {
 
                     return BitmapFactory.decodeResource(this.getResources(),
                             R.drawable.stublandscape);
@@ -121,10 +120,10 @@ public class GcmIntentService extends IntentService {
             bis.close();
             return scaledBitmap;
         } catch (IOException e) {
-                        e.printStackTrace();
+            e.printStackTrace();
 
         }
-    return null;
+        return null;
     }
 
     /**
@@ -138,10 +137,8 @@ public class GcmIntentService extends IntentService {
         boolean tvoff = preferencias.getBoolean("tvoff", false);
         String ringmovie = preferencias.getString("prefRingtonemovie", "");
         String ringtv = preferencias.getString("prefRingtonetv", "");
-       //Todo traducir ticker
-       // String ticker = "Nuevo subtítulo " + tipo + " en aRGENTeaM";
-       String format = getResources().getString(R.string.ticker);
-       String ticker = String.format(format,tipo);
+        String format = getResources().getString(R.string.ticker);
+        String ticker = String.format(format, tipo);
 
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(100);
@@ -193,9 +190,8 @@ public class GcmIntentService extends IntentService {
                 .setContentIntent(pendingIntent)
                 .setSound(Uri.parse(ringtone))
                 .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ic_stat_ic_argenteam_gcm)
+                .setSmallIcon(R.drawable.ic_stat_aticon512x512be)
                 .build();
-
 
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
