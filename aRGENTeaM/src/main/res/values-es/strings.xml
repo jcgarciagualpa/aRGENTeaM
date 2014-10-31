@@ -5,6 +5,7 @@
     <string name="share">Compartir</string>
     <string name="settings">Configuración</string>
     <string name="about">Acerca</string>
+    <string name="refresh">Actualizar</string>
 
     <!-- Basics, toasts and utility -->
     <string name="app_name">aRGENTeaM</string>
@@ -122,4 +123,5 @@
     <string name="nothing">No se encontraron coincidencias</string>
     <string name="sharefriend">Cuéntale a un amigo de esta app</string>
     <string name="lookthisapp">Hey!!! Mira esta app Android !!!</string>
+
 </resources>

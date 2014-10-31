@@ -9,14 +9,17 @@
         android:id="@+id/subreltoolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="?colorPrimary"
         />
 
         <ListView
             android:layout_weight="1"
             android:id="@+id/listViewMovieRel"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:listSelector="@android:drawable/list_selector_background">
         </ListView>
+
+
 
 </LinearLayout>

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import java.util.TreeMap;
 
 import org.jsoup.Jsoup;
@@ -14,7 +13,6 @@ import org.jsoup.select.Elements;
 
 import com.fedorvlasov.lazylist.ImageLoader;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,15 +21,15 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
@@ -41,33 +39,40 @@ public class Tv extends CustomMenu implements OnClickListener {
 
 	private ImageLoader imageLoader;
     private ImageView image;
-
-    public String detalle;
-	public String titul;
-	public String post;
-	public String yout;
-	public String subtitulo;
-	public String release;
-	public String key;
-	public String subtitle;
-	public String ruta;
-	public String sub;
-
+    private Toolbar toolbar;
+    private LinearLayout container;
+    private String detalle;
+	private String titul;
+	private String post;
+	private String yout;
+	private String subtitulo;
+	private String release;
+	private String key;
+	private String sub;
+    private String mula;
+    private String rating;
+    private boolean p2p;
 
 	Map<String, String> movie = new HashMap<String, String>();
 	TreeMap<String, String> elinks = new TreeMap<String, String>();
 	Map<String, String> torrents = new HashMap<String, String>();
-
-	public String mula;
-	public String btntxt;
-	public String rating;
-	private boolean p2p;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		SharedPreferences preferencias = PreferenceManager
 				.getDefaultSharedPreferences(getBaseContext());
 		p2p = preferencias.getBoolean("p2p",false);
+
+        container = new LinearLayout(Tv.this);
+        container.setOrientation(LinearLayout.VERTICAL);
+
+        toolbar = new Toolbar(Tv.this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Tv Episode");
+        toolbar.setId(100003);
+        toolbar.setBackgroundColor(0xffFF0000);
+
 		image = new ImageView(Tv.this);
 		image.setId(99995);
 		imageLoader = new ImageLoader(getBaseContext(),"movie");
@@ -99,7 +104,6 @@ public class Tv extends CustomMenu implements OnClickListener {
 			dialog.show();
 		}
 
-		@SuppressLint("NewApi")
 		@Override
 		protected Integer doInBackground(String... query) {
 
@@ -417,7 +421,6 @@ public class Tv extends CustomMenu implements OnClickListener {
 			relativelayout.addView(image);
 			relativelayout.addView(puntines);
 			relativelayout.addView(detall);
-			// relativelayout.addView(datos);
 
 			if (!yout.equals("bla")) {
 				relativelayout.addView(youtu);
@@ -520,7 +523,9 @@ public class Tv extends CustomMenu implements OnClickListener {
 			relativelayout.addView(layoutelinks);
 			relativelayout.addView(layoutetorrents);
 			scrollview.addView(relativelayout);
-			setContentView(scrollview);
+            container.addView(toolbar);
+            container.addView(scrollview);
+			setContentView(container);
 
 			youtu.setOnClickListener(new OnClickListener() {
 
@@ -589,4 +594,3 @@ public class Tv extends CustomMenu implements OnClickListener {
 	}
 	
 }
-	

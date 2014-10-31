@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="ar.com.martinrevert.argenteam"
-          android:versionCode="21000"
-          android:versionName="2.1.000">
+          android:versionCode="30000"
+          android:versionName="3.0.000">
 
     <uses-sdk
             android:minSdkVersion="15"
@@ -61,7 +61,15 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity" />
+        <activity
+            android:name="net.rdrei.android.dirchooser.DirectoryChooserActivity"
+            android:parentActivityName="ar.com.martinrevert.argenteam.OpcionesActivity">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="ar.com.martinrevert.argenteam.OpcionesActivity" />
+
+        </activity>
 
         <activity
                 android:name=".SplashActivity"
@@ -86,14 +94,20 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="ar.com.martinrevert.argenteam.Main" />
 
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <meta-data android:name="android.app.default_searchable"
+                android:value=".SearchableActivity" />
+
         </activity>
-        <activity
-                android:name=".Faceb"
-                android:configChanges="orientation|screenSize">
-        </activity>
+
         <activity
                 android:name=".Peli"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="ar.com.martinrevert.argenteam.SubtitlesReleases">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.martinrevert.argenteam.SubtitlesReleases" />
         </activity>
         <activity
                 android:name=".SubtitlesReleasesTV"
@@ -103,26 +117,56 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ar.com.martinrevert.argenteam.Main" />
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <meta-data android:name="android.app.default_searchable"
+                android:value=".SearchableActivity" />
+
         </activity>
         <activity
                 android:name=".TranslationsMovies"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="ar.com.martinrevert.argenteam.Main">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.martinrevert.argenteam.Main" />
+
         </activity>
         <activity
                 android:name=".TranslationsTV"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="ar.com.martinrevert.argenteam.Main">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.martinrevert.argenteam.Main" />
         </activity>
         <activity
                 android:name=".TvSeasons"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="ar.com.martinrevert.argenteam.Main">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.martinrevert.argenteam.Main" />
         </activity>
         <activity
                 android:name=".TvEpisodes"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="ar.com.martinrevert.argenteam.TvSeasons">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.martinrevert.argenteam.TvSeasons" />
         </activity>
         <activity
                 android:name=".Tv"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:parentActivityName="ar.com.martinrevert.argenteam.TvEpisodes">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.com.martinrevert.argenteam.TvEpisodes" />
         </activity>
         <activity
                 android:name=".EmuleRequest"
@@ -138,11 +182,15 @@
         </activity>
         <activity
                 android:name=".SearchableActivity"
-                android:configChanges="orientation|screenSize">
+                android:configChanges="orientation|screenSize"
+                android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
-
+            <intent-filter>
+                <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
             <meta-data
                     android:name="android.app.searchable"
                     android:resource="@xml/searchable"/>

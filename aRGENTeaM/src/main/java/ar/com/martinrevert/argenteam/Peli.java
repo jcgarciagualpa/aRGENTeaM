@@ -41,14 +41,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
@@ -57,31 +61,44 @@ import android.widget.TextView;
 
 public class Peli extends CustomMenu implements OnClickListener {
 
+    private String mula;
+    private String rating;
+    private boolean p2p;
+    private Toolbar toolbar;
+    private LinearLayout container;
     private ImageLoader imageLoader;
     private ImageView image;
-    public String detalle;
-    public String titul;
-    public String post;
-    public String yout;
-    public String subtitulo;
-    public String release;
-    public String key;
-    public String subtitle;
-    public String sub;
+    private String detalle;
+    private String titul;
+    private String post;
+    private String yout;
+    private String subtitulo;
+    private String release;
+    private String key;
+    private String subtitle;
+    private String sub;
 
     Map<String, String> movie = new HashMap<String, String>();
     TreeMap<String, String> elinks = new TreeMap<String, String>();
     Map<String, String> torrents = new HashMap<String, String>();
 
-    public String mula;
-    public String rating;
-    private boolean p2p;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         SharedPreferences preferencias = PreferenceManager
                 .getDefaultSharedPreferences(getBaseContext());
         p2p = preferencias.getBoolean("p2p", false);
+
+        container = new LinearLayout(Peli.this);
+        container.setOrientation(LinearLayout.VERTICAL);
+
+        toolbar = new Toolbar(Peli.this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Movie");
+        toolbar.setId(100003);
+        toolbar.setBackgroundColor(0xffFF0000);
+
         image = new ImageView(Peli.this);
         image.setId(99995);
         imageLoader = new ImageLoader(getBaseContext(), "movie");
@@ -352,6 +369,14 @@ public class Peli extends CustomMenu implements OnClickListener {
             imageLoader.DisplayImage(post, image);
 
             ScrollView scrollview = new ScrollView(Peli.this);
+            scrollview.setId(100001);
+         /*   ScrollView.LayoutParams escrolparams = new ScrollView.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            int heighttoolbar = toolbar.getHeight();
+            escrolparams.setMargins(0,heighttoolbar,0,0);
+
+            scrollview.setLayoutParams(escrolparams); */
+
+
             RelativeLayout relativelayout = new RelativeLayout(Peli.this);
             relativelayout.setId(100000);
 
@@ -539,8 +564,10 @@ public class Peli extends CustomMenu implements OnClickListener {
             relativelayout.addView(layoutsubs);
             relativelayout.addView(layoutelinks);
             relativelayout.addView(layoutetorrents);
+            container.addView(toolbar);
             scrollview.addView(relativelayout);
-            setContentView(scrollview);
+            container.addView(scrollview);
+            setContentView(container);
 
             youtu.setOnClickListener(new OnClickListener() {
 

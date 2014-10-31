@@ -2,31 +2,26 @@ package ar.com.martinrevert.argenteam;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
-
 import java.util.TreeMap;
-
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-
 import com.fedorvlasov.lazylist.ImageLoader;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
-
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
@@ -37,27 +32,31 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 
 	private ImageLoader imageLoader;
     private ImageView image;
-	
-
-	public String detalle;
-	public String titul;
-	public String post;
-	public String key;
-	public String subtitle;
-	public String sub;
-
+    private Toolbar toolbar;
+    private LinearLayout container;
+	private String detalle;
+	private String titul;
+	private String post;
+	private String key;
+	private String subtitle;
+	private String sub;
+    private String rating;
+    private String episode;
+    private String tag;
 	
 	TreeMap<String, String> episodios = new TreeMap<String, String>();
-	
-
-	public String mula;
-	public String btntxt;
-	public String rating;
-	public String episode;
-	public String tag;
-
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+        container = new LinearLayout(TvEpisodes.this);
+        container.setOrientation(LinearLayout.VERTICAL);
+
+        toolbar = new Toolbar(TvEpisodes.this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("TV Episodes");
+        toolbar.setId(100003);
+        toolbar.setBackgroundColor(0xffFF0000);
 
 		image = new ImageView(TvEpisodes.this);
 		image.setId(99995);
@@ -87,7 +86,7 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			dialog.show();
 		}
 
-		@SuppressLint("NewApi")
+
 		@Override
 		protected Integer doInBackground(String... query) {
 
@@ -164,9 +163,6 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 				episodios.put(episode, tag);
 
 			}
-
-	
-
 			return 1;
 		}// Fin doinbackground
 
@@ -206,8 +202,6 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			datos.setText(pegaitems);
 			datos.setId(99997);
 
-			
-
 			TextView sinopsis = new TextView(TvEpisodes.this);
 			sinopsis.setText(R.string.plot);
 			sinopsis.setId(99990);
@@ -219,8 +213,6 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			downlsubs.setId(99989);
 			downlsubs.setTextColor(0xffFF992B);
 			downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-
-			
 
 			imageLoader.DisplayImage(post, image);
 
@@ -281,11 +273,8 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			relativelayout.addView(rate);
 			relativelayout.addView(detall);
 			relativelayout.addView(datos);
-
-			
 			relativelayout.addView(sinopsis);
 			relativelayout.addView(downlsubs);
-			
 
 			Button btnsub;
 			
@@ -320,12 +309,11 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 
 			} // fin for temporadas
 
-			
-
 			relativelayout.addView(layouttemporadas);
-			
 			scrollview.addView(relativelayout);
-			setContentView(scrollview);
+            container.addView(toolbar);
+            container.addView(scrollview);
+			setContentView(container);
 
 			}// Fin onPostExecute
 	}// Fin asyctask
@@ -341,8 +329,6 @@ public class TvEpisodes extends CustomMenu implements OnClickListener {
 			Intent subintent = new Intent(TvEpisodes.this, Tv.class);
 			subintent.putExtra("passed", URIpost);
 			TvEpisodes.this.startActivityForResult(subintent, 0);
-
-		
 
 		}
 

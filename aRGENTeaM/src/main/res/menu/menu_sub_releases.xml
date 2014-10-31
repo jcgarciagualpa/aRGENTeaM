@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:argenteam="http://schemas.android.com/apk/res-auto">
+    xmlns:argenteam="http://schemas.android.com/apk/res-auto"
+    >
 
     <group>
         <item
             android:id="@+id/search"
-            android:icon="@drawable/ic_action_action_search"
+            android:icon="@drawable/ic_action_ic_search_24px"
             android:orderInCategory="1"
             android:title="@string/search"
             android:visible="true"
             argenteam:showAsAction="always"
-
+            argenteam:actionViewClass="android.support.v7.widget.SearchView"
             >
         </item>
         <item
@@ -24,7 +25,7 @@
         </item>
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_action_action_settings"
+            android:icon="@drawable/ic_action_ic_settings_24px"
             android:orderInCategory="2"
             android:title="@string/settings"
             android:visible="true"
@@ -35,9 +36,16 @@
             android:icon="@drawable/ic_action_action_about"
             android:orderInCategory="4"
             android:title="@string/about"
+            android:visible="true">
+
+        </item>
+        <item
+            android:id="@+id/refresh"
+            android:icon="@drawable/ic_action_ic_refresh_24px"
+            android:orderInCategory="5"
+            android:title="@string/refresh"
             android:visible="true"
-            argenteam:showAsAction="always"
-               >
+            argenteam:showAsAction="always">
         </item>
     </group>
 

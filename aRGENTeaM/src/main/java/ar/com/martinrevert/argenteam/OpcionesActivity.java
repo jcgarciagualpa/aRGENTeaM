@@ -15,7 +15,6 @@ import net.rdrei.android.dirchooser.DirectoryChooserActivity;
 import java.util.Iterator;
 import java.util.Set;
 
-
 public class OpcionesActivity extends PreferenceActivity {
 
     @Override
@@ -33,10 +32,12 @@ public class OpcionesActivity extends PreferenceActivity {
     private static final int REQUEST_DIRECTORY = 0;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         // TODO Implementar Fragment Preferences
         super.onCreate(savedInstanceState);
-       addPreferencesFromResource(R.xml.opciones);
+
+
+        addPreferencesFromResource(R.xml.opciones);
 
         Preference myPref = findPreference("pathsubs");
         myPref.setSummary(getPath());
@@ -75,26 +76,24 @@ public class OpcionesActivity extends PreferenceActivity {
                         .getStringExtra(DirectoryChooserActivity.RESULT_SELECTED_DIR));
 
 
-
             }
         }
     }
 
-    public static void dumpIntent(Intent i){
+    public static void dumpIntent(Intent i) {
 
         Bundle bundle = i.getExtras();
         if (bundle != null) {
             Set<String> keys = bundle.keySet();
             Iterator<String> it = keys.iterator();
-            Log.e("DUMP","Dumping Intent start");
+            Log.e("DUMP", "Dumping Intent start");
             while (it.hasNext()) {
                 String key = it.next();
-                Log.e("KEY","[" + key + "=" + bundle.get(key)+"]");
+                Log.e("KEY", "[" + key + "=" + bundle.get(key) + "]");
             }
-            Log.e("END","Dumping Intent end");
+            Log.e("END", "Dumping Intent end");
         }
     }
-
 
 
     private void handleDirectoryChoice(String stringExtra) {
@@ -109,9 +108,9 @@ public class OpcionesActivity extends PreferenceActivity {
 
     }
 
-    public String getPath(){
+    public String getPath() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        return preferences.getString("path","");
+        return preferences.getString("path", "");
     }
 
     @Override

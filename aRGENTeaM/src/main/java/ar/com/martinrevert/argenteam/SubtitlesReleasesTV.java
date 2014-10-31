@@ -29,19 +29,13 @@ public class SubtitlesReleasesTV extends CustomMenu {
 
 	private ListView lista;
 	private LazyAdapterTV adapter;
-    private	String[] titulo = null;
-	private String[] fech = null;
-	private String[] ver = null;
-	private String[] imag = null;
-	private String[] post = null;
-    private Toolbar tvtoolbar;
 
-	@Override
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tvreleases);
 
-        tvtoolbar = (Toolbar) findViewById(R.id.tvtoolbar);
+        Toolbar tvtoolbar = (Toolbar) findViewById(R.id.tvtoolbar);
         setSupportActionBar(tvtoolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("TV Releases");
@@ -75,7 +69,12 @@ public class SubtitlesReleasesTV extends CustomMenu {
 
 			RSSReader reader = new RSSReader();
 			String uri = "http://www.argenteam.net/rss/portal_series_subtitles.xml";
-			try {
+            String[] titulo = null;
+            String[] fech = null;
+            String[] ver = null;
+            String[] imag = null;
+            String[] post = null;
+            try {
 				RSSFeed feed = reader.load(uri);
 				final Iterator<RSSItem> items = feed.getItems().iterator();
 				int size = feed.getItems().size();
@@ -138,7 +137,7 @@ public class SubtitlesReleasesTV extends CustomMenu {
 				reader.close();
 			}
 			adapter = new LazyAdapterTV(SubtitlesReleasesTV.this, titulo, imag,
-					fech, ver, post);
+                    fech, ver, post);
 
 			return 1;
 		}

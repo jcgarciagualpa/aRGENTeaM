@@ -198,7 +198,7 @@ public class GcmIntentService extends IntentService {
             RemoteViews views;
             views = new RemoteViews(getPackageName(), R.layout.custom_notification);
             views.setImageViewBitmap(R.id.big_picture, bitmap);
-            views.setImageViewBitmap(R.id.big_icon, BitmapFactory.decodeResource(getResources(), R.drawable.ic_stat_ic_argenteam_gcm));
+            views.setImageViewBitmap(R.id.big_icon, BitmapFactory.decodeResource(getResources(), R.drawable.ic_stat_aticon512x512be));
             views.setTextViewText(R.id.title, message);
             myNotification.bigContentView = views;
         }

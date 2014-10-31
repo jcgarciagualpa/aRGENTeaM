@@ -12,10 +12,10 @@ import org.mcsoxford.rss.RSSItem;
 import org.mcsoxford.rss.RSSReader;
 
 import android.app.ProgressDialog;
-
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import java.lang.StringBuilder;
@@ -24,20 +24,25 @@ import android.widget.ListView;
 
 public class TranslationsMovies extends CustomMenu {
 
-	ListView lista;
-	LazyAdapterPeli adapter;
-
-	String[] titulo = null;
-	String[] fech = null;
-	String[] ver = null;
-	String[] imag = null;
-	String[] post = null;
+	private ListView lista;
+	private LazyAdapterPeli adapter;
+	private String[] titulo = null;
+	private String[] fech = null;
+	private String[] ver = null;
+	private String[] imag = null;
+	private String[] post = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lista);
-		lista = (ListView) findViewById(R.id.listView1);
+		setContentView(R.layout.subsreleases);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.subreltoolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Translation Movies");
+
+		lista = (ListView) findViewById(R.id.listViewMovieRel);
 		if (isOnline()) {
 			new AsyncRequest().execute();
 		} else {

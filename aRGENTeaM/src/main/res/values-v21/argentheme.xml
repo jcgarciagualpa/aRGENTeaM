@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="custom_statusbar">#ff0000</color>
+    <color name="custom_toolbar">#ff0000</color>
     <style name="Theme.argentheme" parent="Theme.AppCompat">
         <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/custom_toolbar</item>
+        <item name="colorPrimaryDark">@color/custom_statusbar</item>
+
     </style>
-</resources>
+    </resources>
