@@ -21,7 +21,7 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class SearchableActivity extends CustomMenu {
+public class SearchableActivity extends BaseActivity {
 
 	private String[] pst;
 	private String[] imag;

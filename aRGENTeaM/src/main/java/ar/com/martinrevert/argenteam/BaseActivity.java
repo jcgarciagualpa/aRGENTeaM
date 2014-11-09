@@ -1,6 +1,8 @@
 package ar.com.martinrevert.argenteam;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import android.app.AlertDialog;
 import android.app.SearchManager;
@@ -27,7 +29,7 @@ import android.widget.Toast;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class CustomMenu extends ActionBarActivity {
+public class BaseActivity extends ActionBarActivity {
 
     @Override
     protected void onStart() {
@@ -96,6 +98,19 @@ public class CustomMenu extends ActionBarActivity {
 
 
     }
+
+    public String getYouTubeId(String url) {
+        String id = null;
+        String regExp = "/.*(?:youtu.be\\/|v\\/|u/\\w/|embed\\/|watch\\?.*&?v=)";
+        Pattern compiledPattern = Pattern.compile(regExp);
+        Matcher matcher = compiledPattern.matcher(url);
+        if(matcher.find()){
+            int start = matcher.end();
+            id =  url.substring(start, start+11);
+        }
+      return id;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

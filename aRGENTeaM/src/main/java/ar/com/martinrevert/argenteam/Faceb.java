@@ -11,7 +11,6 @@ import org.jsoup.nodes.Element;
 import org.mcsoxford.rss.RSSFeed;
 import org.mcsoxford.rss.RSSItem;
 import org.mcsoxford.rss.RSSReader;
-import org.mcsoxford.rss.RSSReaderException;
 
 
 import android.app.ProgressDialog;
@@ -23,7 +22,7 @@ import android.util.Log;
 import android.widget.ListView;
 
 
-public class Faceb extends CustomMenu {
+public class Faceb extends BaseActivity {
 
     ListView lista;
     LazyAdapterFacebook adapter;

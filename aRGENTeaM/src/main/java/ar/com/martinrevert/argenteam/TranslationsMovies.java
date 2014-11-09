@@ -22,7 +22,7 @@ import java.lang.StringBuilder;
 
 import android.widget.ListView;
 
-public class TranslationsMovies extends CustomMenu {
+public class TranslationsMovies extends BaseActivity {
 
 	private ListView lista;
 	private LazyAdapterPeli adapter;

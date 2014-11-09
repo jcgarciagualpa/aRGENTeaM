@@ -35,7 +35,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class Tv extends CustomMenu implements OnClickListener {
+public class Tv extends BaseActivity implements OnClickListener {
 
 	private ImageLoader imageLoader;
     private ImageView image;

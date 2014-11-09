@@ -33,6 +33,12 @@ import org.jsoup.select.Elements;
 
 import com.fedorvlasov.lazylist.ImageLoader;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerFragment;
+
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,17 +46,13 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-
-
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -59,7 +61,8 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class Peli extends CustomMenu implements OnClickListener {
+
+public class Peli extends BaseActivity implements OnClickListener, YouTubePlayer.OnInitializedListener {
 
     private String mula;
     private String rating;
@@ -77,11 +80,18 @@ public class Peli extends CustomMenu implements OnClickListener {
     private String key;
     private String subtitle;
     private String sub;
+    private YouTubePlayerFragment youtubeplayerfragment;
+
+    FragmentManager fragmentManager = getFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    FrameLayout video;
 
     Map<String, String> movie = new HashMap<String, String>();
     TreeMap<String, String> elinks = new TreeMap<String, String>();
     Map<String, String> torrents = new HashMap<String, String>();
 
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -103,6 +113,15 @@ public class Peli extends CustomMenu implements OnClickListener {
         image.setId(99995);
         imageLoader = new ImageLoader(getBaseContext(), "movie");
 
+        youtubeplayerfragment = YouTubePlayerFragment.newInstance();
+
+        video = new FrameLayout(Peli.this);
+        video.setId(900000);
+
+
+
+
+
         String message = getIntent().getStringExtra("passed");
 
         if (isOnline()) {
@@ -112,6 +131,19 @@ public class Peli extends CustomMenu implements OnClickListener {
             finish();
 
         }
+
+    }
+
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+        if (!b) {
+            youTubePlayer.cueVideo(yout);
+        }
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+    Log.v("Falló","Falló youtube");
     }
 
     private class GetPage extends AsyncTask<String, Void, Integer> {
@@ -195,7 +227,7 @@ public class Peli extends CustomMenu implements OnClickListener {
                 if (doc.select(
                         "div.pmovie > div.media > div.trailer-single > div.media-content > object > param")
                         .first() == null) {
-                    yout = "bla";
+                    yout = "novideo";
                 } else {
                     Element youtube = doc
                             .select("div.pmovie > div.media > div.trailer-single > div.media-content > object > param")
@@ -328,7 +360,6 @@ public class Peli extends CustomMenu implements OnClickListener {
             rate.setStepSize((float)0.01);
             rate.setIsIndicator(true);
 
-
             TextView detall = new TextView(Peli.this);
             detall.setText(detalle);
             detall.setId(99998);
@@ -337,10 +368,6 @@ public class Peli extends CustomMenu implements OnClickListener {
             TextView datos = new TextView(Peli.this);
             datos.setText(pegaitems);
             datos.setId(99997);
-
-            ImageButton youtu = new ImageButton(Peli.this);
-            youtu.setImageResource(R.drawable.ic_youtube);
-            youtu.setId(99975);
 
             TextView sinopsis = new TextView(Peli.this);
             sinopsis.setText(R.string.plot);
@@ -370,12 +397,6 @@ public class Peli extends CustomMenu implements OnClickListener {
 
             ScrollView scrollview = new ScrollView(Peli.this);
             scrollview.setId(100001);
-         /*   ScrollView.LayoutParams escrolparams = new ScrollView.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-            int heighttoolbar = toolbar.getHeight();
-            escrolparams.setMargins(0,heighttoolbar,0,0);
-
-            scrollview.setLayoutParams(escrolparams); */
-
 
             RelativeLayout relativelayout = new RelativeLayout(Peli.this);
             relativelayout.setId(100000);
@@ -384,10 +405,8 @@ public class Peli extends CustomMenu implements OnClickListener {
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             paramsimage.addRule(RelativeLayout.BELOW, rate.getId());
             paramsimage.addRule(RelativeLayout.ALIGN_LEFT);
-
             paramsimage.width = 320;
             paramsimage.height = 472;
-
             image.setLayoutParams(paramsimage);
 
             RelativeLayout layoutsubs = new RelativeLayout(Peli.this);
@@ -413,7 +432,7 @@ public class Peli extends CustomMenu implements OnClickListener {
 
             RelativeLayout.LayoutParams tituloparams = new RelativeLayout.LayoutParams(
                     LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            tituloparams.addRule(RelativeLayout.ALIGN_TOP);
+            tituloparams.addRule(RelativeLayout.BELOW, video.getId());
             titulo.setLayoutParams(tituloparams);
 
             RelativeLayout.LayoutParams subtiparams = new RelativeLayout.LayoutParams(
@@ -455,19 +474,25 @@ public class Peli extends CustomMenu implements OnClickListener {
 
             RelativeLayout.LayoutParams paramsyoutu = new RelativeLayout.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-            paramsyoutu.addRule(RelativeLayout.RIGHT_OF, image.getId());
-            paramsyoutu.addRule(RelativeLayout.BELOW, datos.getId());
-            youtu.setLayoutParams(paramsyoutu);
+            paramsyoutu.addRule(RelativeLayout.ALIGN_TOP);
+            paramsyoutu.addRule(RelativeLayout.CENTER_HORIZONTAL);
+            video.setLayoutParams(paramsyoutu);
 
-            relativelayout.addView(titulo);
-            relativelayout.addView(image);
-            relativelayout.addView(rate);
-            relativelayout.addView(detall);
-            relativelayout.addView(datos);
+            yout = getYouTubeId(yout);
 
-            if (!yout.equals("bla")) {
-                relativelayout.addView(youtu);
+            youtubeplayerfragment.initialize(DeveloperKey.DEVELOPER_KEY, Peli.this);
+
+            if (!yout.equals("novideo")) {
+                fragmentTransaction.add(900000, youtubeplayerfragment);
+                fragmentTransaction.commit();
             }
+
+            relativelayout.addView(video);
+            relativelayout.addView(titulo);
+            relativelayout.addView(rate);
+            relativelayout.addView(image);
+            relativelayout.addView(datos);
+            relativelayout.addView(detall);
             relativelayout.addView(sinopsis);
             relativelayout.addView(downlsubs);
             relativelayout.addView(downlelinks);
@@ -568,17 +593,6 @@ public class Peli extends CustomMenu implements OnClickListener {
             scrollview.addView(relativelayout);
             container.addView(scrollview);
             setContentView(container);
-
-            youtu.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    Log.v("YOUTUBE", "Click!");
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri
-                            .parse(yout)));
-                }
-            });
 
         }// Fin onPostExecute
     }// Fin asyctask

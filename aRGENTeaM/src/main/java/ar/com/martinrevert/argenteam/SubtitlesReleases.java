@@ -18,7 +18,7 @@ import org.mcsoxford.rss.RSSReader;
 import java.util.Date;
 import java.util.Iterator;
 
-public class SubtitlesReleases extends CustomMenu {
+public class SubtitlesReleases extends BaseActivity {
 
     private ListView lista;
     private LazyAdapterPeli adapter;

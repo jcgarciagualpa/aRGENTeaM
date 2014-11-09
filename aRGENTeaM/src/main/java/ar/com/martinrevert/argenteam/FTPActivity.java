@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ListView;
 
-public class FTPActivity extends CustomMenu {
+public class FTPActivity extends BaseActivity {
 
     private ListView lista;
     LazyAdapterSubs adapter;

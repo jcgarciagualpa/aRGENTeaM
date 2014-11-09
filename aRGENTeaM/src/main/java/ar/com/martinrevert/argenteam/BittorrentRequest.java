@@ -15,7 +15,7 @@ import android.preference.PreferenceManager;
 
 import android.util.Log;
 
-public class BittorrentRequest extends CustomMenu {
+public class BittorrentRequest extends BaseActivity {
 
     ProgressDialog dialog;
     private String auth;

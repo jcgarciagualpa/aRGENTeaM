@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
 
-public class FacebookWebview extends CustomMenu {
+public class FacebookWebview extends BaseActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override

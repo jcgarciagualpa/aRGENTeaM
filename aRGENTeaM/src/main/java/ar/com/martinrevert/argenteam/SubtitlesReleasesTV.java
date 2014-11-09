@@ -25,7 +25,7 @@ import java.lang.StringBuilder;
 import android.widget.ListView;
 
 
-public class SubtitlesReleasesTV extends CustomMenu {
+public class SubtitlesReleasesTV extends BaseActivity {
 
 	private ListView lista;
 	private LazyAdapterTV adapter;

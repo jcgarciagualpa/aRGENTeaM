@@ -21,7 +21,7 @@ import android.util.Log;
 import android.widget.ListView;
 
 
-public class TranslationsTV extends CustomMenu {
+public class TranslationsTV extends BaseActivity {
 
 	private ListView lista;
 	private LazyAdapterTV adapter;

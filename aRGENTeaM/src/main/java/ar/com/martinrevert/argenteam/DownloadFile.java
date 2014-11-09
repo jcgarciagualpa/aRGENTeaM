@@ -20,7 +20,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 
-public class DownloadFile extends CustomMenu {
+public class DownloadFile extends BaseActivity {
 
     public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
     private ProgressDialog mProgressDialog;

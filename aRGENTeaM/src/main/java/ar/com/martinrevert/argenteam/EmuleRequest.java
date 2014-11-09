@@ -27,7 +27,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 
-public class EmuleRequest extends CustomMenu {
+public class EmuleRequest extends BaseActivity {
 
 	public String session;
 	private String webserver;
