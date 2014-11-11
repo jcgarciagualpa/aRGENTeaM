@@ -12,7 +12,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.fedorvlasov.lazylist.ImageLoader;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerFragment;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,7 +32,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -35,7 +40,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-public class Tv extends BaseActivity implements OnClickListener {
+public class Tv extends BaseActivity implements OnClickListener, YouTubePlayer.OnInitializedListener {
 
 	private ImageLoader imageLoader;
     private ImageView image;
@@ -52,6 +57,10 @@ public class Tv extends BaseActivity implements OnClickListener {
     private String mula;
     private String rating;
     private boolean p2p;
+    private YouTubePlayerFragment youtubeplayerfragment;
+    private FragmentManager fragmentManager = getFragmentManager();
+    private FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    private FrameLayout video;
 
 	Map<String, String> movie = new HashMap<String, String>();
 	TreeMap<String, String> elinks = new TreeMap<String, String>();
@@ -77,6 +86,11 @@ public class Tv extends BaseActivity implements OnClickListener {
 		image.setId(99995);
 		imageLoader = new ImageLoader(getBaseContext(),"movie");
 
+        youtubeplayerfragment = YouTubePlayerFragment.newInstance();
+
+        video = new FrameLayout(Tv.this);
+        video.setId(99975);
+
         String message = getIntent().getStringExtra("passed");
 
 		Log.v("MESSAGE", message);
@@ -90,7 +104,19 @@ public class Tv extends BaseActivity implements OnClickListener {
 		}
 	}
 
-	private class GetPage extends AsyncTask<String, Void, Integer> {
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+        if (!b) {
+             youTubePlayer.cueVideo(yout);
+        }
+    }
+
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+        Log.v("Falló","Falló youtube");
+    }
+
+    private class GetPage extends AsyncTask<String, Void, Integer> {
 
 		ProgressDialog dialog = new ProgressDialog(Tv.this);
 		private String pegaitems;
@@ -152,13 +178,12 @@ public class Tv extends BaseActivity implements OnClickListener {
 			Element puntaje = doc.select("div.episode-info > h1").first();
 			rating = puntaje.text();
 
-            //ToDo implementar trailer youtube API3
 			if (doc.select("div.trailer > div.media-content > object > param")
 					.first() == null) {
 				if (doc.select(
 						"div.trailer-single > div.media-content > object > param")
 						.first() == null) {
-					yout = "bla";
+					yout = "https://www.youtube.com/watch?v=uO-64_b-svk";
 				} else {
 					Element youtube = doc
 							.select("div.trailer-single > div.media-content > object > param")
@@ -301,10 +326,6 @@ public class Tv extends BaseActivity implements OnClickListener {
 			datos.setText(pegaitems);
 			datos.setId(99997);
 
-            ImageButton youtu = new ImageButton(Tv.this);
-			youtu.setImageResource(R.drawable.ic_youtube);
-			youtu.setId(99975);
-
 			TextView sinopsis = new TextView(Tv.this);
 			sinopsis.setText(R.string.plot);
 			sinopsis.setId(99990);
@@ -366,7 +387,7 @@ public class Tv extends BaseActivity implements OnClickListener {
 
 			RelativeLayout.LayoutParams tituloparams = new RelativeLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			tituloparams.addRule(RelativeLayout.ALIGN_TOP);
+			tituloparams.addRule(RelativeLayout.BELOW, video.getId());
 			titulo.setLayoutParams(tituloparams);
 
 			RelativeLayout.LayoutParams subtiparams = new RelativeLayout.LayoutParams(
@@ -386,11 +407,7 @@ public class Tv extends BaseActivity implements OnClickListener {
 
 			RelativeLayout.LayoutParams sinopsisparams = new RelativeLayout.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			if (yout.equals("bla")) {
-				sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
-			} else {
-				sinopsisparams.addRule(RelativeLayout.BELOW, youtu.getId());
-			}
+			sinopsisparams.addRule(RelativeLayout.BELOW, image.getId());
 			sinopsis.setLayoutParams(sinopsisparams);
 
 			RelativeLayout.LayoutParams ratingparams = new RelativeLayout.LayoutParams(
@@ -411,20 +428,21 @@ public class Tv extends BaseActivity implements OnClickListener {
 			datos.setLayoutParams(paramsdatos);
 
 			RelativeLayout.LayoutParams paramsyoutu = new RelativeLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            paramsyoutu.addRule(RelativeLayout.ALIGN_TOP);
+            paramsyoutu.addRule(RelativeLayout.CENTER_HORIZONTAL);
+            video.setLayoutParams(paramsyoutu);
 
-			paramsyoutu.addRule(RelativeLayout.ALIGN_LEFT);
-			paramsyoutu.addRule(RelativeLayout.BELOW, image.getId());
-			youtu.setLayoutParams(paramsyoutu);
+            yout = getYouTubeId(yout);
+            youtubeplayerfragment.initialize(DeveloperKey.DEVELOPER_KEY, Tv.this);
+            fragmentTransaction.add(99975, youtubeplayerfragment);
+            fragmentTransaction.commit();
 
-			relativelayout.addView(titulo);
+            relativelayout.addView(video);
+            relativelayout.addView(titulo);
 			relativelayout.addView(image);
 			relativelayout.addView(puntines);
 			relativelayout.addView(detall);
-
-			if (!yout.equals("bla")) {
-				relativelayout.addView(youtu);
-			}
 			relativelayout.addView(sinopsis);
 			relativelayout.addView(downlsubs);
 			relativelayout.addView(downlelinks);
@@ -526,17 +544,6 @@ public class Tv extends BaseActivity implements OnClickListener {
             container.addView(toolbar);
             container.addView(scrollview);
 			setContentView(container);
-
-			youtu.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-
-                    Log.v("YOUTUBE", "Click!");
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri
-                            .parse(yout)));
-                }
-            });
 
 		}// Fin onPostExecute
 	}// Fin asyctask

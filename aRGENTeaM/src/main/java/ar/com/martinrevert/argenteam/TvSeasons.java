@@ -1,8 +1,13 @@
 package ar.com.martinrevert.argenteam;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -37,17 +42,16 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
     private String detalle;
     private String titul;
     private String post;
-    private String key;
+    private Integer key;
     private String subtitle;
     private String sub;
     private String rating;
     private String season;
     private String tag;
 
-    TreeMap<String, String> temporadas = new TreeMap<String, String>();
+   TreeMap<Integer, String> temporadas = new TreeMap<Integer, String>();
 
-
-    protected void onCreate(Bundle savedInstanceState) {
+   protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         container = new LinearLayout(TvSeasons.this);
@@ -160,15 +164,21 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             pegaitems = sb.toString();
 
             Iterator<Element> seasons = doc.select("div.season-list > div.season-item > a").iterator();
-
+            int seasonint = 0;
 
             while (seasons.hasNext()) {
                 Element sea = seasons.next();
                 season = sea.text();
+                //Regex para extrar entero de string
+                Pattern p = Pattern.compile("\\d+");
+                Matcher m = p.matcher(season);
+                while (m.find()) {
+                  seasonint = Integer.parseInt(m.group());
+                }
+                //Finregex para extraer entero
                 tag = sea.attr("href");
-                Log.v("TEMPORADA", season + " " + tag);
-                temporadas.put(tag, season);
-
+                Log.v("TEMPORADA", seasonint + " " + tag);
+                temporadas.put(seasonint, tag);
             }
 
             return 1;
@@ -202,7 +212,6 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             rate.setStepSize((float) 0.01);
             rate.setIsIndicator(true);
 
-
             TextView detall = new TextView(TvSeasons.this);
             detall.setText(detalle);
             detall.setId(99998);
@@ -211,7 +220,6 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             TextView datos = new TextView(TvSeasons.this);
             datos.setText(pegaitems);
             datos.setId(99997);
-
 
             TextView sinopsis = new TextView(TvSeasons.this);
             sinopsis.setText(R.string.plot);
@@ -224,7 +232,6 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             downlsubs.setId(99989);
             downlsubs.setTextColor(0xffFF992B);
             downlsubs.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-
 
             imageLoader.DisplayImage(post, image);
 
@@ -285,22 +292,18 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             relativelayout.addView(rate);
             relativelayout.addView(detall);
             relativelayout.addView(datos);
-
-
             relativelayout.addView(sinopsis);
             relativelayout.addView(downlsubs);
 
-
             Button btnsub;
-
 
             int k = 1;
 
-            for (Entry<String, String> entry : temporadas.entrySet()) {
-                sub = entry.getKey();
-                key = entry.getValue();
+            for (Entry<Integer, String> entry : temporadas.entrySet()) {
+                key = entry.getKey();
+                sub = entry.getValue();
                 btnsub = new Button(TvSeasons.this);
-                btnsub.setText(key);
+                btnsub.setText(getResources().getString(R.string.season)+" "+Integer.toString(key));
                 btnsub.setId(k);
                 btnsub.setTag(sub);
                 btnsub.setOnClickListener(TvSeasons.this);
@@ -328,7 +331,6 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             relativelayout.addView(layouttemporadas);
             scrollview.addView(relativelayout);
             container.addView(scrollview);
-
             setContentView(container);
 
         }// Fin onPostExecute

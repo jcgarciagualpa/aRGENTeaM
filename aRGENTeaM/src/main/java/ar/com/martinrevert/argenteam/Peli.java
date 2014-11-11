@@ -118,10 +118,6 @@ public class Peli extends BaseActivity implements OnClickListener, YouTubePlayer
         video = new FrameLayout(Peli.this);
         video.setId(900000);
 
-
-
-
-
         String message = getIntent().getStringExtra("passed");
 
         if (isOnline()) {
@@ -220,14 +216,14 @@ public class Peli extends BaseActivity implements OnClickListener, YouTubePlayer
                 rating = "Sin puntaje";
             }
             Log.v("RATING", rating);
-            //ToDo implementar trailer youtube API
+
             if (doc.select(
                     "div.pmovie > div.media > div.trailer > div.media-content > object > param")
                     .first() == null) {
                 if (doc.select(
                         "div.pmovie > div.media > div.trailer-single > div.media-content > object > param")
                         .first() == null) {
-                    yout = "novideo";
+                    yout = "https://www.youtube.com/watch?v=uO-64_b-svk";
                 } else {
                     Element youtube = doc
                             .select("div.pmovie > div.media > div.trailer-single > div.media-content > object > param")
@@ -479,13 +475,9 @@ public class Peli extends BaseActivity implements OnClickListener, YouTubePlayer
             video.setLayoutParams(paramsyoutu);
 
             yout = getYouTubeId(yout);
-
             youtubeplayerfragment.initialize(DeveloperKey.DEVELOPER_KEY, Peli.this);
-
-            if (!yout.equals("novideo")) {
-                fragmentTransaction.add(900000, youtubeplayerfragment);
-                fragmentTransaction.commit();
-            }
+            fragmentTransaction.add(900000, youtubeplayerfragment);
+            fragmentTransaction.commit();
 
             relativelayout.addView(video);
             relativelayout.addView(titulo);
