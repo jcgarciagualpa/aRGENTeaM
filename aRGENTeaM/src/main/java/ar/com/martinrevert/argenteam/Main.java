@@ -1,7 +1,5 @@
 package ar.com.martinrevert.argenteam;
 
-import com.fedorvlasov.lazylist.FileCache;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
