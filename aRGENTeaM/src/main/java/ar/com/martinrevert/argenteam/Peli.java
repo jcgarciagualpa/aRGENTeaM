@@ -359,7 +359,7 @@ public class Peli extends BaseActivity implements OnClickListener, YouTubePlayer
             TextView detall = new TextView(Peli.this);
             detall.setText(detalle);
             detall.setId(99998);
-            detall.setTextColor(0xffFFFFFF);
+         //   detall.setTextColor(0xffFFFFFF);
 
             TextView datos = new TextView(Peli.this);
             datos.setText(pegaitems);

@@ -215,7 +215,7 @@ public class TvSeasons extends BaseActivity implements OnClickListener {
             TextView detall = new TextView(TvSeasons.this);
             detall.setText(detalle);
             detall.setId(99998);
-            detall.setTextColor(0xffFFFFFF);
+            //detall.setTextColor(0xffFFFFFF);
 
             TextView datos = new TextView(TvSeasons.this);
             datos.setText(pegaitems);

@@ -10,9 +10,13 @@
         <item name="colorPrimary">@color/custom_toolbar</item>
         <item name="colorPrimaryDark">@color/custom_statusbar</item>
         <item name="android:windowBackground">@color/light_background</item>
+        <item name="colorAccent">@color/custom_toolbar</item>
     </style>
-
-
+    <style name="StyledDialog" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorPrimary">@color/custom_toolbar</item>
+    <item name="colorPrimaryDark">@color/custom_statusbar</item>
+    <item name="colorAccent">@color/custom_toolbar</item>
+    </style>
 
 
 </resources>

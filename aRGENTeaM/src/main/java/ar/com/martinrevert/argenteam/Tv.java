@@ -320,7 +320,7 @@ public class Tv extends BaseActivity implements OnClickListener, YouTubePlayer.O
 			TextView detall = new TextView(Tv.this);
 			detall.setText(detalle);
 			detall.setId(99998);
-			detall.setTextColor(0xffFFFFFF);
+			//detall.setTextColor(0xffFFFFFF);
 
 			TextView datos = new TextView(Tv.this);
 			datos.setText(pegaitems);
