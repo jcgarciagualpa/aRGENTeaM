@@ -1,18 +1,15 @@
 buildscript {
-
-
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.14.2'
-
     }
 }
 apply plugin: 'com.android.library'
 android {
     signingConfigs {
-      release {
+        release {
             keyAlias 'android'
             keyPassword 'android'
             storeFile file('/home/martin/release.keystore')
@@ -40,5 +37,7 @@ android {
     productFlavors {
     }
 }
-dependencies {
+
+repositories {
+    jcenter()
 }

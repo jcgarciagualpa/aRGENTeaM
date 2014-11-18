@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    card_view:cardElevation="2dp">
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top"
-                android:background="?android:attr/selectableItemBackground">
-
-
+                android:background="@android:drawable/list_selector_background">
 
     <ImageView
             android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="148dp"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:contentDescription="@string/stubportrait"
             android:scaleType="fitCenter"
+            android:layout_marginLeft="1dp"
+            android:layout_marginStart="1dp"
             android:src="@drawable/stubportrait"/>
 
     <TextView
@@ -23,8 +33,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
             android:layout_toRightOf="@+id/image"
-            android:textColor="#FF992B"
+            android:layout_toEndOf="@+id/image"
+            android:textColor="#565049"
+            android:textStyle="bold"
             android:textSize="18sp"/>
 
     <TextView
@@ -35,7 +48,7 @@
             android:layout_marginLeft="2dp"
             android:layout_toRightOf="@+id/image"
             android:textSize="12sp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#565049"/>
 
     <TextView
             android:id="@+id/fech"
@@ -45,7 +58,7 @@
             android:layout_marginLeft="2dp"
             android:layout_toRightOf="@+id/image"
             android:gravity="bottom"
-            android:textColor="#FFFFFF"
             android:textSize="12sp"/>
-
 </RelativeLayout>
+
+</android.support.v7.widget.CardView>

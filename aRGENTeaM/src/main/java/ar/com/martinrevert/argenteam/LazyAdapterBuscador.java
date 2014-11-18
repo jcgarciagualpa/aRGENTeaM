@@ -26,8 +26,7 @@ public class LazyAdapterBuscador extends BaseAdapter {
     
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader;
-    
-   
+
     
     public LazyAdapterBuscador(Activity a, String[] t, String[] i, String[] p, String[] tp) {
         activity = a;

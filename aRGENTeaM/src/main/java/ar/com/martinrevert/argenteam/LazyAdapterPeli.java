@@ -56,8 +56,10 @@ public class LazyAdapterPeli extends BaseAdapter {
     
     public View getView(final int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        if(convertView==null)
-            vi = inflater.inflate(R.layout.item, parent,false);
+        if(convertView==null) {
+            vi = inflater.inflate(R.layout.itemmovie, parent, false);
+        }
+
      TextView fech=(TextView) vi.findViewById(R.id.fech);
      TextView text=(TextView) vi.findViewById(R.id.titulo);
      TextView vers=(TextView) vi.findViewById(R.id.version);

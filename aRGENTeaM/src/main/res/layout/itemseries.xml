@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    card_view:cardElevation="2dp">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -11,7 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:textColor="#FF992B"
+            android:textColor="#565049"
+            android:textStyle="bold"
             android:textSize="18sp"
             />
 
@@ -32,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/image"
             android:layout_marginLeft="2dp"
-            android:textColor="#FFFFFF"
+            android:textColor="#565049"
             android:textSize="12sp"/>
 
     <TextView
@@ -41,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/version"
-            android:textColor="#FFFFFF"
             android:textSize="12sp"/>
 
 </RelativeLayout>
+</android.support.v7.widget.CardView>

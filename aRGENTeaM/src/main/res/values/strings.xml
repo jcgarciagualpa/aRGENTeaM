@@ -45,11 +45,13 @@
     <!-- menu array -->
     <string-array name="menu_array">
         <item>Movie releases</item>
-        <item>TV Series releases</item>
         <item>Movies subtitles being translated</item>
+        <item>TV Series releases</item>
         <item>TV Series subtitles being translated</item>
+        <item>TV Series Favorites</item>
         <item>My spanish subtitles</item>
-        <item>Facebook Official News Page</item>
+        <item>Settings</item>
+
     </string-array>
 
     <string name="pathsubstitle">Click this preference to set your path</string>

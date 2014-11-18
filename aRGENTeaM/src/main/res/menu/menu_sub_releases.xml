@@ -39,14 +39,7 @@
             android:visible="true">
 
         </item>
-        <item
-            android:id="@+id/refresh"
-            android:icon="@drawable/ic_action_ic_refresh_24px"
-            android:orderInCategory="5"
-            android:title="@string/refresh"
-            android:visible="true"
-            argenteam:showAsAction="always">
-        </item>
+
     </group>
 
 </menu>

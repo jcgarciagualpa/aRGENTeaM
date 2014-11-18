@@ -8,8 +8,9 @@ import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -24,12 +25,10 @@ import org.mcsoxford.rss.RSSFeed;
 import org.mcsoxford.rss.RSSItem;
 import org.mcsoxford.rss.RSSReader;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+
 
 public class Main extends BaseActivity {
     private DrawerLayout mDrawerLayout;
@@ -41,8 +40,7 @@ public class Main extends BaseActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    //private List<PostFacebook> bababuba = new ArrayList<PostFacebook>();
-    private HashMap<Integer,PostFacebook> bababuba = new HashMap<Integer, PostFacebook>();
+    private HashMap<Integer, PostFacebook> bababuba = new HashMap<Integer, PostFacebook>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +49,6 @@ public class Main extends BaseActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
-
-         //bababuba.put(0, new PostFacebook("titulo","blabla", "blulbu", "nanana"));
-         //bababuba.put(1, new PostFacebook("otrotit","bleble", "blulbu", "nonono"));
-         //bababuba.put(2,new PostFacebook());
-
-
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         lista = (ListView) findViewById(R.id.listamenu);
@@ -85,13 +73,13 @@ public class Main extends BaseActivity {
                 R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
         ) {
             public void onDrawerClosed(View view) {
-                 getSupportActionBar().setTitle(R.string.app_name);
-                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                getSupportActionBar().setTitle(R.string.app_name);
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                 getSupportActionBar().setTitle("Elige tu opción");
-                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                getSupportActionBar().setTitle("Elige tu opción");
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
         toggle.setDrawerIndicatorEnabled(true);
@@ -105,10 +93,11 @@ public class Main extends BaseActivity {
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
-        // use a Grid layout manager
-        mLayoutManager = new GridLayoutManager(Main.this, 2);
+        // use a Staggered Grid layout manager, el primer parametro es la cantidad de columnas
+        // si es vertical o lineas si es horizontal, el segundo paramentro int es la orientación
+        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        // specify an adapter (see also next example)
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         if (isOnline()) {
             new getPostFacebook().execute();
@@ -116,7 +105,6 @@ public class Main extends BaseActivity {
             vibrateToast(R.string.sininternet);
             finish();
         }
-
 
 
     }
@@ -172,14 +160,14 @@ public class Main extends BaseActivity {
 
             } finally {
                 reader.close();
-            Integer largo = bababuba.size();
+          /*  Integer largo = bababuba.size();
             Log.v("bababuba", largo.toString());
 
                 for (Map.Entry<Integer, PostFacebook> entry : bababuba.entrySet()) {
                     Integer key = entry.getKey();
                     PostFacebook sub = entry.getValue();
                     Log.v("DATA", sub.getLinkpost());
-                }
+                } */
             }
             return null;
         }
@@ -187,11 +175,8 @@ public class Main extends BaseActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-
             mAdapter = new MainCustomAdapter(bababuba);
             mRecyclerView.setAdapter(mAdapter);
-            //recycler view***************************************************
         }
     }
 
@@ -216,25 +201,28 @@ public class Main extends BaseActivity {
             switch (position) {
                 case 0:
                     startActivity(new Intent(Main.this, SubtitlesReleases.class));
-                  //  setTitle(options[position]);
-                  //  mDrawerLayout.closeDrawer(lista);
+                    //  setTitle(options[position]);
+                    //  mDrawerLayout.closeDrawer(listamenu);
                     break;
                 case 1:
                     startActivity(new Intent(Main.this,
-                            SubtitlesReleasesTV.class));
+                            TranslationsMovies.class));
                     break;
                 case 2:
                     startActivity(new Intent(Main.this,
-                            TranslationsMovies.class));
+                            SubtitlesReleasesTV.class));
                     break;
                 case 3:
                     startActivity(new Intent(Main.this, TranslationsTV.class));
                     break;
                 case 4:
-                    startActivity(new Intent(Main.this, FTPActivity.class));
+                    startActivity(new Intent(Main.this, Favorites.class));
                     break;
                 case 5:
-                    startActivity(new Intent(Main.this, Faceb.class));
+                    startActivity(new Intent(Main.this, FTPActivity.class));
+                    break;
+                case 6:
+                    startActivity(new Intent(Main.this, OpcionesActivity.class));
                     break;
                 default:
                     break;

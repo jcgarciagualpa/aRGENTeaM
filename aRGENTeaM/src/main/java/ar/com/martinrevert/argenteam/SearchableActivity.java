@@ -51,7 +51,7 @@ public class SearchableActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lista);
+		setContentView(R.layout.searchresults);
 
         lista = (ListView) findViewById(R.id.listView1);
 

@@ -1,18 +1,12 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.14.2'
     }
 }
-
 apply plugin: 'com.android.application'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compile project(':libraries:AmbilWarna')
     compile files('libs/libGoogleAnalyticsServices.jar')
@@ -32,8 +26,6 @@ dependencies {
     compile 'com.uwetrottmann:trakt-java:3.3.1'
     compile 'com.squareup.picasso:picasso:2.4.0'
 }
-
-
 def getVersionCode = { ->
     try {
         def code = new ByteArrayOutputStream()
@@ -47,7 +39,6 @@ def getVersionCode = { ->
         return -1;
     }
 }
-
 android {
     signingConfigs {
 
@@ -66,7 +57,7 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
     defaultConfig {
-        versionCode 30000+getVersionCode()
+        versionCode 30000 + getVersionCode()
         versionName "3.0." + getVersionCode()
         signingConfig signingConfigs.release
     }
@@ -75,4 +66,8 @@ android {
     }
     productFlavors {
     }
+}
+
+repositories {
+    jcenter()
 }

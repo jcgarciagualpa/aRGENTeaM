@@ -4,7 +4,8 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp">
+    android:layout_margin="2dp"
+    card_view:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,16 +16,16 @@
             android:id="@+id/tituloface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#565049"
             android:textStyle="bold"
             android:layout_marginStart="2dp"
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         <ImageView
             android:id="@+id/imageface"
-            android:layout_width="100dp"
-            android:layout_height="148dp"
-            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+              android:layout_gravity="center"
             android:contentDescription="@string/stubportrait"
             android:scaleType="fitCenter"
             android:src="@drawable/stubportrait"
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
-            android:textColor="#FF992B"
+            android:textColor="#565049"
             android:textSize="12sp" />
 
         <TextView
@@ -47,7 +48,6 @@
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
             android:layout_gravity="end"
-            android:textColor="#000000"
             android:textSize="12sp" />
 
     </LinearLayout>
