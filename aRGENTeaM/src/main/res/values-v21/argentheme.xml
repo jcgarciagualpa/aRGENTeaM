@@ -2,10 +2,21 @@
 <resources>
     <color name="custom_statusbar">#FF803E</color>
     <color name="custom_toolbar">#FFBF00</color>
-    <style name="Theme.argentheme" parent="Theme.AppCompat">
+    <color name="light_background">#EFEBE8</color>
+    <color name="darker_color">#565049</color>
+
+    <style name="Theme.argentheme" parent="Theme.AppCompat.Light">
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/custom_toolbar</item>
         <item name="colorPrimaryDark">@color/custom_statusbar</item>
-
+        <item name="android:windowBackground">@color/light_background</item>
+        <item name="colorAccent">@color/custom_toolbar</item>
     </style>
-    </resources>
+    <style name="StyledDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/custom_toolbar</item>
+        <item name="colorPrimaryDark">@color/custom_statusbar</item>
+        <item name="colorAccent">@color/custom_toolbar</item>
+    </style>
+
+
+</resources>

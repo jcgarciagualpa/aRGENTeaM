@@ -26,9 +26,14 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -259,10 +264,13 @@ public class SplashActivity extends Activity {
      * to a server that echoes back the message using the 'from' address in the message.
      */
     private boolean sendRegistrationIdToBackend(String registerid) {
-        // Your implementation here.
+        // Your implementation here. This data is collected anonymously in backend for improvement actions.
 
         Map<String, String> params = new HashMap<String, String>();
         params.put("regId", registerid);
+        params.put("appversion", Integer.toString(getAppVersion(this)));
+        params.put("date", getDateNow());
+        params.put("androidversion", getAndroidVersion());
         try {
             if (post(SERVER_URL, params)) {
                 return true;
@@ -323,5 +331,14 @@ public class SplashActivity extends Activity {
         }
         return true;
     }
+    public String getDateNow(){
+        static DateTimeFormatter fmt = DateTimeFormat
+                .forPattern("yyyy-MM-dd HH:mm:ss");
+        DateTime dt = new DateTime();
+        return fmt.print(dt);
+    }
 
+    public String getAndroidVersion(){
+        return Build.VERSION.RELEASE;
+    }
 }
