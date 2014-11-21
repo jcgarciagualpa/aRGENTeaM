@@ -332,7 +332,7 @@ public class SplashActivity extends Activity {
         return true;
     }
     public String getDateNow(){
-        static DateTimeFormatter fmt = DateTimeFormat
+        DateTimeFormatter fmt = DateTimeFormat
                 .forPattern("yyyy-MM-dd HH:mm:ss");
         DateTime dt = new DateTime();
         return fmt.print(dt);
