@@ -45,3 +45,6 @@ http://square.github.io/okhttp/
 
 Android Directory Chooser
 https://github.com/passy/Android-DirectoryChooser
+
+Picasso 2.4.0
+http://square.github.io/picasso/

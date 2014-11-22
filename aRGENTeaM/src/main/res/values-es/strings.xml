@@ -126,5 +126,6 @@
     <string name="lookthisapp">Hey!!! Mira esta app Android !!!</string>
     <string name="trailer">Trailer</string>
     <string name="season">Temporada</string>
+    <string name="notimplemented">No implementado aún</string>
 
 </resources>

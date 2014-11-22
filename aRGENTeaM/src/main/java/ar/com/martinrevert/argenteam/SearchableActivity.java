@@ -58,8 +58,6 @@ public class SearchableActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Search results");
 
-
-
         lista = (ListView) findViewById(R.id.listView1);
 
 		Intent intent = getIntent();

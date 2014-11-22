@@ -7,16 +7,17 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ListView;
 
 public class FTPActivity extends BaseActivity {
 
     private ListView lista;
-    LazyAdapterSubs adapter;
-
-    public ArrayList<String> ruta = new ArrayList<String>();
-    public ArrayList<String> sub = new ArrayList<String>();
+    private LazyAdapterSubs adapter;
+    private Toolbar toolbar;
+    private ArrayList<String> ruta = new ArrayList<String>();
+    private ArrayList<String> sub = new ArrayList<String>();
 
 
     public String getPath() {
@@ -29,6 +30,13 @@ public class FTPActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.missubtitulos);
+
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("My subtitles");
+
+
         lista = (ListView) findViewById(R.id.listSubs);
         String dirRuta = getPath();
         Log.v("dirRuta", dirRuta);

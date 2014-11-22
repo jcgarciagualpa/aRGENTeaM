@@ -216,7 +216,8 @@ public class Main extends BaseActivity {
                     startActivity(new Intent(Main.this, TranslationsTV.class));
                     break;
                 case 4:
-                    startActivity(new Intent(Main.this, Favorites.class));
+                    vibrateToast(R.string.notimplemented);
+                    //startActivity(new Intent(Main.this, Favorites.class));
                     break;
                 case 5:
                     startActivity(new Intent(Main.this, FTPActivity.class));
