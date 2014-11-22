@@ -29,7 +29,7 @@ public class SearchableActivity extends BaseActivity {
 	private String[] tipo;
 	private LazyAdapterBuscador adapter;
 	private ListView lista;
-    private Toolbar searchToolbar;
+    private Toolbar toolbar;
 	int size = 0;
 
 	private String query;
@@ -52,6 +52,13 @@ public class SearchableActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.searchresults);
+
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Search results");
+
+
 
         lista = (ListView) findViewById(R.id.listView1);
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:argenteam="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:argenteam="http://schemas.android.com/apk/res-auto">
 
     <group>
         <item
@@ -10,10 +10,10 @@
             android:orderInCategory="1"
             android:title="@string/search"
             android:visible="true"
-            argenteam:showAsAction="always"
+            argenteam:actionViewClass="android.support.v7.widget.SearchView"
+            argenteam:showAsAction="always">
 
-            >
-        </item>
+            </item>
         <item
             android:id="@+id/share"
             android:icon="@drawable/ic_action_social_share"
@@ -22,23 +22,25 @@
             android:visible="true"
 
             >
-        </item>
+
+            </item>
         <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_action_ic_settings_24px"
             android:orderInCategory="2"
             android:title="@string/settings"
-            android:visible="true"
-           >
-        </item>
+            android:visible="true">
+
+            </item>
         <item
             android:id="@+id/about"
             android:icon="@drawable/ic_action_action_about"
             android:orderInCategory="4"
             android:title="@string/about"
-            android:visible="true"
-               >
+            android:visible="true">
+
         </item>
+
     </group>
 
 </menu>
