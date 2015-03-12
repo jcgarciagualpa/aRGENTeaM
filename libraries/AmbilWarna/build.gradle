@@ -8,8 +8,8 @@ android {
             storePassword 'android'
         }
     }
-    compileSdkVersion 21
-    buildToolsVersion '21.1.1'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.0'
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
