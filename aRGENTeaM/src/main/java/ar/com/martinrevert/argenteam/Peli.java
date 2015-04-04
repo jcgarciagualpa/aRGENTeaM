@@ -474,11 +474,11 @@ public class Peli extends BaseActivity implements OnClickListener, YouTubePlayer
             paramsyoutu.addRule(RelativeLayout.CENTER_HORIZONTAL);
             video.setLayoutParams(paramsyoutu);
 
-            yout = getYouTubeId(yout);
+       /*     yout = getYouTubeId(yout);
             youtubeplayerfragment.initialize(DeveloperKey.DEVELOPER_KEY, Peli.this);
             fragmentTransaction.add(900000, youtubeplayerfragment);
             fragmentTransaction.commit();
-
+*/
             relativelayout.addView(video);
             relativelayout.addView(titulo);
             relativelayout.addView(rate);

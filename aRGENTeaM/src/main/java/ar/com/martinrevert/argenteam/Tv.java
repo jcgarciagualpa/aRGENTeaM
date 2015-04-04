@@ -433,10 +433,10 @@ public class Tv extends BaseActivity implements OnClickListener, YouTubePlayer.O
             paramsyoutu.addRule(RelativeLayout.CENTER_HORIZONTAL);
             video.setLayoutParams(paramsyoutu);
 
-            yout = getYouTubeId(yout);
+    /*        yout = getYouTubeId(yout);
             youtubeplayerfragment.initialize(DeveloperKey.DEVELOPER_KEY, Tv.this);
             fragmentTransaction.add(99975, youtubeplayerfragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.commit(); */
 
             relativelayout.addView(video);
             relativelayout.addView(titulo);
