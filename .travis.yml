@@ -6,11 +6,11 @@ branches:
   only:
     - travis-master
 before_install:
-    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-    - emulator -avd test -no-skin -no-audio -no-window &
+  #  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  #  - emulator -avd test -no-skin -no-audio -no-window &
 before_script:
-    - ./wait_for_emulator
-    - adb shell input keyevent 82 &
+  #  - ./wait_for_emulator
+  #  - adb shell input keyevent 82 &
 script:
      - TERM=dumb ./gradlew assembleDebug -PdisablePreDex
     #
