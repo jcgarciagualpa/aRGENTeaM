@@ -2,6 +2,9 @@ language: android
 jdk:
     - openjdk7
   # Emulator Management: Create, Start and Wait
+branches:
+  only:
+    - travis-master
 before_install:
     - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
     - emulator -avd test -no-skin -no-audio -no-window &
@@ -9,7 +12,7 @@ before_script:
     - ./wait_for_emulator
     - adb shell input keyevent 82 &
 script:
-    - ./gradlew build
+    - ./gradlew assembleDebug
     #
     # for future use run tests      ./gradlew connectedInstrumentTest
     # all builds and tests          ./gradlew connectedCheck
