@@ -1,6 +1,5 @@
 language: android
-jdk:
-    - openjdk7
+
   # Emulator Management: Create, Start and Wait
 branches:
   only:
@@ -12,7 +11,7 @@ before_script:
   #  - ./wait_for_emulator
   #  - adb shell input keyevent 82 &
 script:
-     - TERM=dumb ./gradlew assembleDebug -PdisablePreDex
+     - ./gradlew assembleDebug
     #
     # for future use run tests      ./gradlew connectedInstrumentTest
     # all builds and tests          ./gradlew connectedCheck
@@ -35,4 +34,4 @@ android:
     - addon-google_apis-google-22
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-22
+    # - sys-img-armeabi-v7a-android-22
