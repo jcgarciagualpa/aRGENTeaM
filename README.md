@@ -1,8 +1,5 @@
 #aRGENTeaM for Android
 
-Find the app here:
-[![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=ar.com.martinrevert.argenteam)
-
 Build status:
 
 Master (branch 'master') 
@@ -45,3 +42,6 @@ http://square.github.io/okhttp/
 
 Android Directory Chooser
 https://github.com/passy/Android-DirectoryChooser
+
+Picasso 2.4.0
+http://square.github.io/picasso/
