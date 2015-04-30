@@ -7,7 +7,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.google.analytics.tracking.android.EasyTracker;
+//import com.google.analytics.tracking.android.EasyTracker;
 
 import android.app.ProgressDialog;
 import android.app.SearchManager;
@@ -34,7 +34,7 @@ public class SearchableActivity extends BaseActivity {
 
 	private String query;
 
-	@Override
+/*	@Override
 	protected void onStart() {
 		super.onStart();
 		EasyTracker.getInstance(this).activityStart(this);
@@ -46,7 +46,7 @@ public class SearchableActivity extends BaseActivity {
 		EasyTracker.getInstance(this).activityStop(this);
 	}
 	
-	
+*/
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

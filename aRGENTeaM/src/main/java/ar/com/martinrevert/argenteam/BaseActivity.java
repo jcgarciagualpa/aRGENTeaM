@@ -27,10 +27,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.analytics.tracking.android.EasyTracker;
+//import com.google.analytics.tracking.android.EasyTracker;
 
 public class BaseActivity extends ActionBarActivity {
-
+/*
     @Override
     protected void onStart() {
         super.onStart();
@@ -42,7 +42,7 @@ public class BaseActivity extends ActionBarActivity {
         super.onStop();
         EasyTracker.getInstance(this).activityStop(this);
     }
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

@@ -8,7 +8,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.google.analytics.tracking.android.EasyTracker;
+//import com.google.analytics.tracking.android.EasyTracker;
 
 import net.rdrei.android.dirchooser.DirectoryChooserActivity;
 
@@ -17,6 +17,7 @@ import java.util.Set;
 
 public class OpcionesActivity extends PreferenceActivity {
 
+/*
     @Override
     protected void onStart() {
         super.onStart();
@@ -28,7 +29,7 @@ public class OpcionesActivity extends PreferenceActivity {
         super.onStop();
         EasyTracker.getInstance(this).activityStop(this);
     }
-
+*/
     private static final int REQUEST_DIRECTORY = 0;
 
     @Override
