@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fedorvlasov.lazylist.ImageLoader;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.HashMap;
 
@@ -73,7 +73,7 @@ public class MainCustomAdapter extends RecyclerView.Adapter<MainCustomAdapter.Vi
         String imagen = getpost.getImagen();
 
 
-        Picasso.with(holder.imageface.getContext()).load(imagen).into(holder.imageface);
+        //Picasso.with(holder.imageface.getContext()).load(imagen).into(holder.imageface);
 
         holder.tituloface.setText(texto);
         holder.fechaface.setText(fecha);

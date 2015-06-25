@@ -100,7 +100,8 @@ public class Main extends BaseActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         if (isOnline()) {
-            new getPostFacebook().execute();
+           // new getPostFacebook().execute();
+            vibrateToast(R.string.apiproblem);
         } else {
             vibrateToast(R.string.sininternet);
             finish();

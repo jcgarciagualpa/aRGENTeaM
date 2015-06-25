@@ -129,5 +129,6 @@
     <string name="notimplemented">No implementado aún</string>
     <string name="navigation_drawer_close">Cerrar navigation drawer</string>
     <string name="navigation_drawer_open">Abrir navigation drawer</string>
+    <string name="apiproblem">apiproblem</string>
 
 </resources>
